@@ -1,0 +1,62 @@
+.btn{
+    background-color:transparent;
+    border: none;
+    color: #fff;
+    cursor:pointer;
+    font-size:15px;
+    padding: 10px 10px 10px 10px;
+
+    transition: all 0.3s ease;
+    &:focus{
+        outline: none;
+    }
+
+    &:hover{
+        color: darken($color: white, $amount: 10);
+    }
+}
+.btn-danger{
+    background-color:rgba(0, 0, 0, 0.705);
+    width: 17%;
+    margin: 0 auto;
+    color: white;
+    transition: all 0.3s linear;
+    &:hover{
+        color: rgba(0, 0, 0, 0.705);
+        background-color: rgb(255, 173, 173);
+    }
+}
+
+.btn-primary{
+    background-color: $primary;
+    border-radius: 2px;
+    &:disabled{
+        background-color: lighten($color: $primary, $amount: 15)
+    }
+    &:hover{
+        background-color: darken($color: $primary, $amount: 15);
+    }
+}
+
+.btn-block{
+    width:100%;
+}
+
+.btn-register{
+    display:block;
+    color: white;
+    background-color: lighten($color: $dark-grey, $amount: 5);
+    text-decoration: none !important;
+    text-align: center !important;
+    font-size:15px;
+    padding: 5px 10px 5px 10px;
+    transition: all 0.3s ease;
+    &:focus{
+        outline: none;
+    }
+
+    &:hover{
+        color: darken($color: white, $amount: 10);
+        background-color: lighten($color: $dark-grey, $amount: 10);
+    }
+}
