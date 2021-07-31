@@ -1,3 +1,5 @@
+//******************* ResetPasswordScreen ******************* */
+
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeError, setError } from '../../actions/ui';
@@ -7,13 +9,14 @@ import { resetPassword } from '../../actions/auth';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 import { getParams } from '../../helpers/getParams';
 
-export const ResetPassword = ({...rest}) => {
+export const ResetPasswordScreen = ({...rest}) => {
 
         //redux
         const dispatch = useDispatch();
         const {msgError, fetch, redirectLogin} = useSelector(state => state.ui);
 
 
+        //useEffect
         useEffect(() => {
             dispatch(removeError());
         }, [dispatch])
@@ -55,6 +58,7 @@ export const ResetPassword = ({...rest}) => {
             return getParams(rest);
         }
 
+        //redirect to login if not change password
         if(redirectLogin){return <Redirect to="/auth/login"/>}
 
     return (

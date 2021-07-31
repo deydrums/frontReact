@@ -1,4 +1,9 @@
+//*******************Actions ui ******************* */
+
+
 import { types } from "../types/types";
+
+//errors msg ___________________________________________________________________________
 
 export const setError = (err) => ({
     type: types.uiSetError,
@@ -7,4 +12,24 @@ export const setError = (err) => ({
 
 export const removeError = () => ({
     type: types.uiRemoveError
+});
+
+//fetch ___________________________________________________________________________
+
+export const startFetch = () =>({
+    type: types.uiSetFetch
+});
+
+export const finishFetch = () =>({
+    type: types.uiRemoveFetch
+});
+
+//redirect ___________________________________________________________________________
+
+export const startRedirectLogin = () =>({
+    type: types.uiSetRedirectLogin
+});
+
+export const finishRedirectLogin = () =>({
+    type: types.uiRemoveRedirectLogin
 });

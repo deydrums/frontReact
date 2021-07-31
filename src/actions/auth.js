@@ -1,8 +1,11 @@
+//*******************Actions auth ******************* */
+
 import { types } from "../types/types";
 import Swal from 'sweetalert2';
 import { fetchWithoutToken, fetchWithToken } from "../helpers/fetch";
+import { finishFetch, startFetch, startRedirectLogin } from "./ui";
 
-//Login 
+//login ___________________________________________________________________________
 
 export const startLogin = (email, password) => {
     return async(dispatch) => {
@@ -29,7 +32,7 @@ const login = (user) => ({
     payload: user
 });
 
-//Register
+//register ___________________________________________________________________________
 
 export const startRegister = (name, email, password, password_confirmation) => {
     return async(dispatch) => {
@@ -55,7 +58,7 @@ export const startRegister = (name, email, password, password_confirmation) => {
     }
 }
 
-//Cheking token
+//checking token ___________________________________________________________________________
 
 export const startChecking = () => {
     return async(dispatch) => {
@@ -79,7 +82,7 @@ const checkingFinish = () => ({
     type: types.authCheckingFinish
 });
 
-//Logout
+//Logout ___________________________________________________________________________
 
 export const startLogout = () => {
     return async(dispatch) => {
@@ -94,7 +97,7 @@ const logout = () => ({
 });
 
 
-//Recuperar contraseña notificacion
+//forgot password ___________________________________________________________________________
 
 export const forgotPassword = (email) => {
     return async(dispatch) => {
@@ -111,7 +114,7 @@ export const forgotPassword = (email) => {
     }
 }
 
-//Reset contraseña
+//reset password ___________________________________________________________________________
 
 export const resetPassword = (email, password,password_confirmation, token) => {
     return async(dispatch) => {
@@ -149,21 +152,3 @@ export const resetPassword = (email, password,password_confirmation, token) => {
     }
 }
 
-//Fetch
-
-const startFetch = () =>({
-    type: types.uiSetFetch
-});
-
-const finishFetch = () =>({
-    type: types.uiRemoveFetch
-});
-
-
-const startRedirectLogin = () =>({
-    type: types.uiSetRedirectLogin
-});
-
-export const finishRedirectLogin = () =>({
-    type: types.uiRemoveRedirectLogin
-});

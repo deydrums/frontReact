@@ -1,9 +1,12 @@
+//******************* authRouter ******************* */
+
+
 import React from 'react'
 import {Switch, Route, Redirect} from "react-router-dom";
 import { ForgotPasswordScreen } from '../components/auth/ForgotPasswordScreen';
 import { LoginScreen } from '../components/auth/LoginScreen';
 import { RegisterScreen } from '../components/auth/RegisterScreen';
-import { ResetPassword } from '../components/auth/ResetPassword';
+import { ResetPasswordScreen } from '../components/auth/ResetPasswordScreen';
 
 export const AuthRouter = () => {
     return (
@@ -13,7 +16,7 @@ export const AuthRouter = () => {
                     <Route exact path="/auth/login" component ={LoginScreen}/>
                     <Route exact path="/auth/register" component ={RegisterScreen}/>
                     <Route exact path="/auth/forgotpass" component ={ForgotPasswordScreen}/>
-                    <Route exact path="/auth/new-password" component ={ResetPassword}/>
+                    <Route exact path="/auth/new-password" component ={ResetPasswordScreen}/>
                     <Redirect to = "/auth/login"/>
                 </Switch>
             </div>

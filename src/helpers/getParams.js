@@ -1,3 +1,5 @@
+//******************* getParams Helper ******************* */
+
 import { Redirect } from "react-router-dom";
 
 export const getParams =(rest)=>{

@@ -1,3 +1,5 @@
+//******************* RegisterScreen ******************* */
+
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +13,8 @@ export const RegisterScreen = () => {
     //redux
     const dispatch = useDispatch();
     const {msgError, fetch} = useSelector(state => state.ui);
+
+    //useEffect hook
 
     useEffect(() => {
         dispatch(removeError());

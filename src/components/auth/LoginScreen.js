@@ -1,10 +1,12 @@
+//******************* LoginScreen ******************* */
+
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { removeError, setError } from '../../actions/ui';
+import { finishRedirectLogin, removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import validator from 'validator';
-import { finishRedirectLogin, startLogin } from '../../actions/auth';
+import { startLogin } from '../../actions/auth';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const LoginScreen = () => {
@@ -12,6 +14,8 @@ export const LoginScreen = () => {
     //redux
     const dispatch = useDispatch();
     const {msgError, fetch} = useSelector(state => state.ui);
+
+    //useEffect hooks
 
     useEffect(() => {
         dispatch(removeError());
