@@ -17,6 +17,12 @@ switch (action.type) {
             checking: false
         }
 
+    case types.authCheckingFinish:
+        return{
+            ...state,
+            checking: false
+        }
+
     default:
         return state;
 }
