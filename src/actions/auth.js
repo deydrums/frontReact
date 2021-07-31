@@ -71,3 +71,19 @@ export const startChecking = () => {
 const checkingFinish = () => ({
     type: types.authCheckingFinish
 });
+
+//Logout
+
+export const startLogout = () => {
+    return async(dispatch) => {
+        const resp = await fetchWithToken('logout','','GET');
+        const body = await resp.json();
+        console.log(body);
+        localStorage.clear();
+        dispatch(logout());
+    }
+};
+
+const logout = () => ({
+    type: types.authLogout
+});
