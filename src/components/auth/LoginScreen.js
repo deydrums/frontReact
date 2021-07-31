@@ -1,23 +1,72 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { removeError, setError } from '../../actions/ui';
+import { useForm } from '../../hooks/useForm';
+import validator from 'validator';
 
 export const LoginScreen = () => {
+
+    //redux
+    const dispatch = useDispatch();
+    const {msgError} = useSelector(state => state.ui);
+
+    useEffect(() => {
+        dispatch(removeError());
+    }, [])
+
+    //useform hook
+    const [formValues, handleInputChange, reset, setValues] = useForm({
+        email: 'dagarcia100@gmail.com',
+        password: '12345678'
+    });
+
+    const {email, password} = formValues;
+
+    //submit event
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (isFormValid()){
+            console.log(formValues)
+        }
+    };
+
+    //form validate
+    const isFormValid = () =>{
+        if(!validator.isEmail(email)){
+            dispatch(setError('Ingresa un email valido'));
+            return false;
+        }else if (password.length < 8){
+            dispatch(setError('La contraseña debe de ser como minimo de 8 caracteres'));
+            return false;
+        }
+        dispatch(removeError());
+        return true;
+    };
+
     return (
         <>
             <h3 className="auth__title">Iniciar sesión</h3>
-            <form>
+            {
+                msgError&&<div className="auth__alert-error">{msgError}</div>
+            }
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Email..."
                     name = "email"
                     className="auth__input"
                     autoComplete="off"
+                    value={email}
+                    onChange={handleInputChange}
                 />
                 <input
                     type="password"
                     placeholder="Password..."
                     name = "password"
                     className="auth__input"
+                    value={password}
+                    onChange={handleInputChange}
                 />
                 <button
                     type="submit"
