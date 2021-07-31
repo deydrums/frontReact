@@ -2,17 +2,17 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
-import {Redirect, useParams} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import { resetPassword } from '../../actions/auth';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const ResetPassword = ({...rest}) => {
         const getParams =()=>{
-            if(rest.location.search && rest.location.search != '' && rest.location.search != undefined){
+            if(rest.location.search && rest.location.search !== '' && rest.location.search !== undefined){
                 const urlParams = new URLSearchParams(rest.location.search);
                 const token = urlParams.get('token');
                 const email = urlParams.get('email');
-                if(token && token != '' & token != undefined && email && email != '' && email != undefined ){
+                if(token && token !== '' & token !== undefined && email && email !== '' && email !== undefined ){
                     return ({token, email});
                 }else{
                     return <Redirect to = "/auth/login" />
@@ -29,17 +29,19 @@ export const ResetPassword = ({...rest}) => {
 
         useEffect(() => {
             dispatch(removeError());
-        }, [])
+        }, [dispatch])
 
         
         //useform hook
-        const [formValues, handleInputChange, reset] = useForm({
+        const [formValues, handleInputChange] = useForm({
             password: '12345678',
             password_confirmation: '12345678'
         });
     
         const {password, password_confirmation} = formValues;
         const { token, email } = getParams();
+
+
 
 
         //submit event

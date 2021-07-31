@@ -8,7 +8,7 @@ export const PrivateRoute = ({
     ...rest
 }) => {
 
-    if(rest.location.search != '' && rest.location.search != undefined){
+    if(rest.location.search !== '' && rest.location.search !== undefined){
         localStorage.setItem('lastPath',rest.location.pathname + rest.location.search);
     }else{
         localStorage.setItem('lastPath',rest.location.pathname);

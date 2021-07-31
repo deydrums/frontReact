@@ -15,10 +15,10 @@ export const ForgotPasswordScreen = () => {
     
         useEffect(() => {
             dispatch(removeError());
-        }, [])
+        }, [dispatch])
     
         //useform hook
-        const [formValues, handleInputChange, reset] = useForm({
+        const [formValues, handleInputChange] = useForm({
             email: 'dagarcia100@gmail.com'
         });
     

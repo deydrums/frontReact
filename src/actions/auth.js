@@ -1,7 +1,6 @@
 import { types } from "../types/types";
 import Swal from 'sweetalert2';
 import { fetchWithoutToken, fetchWithToken } from "../helpers/fetch";
-import { Redirect } from "react-router-dom";
 
 //Login 
 

@@ -15,10 +15,10 @@ export const LoginScreen = () => {
 
     useEffect(() => {
         dispatch(removeError());
-    }, [])
+    }, [dispatch])
 
     //useform hook
-    const [formValues, handleInputChange, reset, setValues] = useForm({
+    const [formValues, handleInputChange] = useForm({
         email: 'dagarcia100@gmail.com',
         password: '12345678'
     });

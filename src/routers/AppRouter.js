@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     HashRouter as Router,
     Switch,
-    Route,
     Redirect
   } from "react-router-dom";
 import { startChecking } from "../actions/auth";

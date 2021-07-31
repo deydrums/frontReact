@@ -14,10 +14,10 @@ export const RegisterScreen = () => {
 
     useEffect(() => {
         dispatch(removeError());
-    }, [])
+    }, [dispatch])
 
     //useform hook
-    const [formValues, handleInputChange, reset, setValues] = useForm({
+    const [formValues, handleInputChange] = useForm({
         name: 'David',
         email: 'dagarcia100@gmail.com',
         password: '12345678',
