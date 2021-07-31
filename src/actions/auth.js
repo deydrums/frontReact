@@ -87,3 +87,18 @@ export const startLogout = () => {
 const logout = () => ({
     type: types.authLogout
 });
+
+
+//Recuperar contraseña
+
+export const forgotPassword = (email, password) => {
+    return async() => {
+        const resp = await fetchWithoutToken('forgot-password',{email},'POST');
+        const body = await resp.json();
+        if(resp.ok) {
+            Swal.fire('Success',body.message,'success');
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+}

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import validator from 'validator';
-import { startLogin } from '../../actions/auth';
+import { forgotPassword, startLogin } from '../../actions/auth';
 import { Link } from 'react-router-dom';
 
 export const ForgotPasswordScreen = () => {
@@ -27,7 +27,7 @@ export const ForgotPasswordScreen = () => {
         const handleSubmit = (e) => {
             e.preventDefault();
             if (isFormValid()){
-                console.log(formValues)
+                dispatch(forgotPassword(email));
             }
         };
     
