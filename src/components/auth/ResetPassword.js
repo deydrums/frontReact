@@ -2,17 +2,34 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
+import {Redirect, useParams} from "react-router-dom";
+import { resetPassword } from '../../actions/auth';
 
-export const ResetPassword = () => {
+export const ResetPassword = ({...rest}) => {
+        const getParams =()=>{
+            if(rest.location.search && rest.location.search != '' && rest.location.search != undefined){
+                const urlParams = new URLSearchParams(rest.location.search);
+                const token = urlParams.get('token');
+                const email = urlParams.get('email');
+                if(token && token != '' & token != undefined && email && email != '' && email != undefined ){
+                    return ({token, email});
+                }else{
+                    return <Redirect to = "/auth/login" />
+                }
+            }else{
+                return <Redirect to = "/auth/login" />
+            }
+        }
 
         //redux
         const dispatch = useDispatch();
         const {msgError} = useSelector(state => state.ui);
-    
+
         useEffect(() => {
             dispatch(removeError());
         }, [])
-    
+
+        
         //useform hook
         const [formValues, handleInputChange, reset] = useForm({
             password: '12345678',
@@ -20,12 +37,14 @@ export const ResetPassword = () => {
         });
     
         const {password, password_confirmation} = formValues;
-    
+        const { token, email } = getParams();
+
+
         //submit event
         const handleSubmit = (e) => {
             e.preventDefault();
             if (isFormValid()){
-                console.log(formValues);
+                dispatch(resetPassword(email, password,password_confirmation, token));
             }
         };
     
@@ -49,6 +68,8 @@ export const ResetPassword = () => {
             {
                 msgError&&<div className="auth__alert-error">{msgError}</div>
             }
+
+            <h3 className="auth__text m-2">Ingresa la nueva contraseña para la cuenta: {email}</h3>
 
 
             <form onSubmit={handleSubmit}>
