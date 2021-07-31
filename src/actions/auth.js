@@ -16,7 +16,8 @@ export const startLogin = (email, password) => {
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(login({
                 uid: body.uid,
-                name: body.name
+                name: body.name,
+                email_verified_at: body.email_verified_at
             }));
         }else{
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
@@ -42,7 +43,8 @@ export const startRegister = (name, email, password, password_confirmation) => {
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(login({
                 uid: body.uid,
-                name: body.name
+                name: body.name,
+                email_verified_at: body.email_verified_at
             }));
         }else{
             if(body.errors.email){
@@ -65,7 +67,8 @@ export const startChecking = () => {
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(login({
                 uid: body.uid,
-                name: body.name
+                name: body.name,
+                email_verified_at: body.email_verified_at
             }));
         }else{
             dispatch(checkingFinish());
