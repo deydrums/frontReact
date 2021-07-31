@@ -76,7 +76,7 @@ export const LoginScreen = () => {
                     Entrar
                 </button>
                 <Link 
-                    to="/auth/register"
+                    to="/auth/forgotpass"
                     className="link link-d"
                 >
                     ¿Olvidaste tu contraseña?
