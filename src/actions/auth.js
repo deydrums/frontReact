@@ -1,6 +1,7 @@
 import { types } from "../types/types";
 import Swal from 'sweetalert2';
 import { fetchWithoutToken, fetchWithToken } from "../helpers/fetch";
+import { Redirect } from "react-router-dom";
 
 //Login 
 
@@ -125,7 +126,15 @@ export const resetPassword = (email, password,password_confirmation, token) => {
             Swal.fire('Hecho',body.message,'success');
         }else{
             dispatch(finishFetch());
-            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+            console.log(body.errors)
+            if(body.errors.email){
+                Swal.fire('Error','El email no es correcto','error');
+            }else if(body.errors.token){
+                Swal.fire('Error','El token ha expirado','error');
+                return <Redirect to="/auth/login"/>
+            }else{
+                Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+            }
         }
     }
 }
