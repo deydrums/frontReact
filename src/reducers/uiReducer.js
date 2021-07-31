@@ -2,7 +2,8 @@ import { types } from "../types/types";
 
 
 const initialState = {
-    msgError: null
+    msgError: null,
+    fetch: false
 }
 
 export const uiReducer = (state = initialState, action) => {
@@ -19,6 +20,17 @@ export const uiReducer = (state = initialState, action) => {
                 msgError: null
             }
 
+        case types.uiSetFetch:
+            return{
+                ...state,
+                fetch: true
+            }
+
+        case types.uiRemoveFetch:
+            return{
+                ...state,
+                fetch: false
+            }
         default:
             return state;
     }

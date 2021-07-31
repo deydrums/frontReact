@@ -93,12 +93,15 @@ const logout = () => ({
 //Recuperar contraseña notificacion
 
 export const forgotPassword = (email, password) => {
-    return async() => {
+    return async(dispatch) => {
+        dispatch(startFetch());
         const resp = await fetchWithoutToken('forgot-password',{email},'POST');
         const body = await resp.json();
         if(resp.ok) {
+            dispatch(finishFetch());
             Swal.fire('Success',body.message,'success');
         }else{
+            dispatch(finishFetch());
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
         }
     }
@@ -107,14 +110,26 @@ export const forgotPassword = (email, password) => {
 //Reset contraseña
 
 export const resetPassword = (email, password,password_confirmation, token) => {
-    return async() => {
+    return async(dispatch) => {
         const resp = await fetchWithoutToken('reset-password',{email, password,password_confirmation, token},'POST');
         const body = await resp.json();
-        console.log(body);
+        dispatch(startFetch());
         if(resp.ok) {
+            dispatch(finishFetch());
             Swal.fire('Success',body.message,'success');
         }else{
+            dispatch(finishFetch());
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
         }
     }
 }
+
+//Fetch
+
+const startFetch = () =>({
+    type: types.uiSetFetch
+});
+
+const finishFetch = () =>({
+    type: types.uiRemoveFetch
+});
