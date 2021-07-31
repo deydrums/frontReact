@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import validator from 'validator';
-import { forgotPassword, startLogin } from '../../actions/auth';
+import { forgotPassword } from '../../actions/auth';
 import { Link } from 'react-router-dom';
+import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const ForgotPasswordScreen = () => {
 
         //redux
         const dispatch = useDispatch();
-        const {msgError} = useSelector(state => state.ui);
+        const {msgError, fetch} = useSelector(state => state.ui);
     
         useEffect(() => {
             dispatch(removeError());
@@ -49,7 +50,6 @@ export const ForgotPasswordScreen = () => {
                 msgError&&<div className="auth__alert-error">{msgError}</div>
             }
 
-
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -64,8 +64,11 @@ export const ForgotPasswordScreen = () => {
                 <button
                     type="submit"
                     className = "btn btn-primary btn-block mt-2"
+                    disabled={fetch}
                 >
-                    Recuperar contraseña
+                    {
+                        fetch?<LoadingIconScreen/>:<span>Recuperar contraseña</span>
+                    }
                 </button>
 
                 <Link 

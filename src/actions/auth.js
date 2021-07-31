@@ -7,8 +7,10 @@ import { Redirect } from "react-router-dom";
 
 export const startLogin = (email, password) => {
     return async(dispatch) => {
+        dispatch(startFetch());
         const resp = await fetchWithoutToken('login',{email,password},'POST');
         const body = await resp.json();
+        dispatch(finishFetch());
         if(resp.ok) {
             localStorage.setItem('token',body.token);
             localStorage.setItem('token-init-date', new Date().getTime());
@@ -31,8 +33,10 @@ const login = (user) => ({
 
 export const startRegister = (name, email, password, password_confirmation) => {
     return async(dispatch) => {
+        dispatch(startFetch());
         const resp = await fetchWithoutToken('register',{name,email,password, password_confirmation},'POST');
         const body = await resp.json();
+        dispatch(finishFetch());
         if(resp.ok) {
             localStorage.setItem('token',body.token);
             localStorage.setItem('token-init-date', new Date().getTime());
@@ -99,7 +103,7 @@ export const forgotPassword = (email, password) => {
         const body = await resp.json();
         if(resp.ok) {
             dispatch(finishFetch());
-            Swal.fire('Success',body.message,'success');
+            Swal.fire('Hecho',body.message,'success');
         }else{
             dispatch(finishFetch());
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
@@ -111,12 +115,12 @@ export const forgotPassword = (email, password) => {
 
 export const resetPassword = (email, password,password_confirmation, token) => {
     return async(dispatch) => {
+        dispatch(startFetch());
         const resp = await fetchWithoutToken('reset-password',{email, password,password_confirmation, token},'POST');
         const body = await resp.json();
-        dispatch(startFetch());
         if(resp.ok) {
             dispatch(finishFetch());
-            Swal.fire('Success',body.message,'success');
+            Swal.fire('Hecho',body.message,'success');
         }else{
             dispatch(finishFetch());
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');

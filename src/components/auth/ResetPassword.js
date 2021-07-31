@@ -4,6 +4,7 @@ import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import {Redirect, useParams} from "react-router-dom";
 import { resetPassword } from '../../actions/auth';
+import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const ResetPassword = ({...rest}) => {
         const getParams =()=>{
@@ -23,7 +24,8 @@ export const ResetPassword = ({...rest}) => {
 
         //redux
         const dispatch = useDispatch();
-        const {msgError} = useSelector(state => state.ui);
+        const {msgError, fetch} = useSelector(state => state.ui);
+
 
         useEffect(() => {
             dispatch(removeError());
@@ -89,13 +91,16 @@ export const ResetPassword = ({...rest}) => {
                     className="auth__input"
                     onChange={handleInputChange}
                     value={password_confirmation}
+                    disabled={fetch}
 
                 />
                 <button
                     type="submit"
                     className = "btn btn-primary btn-block mb-3"
                 >
-                    Actualizar contraseña
+                    {
+                        fetch?<LoadingIconScreen/>:<span>Actualizar contraseña</span>
+                    }
                 </button>
 
             </form>

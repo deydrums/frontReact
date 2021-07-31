@@ -5,11 +5,12 @@ import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import validator from 'validator';
 import { startRegister } from '../../actions/auth';
+import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const RegisterScreen = () => {
     //redux
     const dispatch = useDispatch();
-    const {msgError} = useSelector(state => state.ui);
+    const {msgError, fetch} = useSelector(state => state.ui);
 
     useEffect(() => {
         dispatch(removeError());
@@ -101,8 +102,11 @@ export const RegisterScreen = () => {
                 <button
                     type="submit"
                     className = "btn btn-primary btn-block mb-3"
+                    disabled={fetch}
                 >
-                    Registrarse
+                    {
+                        fetch?<LoadingIconScreen/>:<span>Registrarse</span>
+                    }
                 </button>
               
                 <Link 

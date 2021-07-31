@@ -5,12 +5,13 @@ import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import validator from 'validator';
 import { startLogin } from '../../actions/auth';
+import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const LoginScreen = () => {
 
     //redux
     const dispatch = useDispatch();
-    const {msgError} = useSelector(state => state.ui);
+    const {msgError, fetch} = useSelector(state => state.ui);
 
     useEffect(() => {
         dispatch(removeError());
@@ -72,8 +73,11 @@ export const LoginScreen = () => {
                 <button
                     type="submit"
                     className = "btn btn-primary btn-block"
+                    disabled={fetch}
                 >
-                    Entrar
+                    {
+                        fetch?<LoadingIconScreen/>:<span>Entrar</span>
+                    }
                 </button>
                 <Link 
                     to="/auth/forgotpass"
