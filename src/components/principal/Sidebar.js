@@ -12,6 +12,7 @@ export const Sidebar = () => {
     return (
         <nav className = "principal__sidebar">
             <div className="principal__userprofile">
+
                 <div className="principal__userphoto">
                     <div className="principal__userimg">
                         <img src="https://res.cloudinary.com/dzxnquue1/image/upload/nophoto_user_p2j2qq" alt="user"></img>
@@ -32,10 +33,18 @@ export const Sidebar = () => {
                 </div>
             </div>
 
-            <div className="principal__new-entry">
-                <i className="far fa-calendar-plus fa-5x"></i>
-                <p className = "mt-5">Nueva entrada</p>
+            <div className="principal__options">
+                <div className="principal_option pointer">
+                    <div className="principal_option_icon">
+                        <i className="fas fa-users"></i>
+                    </div>
+                    <div className="principal_option_text">
+                        Usuarios
+                    </div>
+                </div>
             </div>
+
+
         </nav>
     )
 }
