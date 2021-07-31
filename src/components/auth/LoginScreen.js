@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import validator from 'validator';
+import { startLogin } from '../../actions/auth';
 
 export const LoginScreen = () => {
 
@@ -27,7 +28,7 @@ export const LoginScreen = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isFormValid()){
-            console.log(formValues)
+            dispatch(startLogin(email, password));
         }
     };
 
