@@ -1,0 +1,130 @@
+.principal__main-content{
+    display: flex;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.principal__sidebar {
+    background-color: $dark-grey;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 350px;
+    transition: transform .3s ease-in-out;
+    transform: translate(0%);
+}
+
+.principal__sidebar-navbar{
+    display: flex;
+}
+
+.principal__sidebar-btnlogout{
+    width: 100%;
+    text-align:right;
+    margin-bottom: 10px;
+}
+
+.principal__sidebar-navbar i{
+    margin-top: 6px;
+    color: $light-grey;
+}
+
+.principal__sidebar-navbar h3{
+    font-weight: lighter;
+    margin-left: 7px !important;
+    color: $light-blue;
+}
+
+.principal__new-entry{
+    align-items: center;
+    cursor: pointer !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+    transition: color .3s ease;
+    &:hover{
+        color: darken($color: #fff, $amount: 20)
+    }
+}
+
+.principal__entries {
+    margin-top: 30px;
+    overflow: auto;
+ 
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        background-color: #ccc;
+    }
+ 
+    &::-webkit-scrollbar:vertical {
+        width: 8px;
+    }
+ 
+    &::-webkit-scrollbar:horizontal {
+        height: 10px;
+    }
+ 
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary;
+        border-radius: 20px;
+    }
+}
+
+.principal__entry{
+    background-color:#fff;
+    border-radius: 5px;
+    color: $dark-grey;
+    display: flex;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.principal__entry-picture{
+    width: 20%;
+    height: auto;
+}
+
+
+.principal__entry-body {
+    width: 53%;
+    padding: 10px;
+}
+
+
+
+main{
+    height:100vh;
+}
+
+@keyframes zoomInOut {
+    0%,100%{
+        transform: scale(0.8);
+    }
+    50%{
+        transform: scale(1);
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .principal__sidebar {
+        position:fixed;
+        width: 300px;
+        transform: translate(-100%);
+        transition: transform .3s ease-in-out;
+    }
+    .principal__active{
+        transform: translate(0);
+    }
+    .principal__btnmore{
+        display:block;
+    }
+}

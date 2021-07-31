@@ -1,18 +1,13 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { startLogout } from '../../actions/auth';
+import { Sidebar } from './Sidebar';
 
 export const PrincipalScreen = () => {
-    const dispatch = useDispatch();
-    const handleLogout = () => {
-        dispatch(startLogout());
-    }
+
+
 
     return (
-        <div>
-            <button onClick={handleLogout}>
-                Salir
-            </button>
+        <div className = "principal__main-content animate__animated animate__fadeIn" >
+            <Sidebar/>
         </div>
     )
 }
