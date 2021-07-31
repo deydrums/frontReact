@@ -55,7 +55,6 @@ export const startChecking = () => {
     return async(dispatch) => {
         const resp = await fetchWithToken('renew', '','POST');
         const body = await resp.json();
-        console.log(body);
         if(resp.ok) {
             localStorage.setItem('token',body.token);
             localStorage.setItem('token-init-date', new Date().getTime());
