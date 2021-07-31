@@ -83,9 +83,7 @@ const checkingFinish = () => ({
 
 export const startLogout = () => {
     return async(dispatch) => {
-        const resp = await fetchWithToken('logout','','GET');
-        // const body = await resp.json();
-        // console.log(body);
+        await fetchWithToken('logout','','GET');
         localStorage.clear();
         dispatch(logout());
     }
