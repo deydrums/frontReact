@@ -1,7 +1,6 @@
 import { types } from "../types/types";
 import Swal from 'sweetalert2';
 import { fetchWithoutToken, fetchWithToken } from "../helpers/fetch";
-import { Redirect } from "react-router-dom";
 
 //Login 
 
@@ -99,7 +98,7 @@ const logout = () => ({
 
 //Recuperar contraseña notificacion
 
-export const forgotPassword = (email, password) => {
+export const forgotPassword = (email) => {
     return async(dispatch) => {
         dispatch(startFetch());
         const resp = await fetchWithoutToken('forgot-password',{email},'POST');
@@ -124,14 +123,27 @@ export const resetPassword = (email, password,password_confirmation, token) => {
         if(resp.ok) {
             dispatch(finishFetch());
             Swal.fire('Hecho',body.message,'success');
+            dispatch(startRedirectLogin());
         }else{
             dispatch(finishFetch());
-            console.log(body.errors)
             if(body.errors.email){
                 Swal.fire('Error','El email no es correcto','error');
             }else if(body.errors.token){
-                Swal.fire('Error','El token ha expirado','error');
-                return <Redirect to="/auth/login"/>
+                Swal.fire({
+                    title: 'El token ha expirado',
+                    text: 'Solicita un nuevo correo de recuperacion',
+                    showCancelButton: true,
+                    confirmButtonText: `Solicitar otro correo`,
+                    denyButtonText: `Cancelar`,
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      dispatch(forgotPassword(email));
+                    }else if (result.isDismissed) {
+                      dispatch(startRedirectLogin());
+                    }
+                    
+                  })
+
             }else{
                 Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
             }
@@ -147,4 +159,13 @@ const startFetch = () =>({
 
 const finishFetch = () =>({
     type: types.uiRemoveFetch
+});
+
+
+const startRedirectLogin = () =>({
+    type: types.uiSetRedirectLogin
+});
+
+export const finishRedirectLogin = () =>({
+    type: types.uiRemoveRedirectLogin
 });

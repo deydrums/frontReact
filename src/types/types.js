@@ -6,6 +6,9 @@ export const types = {
     uiSetFetch: '[UI] Set Fetch',
     uiRemoveFetch: '[UI] Remove Fetch',
 
+    uiSetRedirectLogin: '[UI] Set RedirectLogin',
+    uiRemoveRedirectLogin: '[UI] Remove RedirectLogin',
+
     authCheckingFinish: '[auth] Finish login checking',
     authStartLogin: '[auth] Start login',
     authLogin: '[auth] Login',

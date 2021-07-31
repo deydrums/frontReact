@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import validator from 'validator';
-import { startLogin } from '../../actions/auth';
+import { finishRedirectLogin, startLogin } from '../../actions/auth';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const LoginScreen = () => {
@@ -15,6 +15,10 @@ export const LoginScreen = () => {
 
     useEffect(() => {
         dispatch(removeError());
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(finishRedirectLogin());
     }, [dispatch])
 
     //useform hook

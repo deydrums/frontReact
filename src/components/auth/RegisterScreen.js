@@ -16,6 +16,7 @@ export const RegisterScreen = () => {
         dispatch(removeError());
     }, [dispatch])
 
+
     //useform hook
     const [formValues, handleInputChange] = useForm({
         name: 'David',

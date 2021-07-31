@@ -11,11 +11,13 @@ export const ResetPassword = ({...rest}) => {
 
         //redux
         const dispatch = useDispatch();
-        const {msgError, fetch} = useSelector(state => state.ui);
+        const {msgError, fetch, redirectLogin} = useSelector(state => state.ui);
+
 
         useEffect(() => {
             dispatch(removeError());
         }, [dispatch])
+
 
         //useform hook
         const [formValues, handleInputChange] = useForm({
@@ -47,11 +49,13 @@ export const ResetPassword = ({...rest}) => {
         };
 
         const { token, email } = getParams(rest);
-        
+
         //redirect to login if not have params
         if( !token || !email){
             return getParams(rest);
         }
+
+        if(redirectLogin){return <Redirect to="/auth/login"/>}
 
     return (
         <>
