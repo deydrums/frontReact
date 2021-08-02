@@ -8,9 +8,9 @@ import {
     Redirect
   } from "react-router-dom";
 import { startChecking } from "../actions/auth";
-import { PrincipalScreen } from '../components/principal/PrincipalScreen';
 import { LoadingScreen } from "../components/ui/LoadingScreen";
 import { AuthRouter } from "./AuthRouter";
+import { DashboardRoutes } from "./DashboardRoutes";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 
@@ -36,9 +36,8 @@ export const AppRouter = () => {
                     isAuthenticated={!!uid}
                 />
                 <PrivateRoute 
-                    exact 
                     path="/" 
-                    component ={PrincipalScreen}
+                    component ={DashboardRoutes}
                     isAuthenticated={!!uid}
                 />
                 <Redirect to = "/auth/login"/>

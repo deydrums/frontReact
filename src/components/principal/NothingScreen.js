@@ -2,7 +2,7 @@ import React from 'react';
 
 export const IndexScreen = () => {
     return (
-        <div className ="principal__index">
+        <div className ="principal__content principal__index">
             <p>
                 Pagina de inicio
                 <br/>

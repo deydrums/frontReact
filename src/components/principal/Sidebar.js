@@ -1,6 +1,7 @@
 import React from 'react';
 import { startLogout } from '../../actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
 
 
 export const Sidebar = () => {
@@ -29,19 +30,32 @@ export const Sidebar = () => {
                         </button>
                     </div>
                     <h3>{name}</h3>
-                    <h4 className="btn"><i className="fas fa-cog"></i> Ajustes de usuario</h4>
+                    <h4 className="btn">
+                        <i className="fas fa-cog"></i>
+                        <Link 
+                                className="btn link-options"
+                                to="/user/settings"
+                        >
+                                 Ajustes de usuario
+                        </Link>
+                    
+                    </h4>
+
+
+
+
                 </div>
             </div>
 
             <div className="principal__options">
-                <div className="principal_option pointer">
+                <Link to = "/users" className="principal_option pointer link-options">
                     <div className="principal_option_icon">
                         <i className="fas fa-users"></i>
                     </div>
                     <div className="principal_option_text">
                         Usuarios
                     </div>
-                </div>
+                </Link>
             </div>
 
 

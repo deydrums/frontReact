@@ -6,16 +6,19 @@
 
 .principal__index{
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.61);
-    color:rgb(203, 247, 255);
     display:flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
-    width: 75%;
     p{
         text-align: center;
     }
+}
+
+.principal__content{
+    background-color: rgba(0, 0, 0, 0.61);
+    color:rgb(203, 247, 255);
+    height: 100vh;
+    width: 75%;
 }
 
 .principal__sidebar {
