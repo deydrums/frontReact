@@ -7,7 +7,7 @@ import { UsersListScreen } from '../components/principal/UsersListScreen'
 
 export const DashboardRoutes = () => {
     return (
-        <div className = "principal__main-content animate__animated animate__fadeIn" >
+        <div className = "principal__main-content">
             <Sidebar/>
             <Switch>
                 <Route exact path="/inicio" component={IndexScreen}/>

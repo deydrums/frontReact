@@ -1,7 +1,7 @@
 import React from 'react';
 import { startLogout } from '../../actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export const Sidebar = () => {
@@ -35,6 +35,7 @@ export const Sidebar = () => {
                         <Link 
                                 className="btn link-options"
                                 to="/user/settings"
+                                replace 
                         >
                                  Ajustes de usuario
                         </Link>
@@ -48,7 +49,17 @@ export const Sidebar = () => {
             </div>
 
             <div className="principal__options">
-                <Link to = "/users" className="principal_option pointer link-options">
+
+                <Link to = "/inicio" className="principal_option pointer link-options mb-2" replace >
+                    <div className="principal_option_icon">
+                        <i className="fas fa-home"></i>
+                    </div>
+                    <div className="principal_option_text">
+                        Inicio
+                    </div>
+                </Link>
+
+                <Link to = "/users" className="principal_option pointer link-options mb-2" replace >
                     <div className="principal_option_icon">
                         <i className="fas fa-users"></i>
                     </div>
@@ -56,6 +67,8 @@ export const Sidebar = () => {
                         Usuarios
                     </div>
                 </Link>
+
+
             </div>
 
 
