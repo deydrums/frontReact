@@ -61,22 +61,28 @@
     }
 }
 
-.button_more{
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: lighten($color: $primary, $amount: 10);
-    position: absolute;
-    right: 35px;
-    bottom: 35px;
-    transition: all 0.3s ease-in-out;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(0%);
-    &:hover {
-        background-color:$primary;
-        transform: translateY(10%);
+
+@media only screen and (max-width: 600px) {
+
+    .button_more{
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: lighten($color: $primary, $amount: 10);
+        position: absolute;
+        right: 35px;
+        bottom: 35px;
+        transition: all 0.3s ease-in-out;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translate(0%);
+        &:hover {
+            background-color:$primary;
+            transform: translateY(10%);
+        }
     }
+    
+
 }

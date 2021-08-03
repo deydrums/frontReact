@@ -152,6 +152,7 @@
     align-items: center;    
 }
 
+
 @keyframes zoomInOut {
     0%,100%{
         transform: scale(0.8);
@@ -168,13 +169,14 @@
     .principal__sidebar {
         position:fixed;
         width: 300px;
-        //transform: translate(-100%);
+        transform: translate(-100%);
         transition: transform .3s ease-in-out;
     }
-    .principal__active{
+    .sidebar_active{
         transform: translate(0);
     }
-    .principal__btnmore{
-        display:block;
+
+    .principal__dashboard{
+        width: 100%;
     }
 }

@@ -6,10 +6,20 @@ import { UserSettingsScreen } from '../components/principal/UserSettingsScreen'
 import { UsersListScreen } from '../components/principal/UsersListScreen'
 
 export const DashboardRoutes = () => {
+
+    const btnmoreClick = () => { 
+        const q = document.querySelector('.principal__sidebar');
+        q.classList.toggle('sidebar_active');
+    }
+    const btnmoreOutClick = () => { 
+        const q = document.querySelector('.principal__sidebar');
+        q.classList.remove('sidebar_active');
+    }
+
     return (
         <div className = "principal__main-content">
             <Sidebar/>
-            <div className = "principal__dashboard">
+            <div className = "principal__dashboard" onClick={btnmoreOutClick}>
                 <Switch>
                     <Route exact path="/inicio" component={IndexScreen}/>
                     <Route exact path="/user/settings" component={UserSettingsScreen}/>
@@ -17,7 +27,7 @@ export const DashboardRoutes = () => {
                     <Redirect to="/inicio"/>
                 </Switch>
             </div>
-            <div className="button_more">
+            <div className="button_more" onClick={btnmoreClick}>
                 <i className="fas fa-ellipsis-h"></i>
             </div>
         </div>
