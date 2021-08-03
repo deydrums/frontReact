@@ -42,6 +42,17 @@ export const UserSettingsScreen = () => {
         return true;
     };
 
+    const handlePictureUpload = () => {
+        document.querySelector('#fileSelector').click();
+    }
+
+    const handleFileChange = (e) => {
+        const file = e.target.files;
+        if(file){
+            console.log(file);
+        }
+    }
+
 
     return (
         <div className="principal__content">
@@ -84,12 +95,20 @@ export const UserSettingsScreen = () => {
                 <button
                     className = "btn btn-primary btn-block mt-5"
                     disabled={fetch}
+                    onClick={handlePictureUpload}
                 >
                     {
                         fetch?<LoadingIconScreen/>:<span>Subir</span>
                     }
                 </button>
 
+                <input
+                    type="file"
+                    style = {{display:'none'}}
+                    onChange={handleFileChange}
+                    id = "fileSelector"
+                    name = "file"
+                />
 
             </div>
         </div>
