@@ -9,12 +9,14 @@ export const DashboardRoutes = () => {
     return (
         <div className = "principal__main-content">
             <Sidebar/>
-            <Switch>
-                <Route exact path="/inicio" component={IndexScreen}/>
-                <Route exact path="/user/settings" component={UserSettingsScreen}/>
-                <Route exact path="/users" component={UsersListScreen}/>
-                <Redirect to="/inicio"/>
-            </Switch>
+            <div className = "principal__dashboard">
+                <Switch>
+                    <Route exact path="/inicio" component={IndexScreen}/>
+                    <Route exact path="/user/settings" component={UserSettingsScreen}/>
+                    <Route exact path="/users" component={UsersListScreen}/>
+                    <Redirect to="/inicio"/>
+                </Switch>
+            </div>
         </div>
     )
 }
