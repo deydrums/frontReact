@@ -17,6 +17,9 @@ export const DashboardRoutes = () => {
                     <Redirect to="/inicio"/>
                 </Switch>
             </div>
+            <div className="button_more">
+                <i className="fas fa-ellipsis-h"></i>
+            </div>
         </div>
     )
 }
