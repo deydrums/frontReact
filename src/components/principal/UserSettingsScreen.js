@@ -49,28 +49,34 @@ export const UserSettingsScreen = () => {
             {
                 msgError&&<div className="auth__alert-error">{msgError}</div>
             }
-            <form className="principal__contenttwo" onSubmit ={onSubmit}>
-                <input
-                    type="text"
-                    placeholder="Nombre..."
-                    name = "name"
-                    className="auth__input"
-                    autoComplete="off"
-                    onChange={handleInputChange}
-                    value={name}
-                />
 
-                <button
-                    type="submit"
-                    className = "btn btn-primary btn-block mb-3"
-                    disabled={fetch}
-                >
-                    {
-                        fetch?<LoadingIconScreen/>:<span>Actualizar</span>
-                    }
-                </button>
-              
-            </form>
+            <div className="principal__contenttwo">
+            <h3 className="principal__title_secundary auth__input"><i className="fas fa-database m-2"></i>Datos de usuario</h3>
+                <form onSubmit ={onSubmit} className="m-5 contblock">
+                    <input
+                        type="text"
+                        placeholder="Nombre..."
+                        name = "name"
+                        className="auth__input"
+                        autoComplete="off"
+                        onChange={handleInputChange}
+                        value={name}
+                    />
+
+                    <button
+                        type="submit"
+                        className = "btn btn-primary btn-block mb-3"
+                        disabled={fetch}
+                    >
+                        {
+                            fetch?<LoadingIconScreen/>:<span>Actualizar</span>
+                        }
+                    </button>
+                
+                </form>
+            <h3 className="principal__title_secundary auth__input"><i className="fas fa-database m-2"></i>Foto de perfil</h3>
+
+            </div>
         </div>
     )
 }

@@ -1,3 +1,7 @@
+.contblock{
+    width: 100%;
+}
+
 .principal__title{
     color: white;
     width: 100%;
@@ -5,6 +9,13 @@
     display:flex;
     justify-content: center;
     align-items: center
+}
+
+.principal__title_secundary{
+    color: white;
+    font-size: 15px;
+    width: 100%;
+
 }
 
 .principal__main-content{
@@ -197,4 +208,10 @@
     .principal__dashboard{
         width: 100%;
     }
+
+    .principal__contenttwo{
+        width:80%;
+
+    }
+
 }
