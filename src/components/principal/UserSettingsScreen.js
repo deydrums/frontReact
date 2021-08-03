@@ -51,7 +51,7 @@ export const UserSettingsScreen = () => {
             }
 
             <div className="principal__contenttwo">
-            <h3 className="principal__title_secundary auth__input"><i className="fas fa-database m-2"></i>Datos de usuario</h3>
+                <h3 className="principal__title_secundary auth__input"><i className="fas fa-database m-2"></i>Datos de usuario</h3>
                 <form onSubmit ={onSubmit} className="m-5 contblock">
                     <input
                         type="text"
@@ -74,7 +74,22 @@ export const UserSettingsScreen = () => {
                     </button>
                 
                 </form>
-            <h3 className="principal__title_secundary auth__input"><i className="fas fa-database m-2"></i>Foto de perfil</h3>
+                <h3 className="principal__title_secundary auth__input"><i className="fas fa-camera m-2"></i>Foto de perfil</h3>
+                <div className="principal__userphoto2">
+                    <div className="principal__userimg2">
+                        <img src="https://res.cloudinary.com/dzxnquue1/image/upload/nophoto_user_p2j2qq" alt="user"></img>
+                    </div>
+                </div>
+
+                <button
+                    className = "btn btn-primary btn-block mt-5"
+                    disabled={fetch}
+                >
+                    {
+                        fetch?<LoadingIconScreen/>:<span>Subir</span>
+                    }
+                </button>
+
 
             </div>
         </div>

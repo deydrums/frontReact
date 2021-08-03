@@ -88,6 +88,28 @@
     overflow: hidden;
 }
 
+.principal__userphoto2{
+    height:100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal__userimg2{
+    background-color: red;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.principal__userimg2 img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
 .principal__userimg img{
     height: 100%;
     width: 100%;
