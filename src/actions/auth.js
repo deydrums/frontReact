@@ -152,3 +152,23 @@ export const resetPassword = (email, password,password_confirmation, token) => {
     }
 }
 
+////update user ___________________________________________________________________________
+
+
+
+export const startUpdate = (name) => {
+    return async(dispatch) => {
+        dispatch(startFetch());
+        const resp = await fetchWithToken('update',{name},'PUT');
+        const body = await resp.json();
+        dispatch(finishFetch());
+        if(resp.ok) {
+            dispatch(login({
+                name: name,
+            }));
+            Swal.fire('Hecho',body.message,'success');
+        }else{
+            Swal.fire('Error',body.message,'error');
+        }
+    }
+}

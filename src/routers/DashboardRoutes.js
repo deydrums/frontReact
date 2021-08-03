@@ -27,7 +27,7 @@ export const DashboardRoutes = () => {
                     <Redirect to="/inicio"/>
                 </Switch>
             </div>
-            <div className="button_more" onClick={btnmoreClick}>
+            <div className="button_more pointer" onClick={btnmoreClick}>
                 <i className="fas fa-ellipsis-h"></i>
             </div>
         </div>
