@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { startUpdate } from '../../actions/auth';
+import { startUpdate, startUpload } from '../../actions/auth';
 import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
@@ -49,7 +49,7 @@ export const UserSettingsScreen = () => {
     const handleFileChange = (e) => {
         const file = e.target.files;
         if(file){
-            console.log(file);
+            dispatch(startUpload(file));
         }
     }
 
@@ -108,6 +108,7 @@ export const UserSettingsScreen = () => {
                     onChange={handleFileChange}
                     id = "fileSelector"
                     name = "file"
+                    max-size="10000"
                 />
 
             </div>
