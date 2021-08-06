@@ -7,6 +7,9 @@ import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const UserSettingsScreen = () => {
 
+    const baseUrl = process.env.REACT_APP_API_URL;
+    
+
     //redux
     const dispatch = useDispatch();
     const {msgError, fetch} = useSelector(state => state.ui);
@@ -53,6 +56,7 @@ export const UserSettingsScreen = () => {
         }
     }
 
+    console.log(`${baseUrl}/user/${user.uid}/avatar`);
 
     return (
         <div className="principal__content">
@@ -88,7 +92,7 @@ export const UserSettingsScreen = () => {
                 <h3 className="principal__title_secundary auth__input"><i className="fas fa-camera m-2"></i>Foto de perfil</h3>
                 <div className="principal__userphoto2">
                     <div className="principal__userimg2">
-                        <img src="https://res.cloudinary.com/dzxnquue1/image/upload/nophoto_user_p2j2qq" alt="user"></img>
+                        <img src={`${baseUrl}/user/${user.uid}/avatar`} alt="user"></img>
                     </div>
                 </div>
 
