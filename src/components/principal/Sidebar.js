@@ -3,10 +3,12 @@ import { startLogout } from '../../actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+const baseUrl = process.env.REACT_APP_API_URL;
 
 export const Sidebar = () => {
+    
     const dispatch = useDispatch();
-    const {name} = useSelector(state => state.auth)
+    const {name, avatar} = useSelector(state => state.auth)
     const handleLogout = () => {
         dispatch(startLogout());
     }
@@ -16,7 +18,14 @@ export const Sidebar = () => {
 
                 <div className="principal__userphoto">
                     <div className="principal__userimg">
-                        <img src="https://res.cloudinary.com/dzxnquue1/image/upload/nophoto_user_p2j2qq" alt="user"></img>
+                        {
+                            avatar
+                            ?
+                                <img src={`${baseUrl}/user/avatar/${avatar.replace('.','/')}`} alt="user"></img>
+                            :
+                                <img src='https://i.stack.imgur.com/34AD2.jpg' alt="user"></img>    
+                        }
+                        
                     </div>
                 </div>
 

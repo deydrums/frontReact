@@ -19,7 +19,8 @@ export const startLogin = (email, password) => {
             dispatch(login({
                 uid: body.uid,
                 name: body.name,
-                email_verified_at: body.email_verified_at
+                email_verified_at: body.email_verified_at,
+                avatar: body.filename
             }));
         }else{
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
@@ -70,7 +71,8 @@ export const startChecking = () => {
             dispatch(login({
                 uid: body.uid,
                 name: body.name,
-                email_verified_at: body.email_verified_at
+                email_verified_at: body.email_verified_at,
+                avatar: body.filename
             }));
         }else{
             dispatch(checkingFinish());
@@ -193,6 +195,9 @@ export const startUpload = (file) => {
         dispatch(finishFetch());
         Swal.close();
         if(resp.ok) {
+            dispatch(login({
+                avatar: body.filename,
+            }));
             Swal.fire('Hecho',body.message,'success');
         }else{
             if(body.errors.file){

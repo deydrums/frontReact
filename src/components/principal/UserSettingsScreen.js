@@ -5,10 +5,9 @@ import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
-export const UserSettingsScreen = () => {
+const baseUrl = process.env.REACT_APP_API_URL;
 
-    const baseUrl = process.env.REACT_APP_API_URL;
-    
+export const UserSettingsScreen = () => {
 
     //redux
     const dispatch = useDispatch();
@@ -56,7 +55,8 @@ export const UserSettingsScreen = () => {
         }
     }
 
-    console.log(`${baseUrl}/user/${user.uid}/avatar`);
+
+
 
     return (
         <div className="principal__content">
@@ -92,7 +92,14 @@ export const UserSettingsScreen = () => {
                 <h3 className="principal__title_secundary auth__input"><i className="fas fa-camera m-2"></i>Foto de perfil</h3>
                 <div className="principal__userphoto2">
                     <div className="principal__userimg2">
-                        <img src={`${baseUrl}/user/${user.uid}/avatar`} alt="user"></img>
+                        {
+                            user.avatar
+                            ?
+                                <img src={`${baseUrl}/user/avatar/${user.avatar.replace('.','/')}`} alt="user"></img>
+                            :
+                                <img src='https://i.stack.imgur.com/34AD2.jpg' alt="user"></img>    
+                        }
+                        
                     </div>
                 </div>
 
