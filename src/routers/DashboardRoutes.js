@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import { IndexScreen } from '../components/principal/NothingScreen'
 import { Sidebar } from '../components/principal/Sidebar'
 import { UserSettingsScreen } from '../components/principal/UserSettingsScreen'
-import { UsersListScreen } from '../components/principal/UsersListScreen'
+import { UsersListScreen } from '../components/users/UsersListScreen'
 
 export const DashboardRoutes = () => {
 
