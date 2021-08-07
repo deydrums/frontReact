@@ -9,8 +9,10 @@ import { types } from "../types/types";
 export const startLoadingUsers = () => {
     return async(dispatch) => {
         const resp = await fetchWithoutToken('user','','GET');
-        const {users} = await resp.json();
-        dispatch(setUsers(users));
+        if(resp.ok) {
+            const {users} = await resp.json();
+            dispatch(setUsers(users));
+        }
     }
 };
 
