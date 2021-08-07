@@ -28,4 +28,31 @@
     background-color:lighten($color: $dark-grey, $amount: 30);
     margin-top: 20px;
     border-radius:10px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.users__content__userphoto{
+    width: 20%;
+    height: 100%;
+    overflow: hidden;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.users__content__username{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items:center;
+    h3{
+        margin-left: 10px;
+        color: white;
+        font-weight: 200;
+        font-size:15px;
+    }
 }

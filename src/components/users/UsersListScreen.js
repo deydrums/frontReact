@@ -1,4 +1,5 @@
 import React from 'react'
+import { UserScreen } from './UserScreen'
 
 export const UsersListScreen = () => {
     return (
@@ -8,12 +9,7 @@ export const UsersListScreen = () => {
                     <h3 className="principal__title"><i className="fas fa-users m-2"></i>Usuarios</h3>
                 </div>
                 <div className="users__content__users">
-                    <div className="users__content__user">
-
-                    </div>
-                    <div className="users__content__user">
-                        
-                    </div>
+                   <UserScreen/>
                 </div>
             </div>
         </div>
