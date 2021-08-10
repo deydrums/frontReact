@@ -211,6 +211,35 @@
     }
 }
 
+@media only screen and (max-width: 1100px) {
+    .principal__dashboard{
+        width: 70%;
+    }
+
+    .principal__sidebar {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .principal__dashboard{
+        width: 65%;
+    }
+
+    .principal__sidebar {
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .principal__dashboard{
+        width: 60%;
+    }
+
+    .principal__sidebar {
+        width: 40%;
+    }
+}
 
 
 @media only screen and (max-width: 600px) {
