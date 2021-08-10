@@ -61,8 +61,13 @@
     }
 }
 
+.button_more{
+    color:transparent;
+}
+
 
 @media only screen and (max-width: 600px) {
+
 
     .button_more{
         width: 35px;
