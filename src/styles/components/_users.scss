@@ -60,7 +60,7 @@
 }
 
 .users__content__username{
-    width: 80%;
+    width: 70%;
     height: 100%;
     display: flex;
     align-items:center;
@@ -72,7 +72,16 @@
     }
 }
 
-
+.users__content__role{
+    width: 10%;
+    height: 100%;
+    background-color: lighten($color: $primary, $amount: 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
 
 @media only screen and (max-width: 800px) {
     .users__content{

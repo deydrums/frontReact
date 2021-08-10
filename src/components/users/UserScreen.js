@@ -2,7 +2,7 @@ import React from 'react'
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
-export const UserScreen = ({id, name, image}) => {
+export const UserScreen = ({id, name, image, role}) => {
     return (
         <div className="users__content__user">
             <div className="users__content__userphoto">
@@ -16,6 +16,15 @@ export const UserScreen = ({id, name, image}) => {
             </div>
             <div className="users__content__username">
                 <h3>{name}</h3>
+            </div>
+            <div className="users__content__role">
+                {
+                    role === '_ADMIN'
+                    ?
+                    <i className="fas fa-user-shield"></i>
+                    :
+                    <i className="fas fa-user"></i>
+                }
             </div>
         </div>
     )

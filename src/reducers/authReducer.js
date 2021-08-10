@@ -5,6 +5,7 @@ import { types } from "../types/types";
 const initialState = {
     checking: true,
     avatar: null,
+    role: null,
     // uid: null,
     // name: null
 }

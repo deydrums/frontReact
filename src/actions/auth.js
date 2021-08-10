@@ -21,7 +21,8 @@ export const startLogin = (email, password) => {
                 uid: body.uid,
                 name: body.name,
                 email_verified_at: body.email_verified_at,
-                avatar: body.filename
+                avatar: body.filename,
+                role: body.role
             }));
         }else{
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
@@ -48,7 +49,8 @@ export const startRegister = (name, email, password, password_confirmation) => {
             dispatch(login({
                 uid: body.uid,
                 name: body.name,
-                email_verified_at: body.email_verified_at
+                email_verified_at: body.email_verified_at,
+                role: body.role
             }));
         }else{
             if(body.errors.email){
@@ -73,7 +75,8 @@ export const startChecking = () => {
                 uid: body.uid,
                 name: body.name,
                 email_verified_at: body.email_verified_at,
-                avatar: body.filename
+                avatar: body.filename,
+                role: body.role
             }));
         }else{
             dispatch(checkingFinish());
