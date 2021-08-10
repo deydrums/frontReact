@@ -34,3 +34,11 @@ export const setPaginate = (pagination) => ({
     type: types.userSetPagination,
     payload: pagination
 });
+
+export const unsetPaginate = () => ({
+    type: types.userUnSetPagination,
+});
+
+export const unsetUsers = () => ({
+    type: types.userUnSetUsers,
+});

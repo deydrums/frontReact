@@ -18,4 +18,7 @@ export const types = {
 
     userLoadingUsers: '[user] Loading users',
     userSetPagination: '[user] Set Pagination',
+
+    userUnSetPagination: '[user] UnSet Pagination',
+    userUnSetUsers: '[user] UnSet users',
 }

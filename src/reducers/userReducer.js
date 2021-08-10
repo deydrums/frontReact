@@ -27,6 +27,17 @@ export const userReducer = (state = initialState, action) => {
                 ...state,
                 pagination: action.payload
             }
+        case types.userUnSetUsers:
+            return{
+                ...state,
+                users: initialState.users
+            }    
+
+        case types.userUnSetPagination:
+            return{
+                ...state,
+                pagination: initialState.pagination
+            }    
 
         default:
             return state;

@@ -4,6 +4,7 @@ import { types } from "../types/types";
 import Swal from 'sweetalert2';
 import { fetchWithoutToken, fetchWithToken, fileUpload } from "../helpers/fetch";
 import { finishFetch, startFetch, startRedirectLogin } from "./ui";
+import { unsetPaginate, unsetUsers } from "./user";
 
 //login ___________________________________________________________________________
 
@@ -91,6 +92,8 @@ export const startLogout = () => {
         await fetchWithToken('logout','','GET');
         localStorage.clear();
         dispatch(logout());
+        dispatch(unsetPaginate());
+        dispatch(unsetUsers());
     }
 };
 
