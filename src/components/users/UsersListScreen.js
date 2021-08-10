@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { startLoadingUsers } from '../../actions/user';
+import { UserPaginateScreen } from './UserPaginateScreen';
 import { UserScreen } from './UserScreen'
 
 export const UsersListScreen = () => {
@@ -20,16 +21,20 @@ export const UsersListScreen = () => {
                     <h3 className="principal__title"><i className="fas fa-users m-2"></i>Usuarios</h3>
                 </div>
                 <div className="users__content__users">
-
-                    {
-                        users.map(user => (
-                            <UserScreen 
-                                key={user.id}
-                                {...user}
-                            />
-                        ))
-                    }
-                </div>
+                    <div className="users_content_UserScreen">
+                        {
+                            users.map(user => (
+                                <UserScreen 
+                                    key={user.id}
+                                    {...user}
+                                />
+                            ))
+                        }
+                    </div>
+                    <div className="users__content__paginate">
+                        <UserPaginateScreen/>
+                    </div>
+                </div>    
             </div>
         </div>
     )

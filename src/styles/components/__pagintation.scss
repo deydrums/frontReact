@@ -1,0 +1,23 @@
+.__pagination{
+    width: 200px;
+    height: 30px;
+    border-radius:20px;
+    display: flex;
+    justify-content:space-evenly;
+    flex-direction: row;
+    overflow: hidden;
+    .paginate__buttons{
+        background-color: darken($color: $light-grey, $amount: 50);
+        height:100%;
+        width: 50px;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        font-size:15px;
+    }
+    .paginate__buttons_prevnext{
+        &:hover{
+            background-color: darken($color: $light-grey, $amount: 55);
+        }
+    }
+}
