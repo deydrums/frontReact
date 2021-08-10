@@ -3,9 +3,15 @@ import JoditEditor from "jodit-react";
 
 export const NewEntryScreen = () => {
     
-	const editor = useRef(null)
-	const [content, setContent] = useState('')
+	const editor = useRef(null);
+    const initialState = {
+        title: 'New Entry',
+        content: 'New Entry'
+    }
+	const [values, setValues] = useState(initialState);
 	
+    const{ title, content} = values;
+
 	const config = {
 		readonly: false, // all options from https://xdsoft.net/jodit/doc/
         height: 470,
@@ -15,10 +21,15 @@ export const NewEntryScreen = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(content)
+        console.log(values)
     }
 
-
+    const handleInputChange = ({target}) => {
+        setValues({
+            ...values,
+            [target.name]:target.value
+        });
+    }
 
     return (
         <div className="principal__content">
@@ -37,13 +48,15 @@ export const NewEntryScreen = () => {
                         name = "title"
                         className="auth__input"
                         autoComplete="off"
+                        value={title}
+                        onChange = {handleInputChange}
                     />
                     <JoditEditor
                         ref={editor}
                         value={content}
                         config={config}
                         tabIndex={1} // tabIndex of textarea
-                        onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+                        onBlur={newContent => setValues({...values, content: newContent})} // preferred to use only this option to update the content for performance reasons
                         //onChange={handlec}
                         className="editor"
                         />                        
