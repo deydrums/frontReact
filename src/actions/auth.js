@@ -212,3 +212,19 @@ export const startUpload = (file) => {
 
     }
 }
+
+//sendconfirm email ___________________________________________________________________________
+export const startConfirmEmail = () => {
+    return async(dispatch) => {
+        dispatch(startFetch());
+        const resp = await fetchWithToken('email/verification-notification','','POST');
+        const body = await resp.json();
+        dispatch(finishFetch());
+        if(resp.ok) {
+            dispatch(startChecking());
+            Swal.fire('Hecho',body.message,'success');
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+};

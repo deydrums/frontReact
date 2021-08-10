@@ -1,6 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 //import { useDispatch } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
+import { ConfirmEmailScreen } from '../components/principal/ConfirmEmailScreen'
 //import { startLoadingUsers } from '../actions/user'
 import { IndexScreen } from '../components/principal/NothingScreen'
 import { Sidebar } from '../components/principal/Sidebar'
@@ -11,6 +13,7 @@ export const DashboardRoutes = () => {
 
     // const dispatch = useDispatch();
     // dispatch(startLoadingUsers());
+    const {email_verified_at} = useSelector(state => state.auth)
 
     const btnmoreClick = () => { 
         const q = document.querySelector('.principal__sidebar');
@@ -22,19 +25,32 @@ export const DashboardRoutes = () => {
     }
 
     return (
-        <div className = "principal__main-content">
-            <Sidebar/>
-            <div className = "principal__dashboard" onClick={btnmoreOutClick}>
-                <Switch>
-                    <Route exact path="/inicio" component={IndexScreen}/>
-                    <Route exact path="/user/settings" component={UserSettingsScreen}/>
-                    <Route exact path="/users" component={UsersListScreen}/>
-                    <Redirect to="/inicio"/>
-                </Switch>
+        <>
+            <div className = "principal__main-content">
+                <Sidebar/>
+                {
+                    (!email_verified_at)
+                    ?
+                    <ConfirmEmailScreen/>
+                    :
+                        <div className = "principal__dashboard" onClick={btnmoreOutClick}>
+                            <Switch>
+                                <Route exact path="/inicio" component={IndexScreen}/>
+                                <Route exact path="/user/settings" component={UserSettingsScreen}/>
+                                <Route exact path="/users" component={UsersListScreen}/>
+                                <Redirect to="/inicio"/>
+                            </Switch>
+                        </div>
+                }
+
+                <div className="button_more pointer" onClick={btnmoreClick}>
+                    <i className="fas fa-ellipsis-h"></i>
+                </div>
+                
             </div>
-            <div className="button_more pointer" onClick={btnmoreClick}>
-                <i className="fas fa-ellipsis-h"></i>
-            </div>
-        </div>
+        
+        
+
+        </>
     )
 }
