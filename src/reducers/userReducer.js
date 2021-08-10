@@ -6,6 +6,12 @@ import { types } from "../types/types";
 
 const initialState = {
     users: [],
+    pagination: {
+        current: '',
+        prev: '',
+        next: '',
+        total: '',
+    }
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -15,6 +21,11 @@ export const userReducer = (state = initialState, action) => {
             return{
                 ...state,
                 users: [...action.payload]
+            }
+        case types.userSetPagination:
+            return{
+                ...state,
+                pagination: action.payload
             }
 
         default:

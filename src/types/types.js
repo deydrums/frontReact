@@ -17,4 +17,5 @@ export const types = {
     authLogout: '[auth] Logout',
 
     userLoadingUsers: '[user] Loading users',
+    userSetPagination: '[user] Set Pagination',
 }

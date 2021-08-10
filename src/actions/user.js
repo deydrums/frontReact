@@ -6,13 +6,20 @@ import { types } from "../types/types";
 
 //errors msg ___________________________________________________________________________
 
-export const startLoadingUsers = () => {
+export const startLoadingUsers = (page = 1) => {
     return async(dispatch) => {
-        const resp = await fetchWithoutToken('user?page=1','','GET');
+        const resp = await fetchWithoutToken(`user?page=${page}`,'','GET');
         const body = await resp.json();
         if(resp.ok) {
             const {data:users} = body.users;
+            const pagination = ({
+                'total': body.users.last_page,
+                'current': body.users.current_page,
+                'prev' : !body.users.links[0].url?null:parseInt(body.users.links[0].url.split('=')[1]),
+                'next' : (body.users.current_page < body.users.last_page)?body.users.current_page + 1 : null
+            })
             dispatch(setUsers(users));
+            dispatch(setPaginate(pagination));
         }
     }
 };
@@ -20,4 +27,10 @@ export const startLoadingUsers = () => {
 export const setUsers = (users) => ({
     type: types.userLoadingUsers,
     payload: users
+});
+
+
+export const setPaginate = (pagination) => ({
+    type: types.userSetPagination,
+    payload: pagination
 });
