@@ -8,9 +8,10 @@ import { types } from "../types/types";
 
 export const startLoadingUsers = () => {
     return async(dispatch) => {
-        const resp = await fetchWithoutToken('user','','GET');
+        const resp = await fetchWithoutToken('user?page=1','','GET');
+        const body = await resp.json();
         if(resp.ok) {
-            const {users} = await resp.json();
+            const {data:users} = body.users;
             dispatch(setUsers(users));
         }
     }

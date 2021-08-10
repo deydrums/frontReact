@@ -1,7 +1,7 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+//import { useDispatch } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
-import { startLoadingUsers } from '../actions/user'
+//import { startLoadingUsers } from '../actions/user'
 import { IndexScreen } from '../components/principal/NothingScreen'
 import { Sidebar } from '../components/principal/Sidebar'
 import { UserSettingsScreen } from '../components/principal/UserSettingsScreen'
@@ -9,8 +9,8 @@ import { UsersListScreen } from '../components/users/UsersListScreen'
 
 export const DashboardRoutes = () => {
 
-    const dispatch = useDispatch();
-    dispatch(startLoadingUsers());
+    // const dispatch = useDispatch();
+    // dispatch(startLoadingUsers());
 
     const btnmoreClick = () => { 
         const q = document.querySelector('.principal__sidebar');

@@ -1,10 +1,17 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { startLoadingUsers } from '../../actions/user';
 import { UserScreen } from './UserScreen'
 
 export const UsersListScreen = () => {
 
     const {users} = useSelector(state => state.user);
+
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(startLoadingUsers());
+    },[dispatch]);
 
     return (
         <div className="principal__content">
