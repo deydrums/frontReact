@@ -32,6 +32,7 @@ export const NewEntryScreen = () => {
         height: 470,
         allowResizeY: false,
         language: "es",
+        askBeforePasteHTML: false,
 	}
 
     //submit
