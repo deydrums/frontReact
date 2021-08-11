@@ -21,4 +21,7 @@ export const types = {
 
     userUnSetPagination: '[user] UnSet Pagination',
     userUnSetUsers: '[user] UnSet users',
+
+    blogLoadingEntries: '[blog] Loading entries',
+    userSetEntryPagination: '[blog] Set Pagination',
 }

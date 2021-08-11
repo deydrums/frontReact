@@ -3,12 +3,14 @@ import JoditEditor from "jodit-react";
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeError, setError } from '../../actions/ui';
+import { startCreateEntry } from '../../actions/blog';
+import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const NewEntryScreen = () => {
     
     //redux
     const dispatch = useDispatch();
-    const {msgError} = useSelector(state => state.ui);
+    const {msgError, fetch} = useSelector(state => state.ui);
 
     //useEffect hook
     useEffect(() => {
@@ -19,7 +21,7 @@ export const NewEntryScreen = () => {
 	const editor = useRef(null);
 
     //useForm customHook
-    const [values, handleInputChange, setValues] = useForm({
+    const [values, handleInputChange, reset, setValues] = useForm({
         title: '',
         content: ''
     });
@@ -40,7 +42,7 @@ export const NewEntryScreen = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (isFormValid()){
-            console.log(values)
+            dispatch(startCreateEntry(title,content,reset));
         }
     }
 
@@ -60,7 +62,11 @@ export const NewEntryScreen = () => {
     return (
         <div className="principal__content">
             <div className="entry-blog__submit">
-                <button type="Submit" className="btn btn-primary" onClick={handleSubmit}>Guardar</button>
+                <button type="Submit" className="btn btn-primary" onClick={handleSubmit}>
+                    {
+                        fetch?<LoadingIconScreen/>:<span>Guardar</span>
+                    }
+                </button>
             </div>
 
             <div className="entry-blog__content">
