@@ -2,9 +2,9 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { startGetEntries } from '../../actions/blog';
 import { startLoadingUsers } from '../../actions/user';
-import { LoadingIconScreen } from '../ui/LoadingIconScreen';
+import { LoadingIconScreen } from './LoadingIconScreen';
 
-export const BlogPaginateScreen = () => {
+export const PaginateScreen = () => {
 
     const dispatch = useDispatch();
     const {pagination} = useSelector(state => state.ui);

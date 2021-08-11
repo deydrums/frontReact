@@ -21,7 +21,6 @@ export const startLoadingUsers = (page = 1) => {
                 'origin' : 'users'
             })
             dispatch(setUsers(users));
-            dispatch(setPaginate(pagination));
             dispatch(setPagination(pagination));
         }
     }
@@ -30,16 +29,6 @@ export const startLoadingUsers = (page = 1) => {
 export const setUsers = (users) => ({
     type: types.userLoadingUsers,
     payload: users
-});
-
-
-export const setPaginate = (pagination) => ({
-    type: types.userSetPagination,
-    payload: pagination
-});
-
-export const unsetPaginate = () => ({
-    type: types.userUnSetPagination,
 });
 
 export const unsetUsers = () => ({

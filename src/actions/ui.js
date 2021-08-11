@@ -40,3 +40,7 @@ export const setPagination = (pagination) => ({
     type: types.uiSetPagination,
     payload: pagination
 });
+
+export const unsetPagination = () => ({
+    type: types.uiUnsetPagination
+});
