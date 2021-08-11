@@ -20,7 +20,7 @@ export const UsersListScreen = () => {
                 <div className="users__content__text">
                     <h3 className="principal__title"><i className="fas fa-users m-2"></i>Usuarios</h3>
                 </div>
-                <div className="users__content__users">
+                <div className="container_content">
                     <div className="users_content_UserScreen">
                         {
                             users.map(user => (

@@ -85,6 +85,16 @@ export const Sidebar = () => {
                         Nueva entrada
                     </div>
                 </Link>
+
+                
+                <Link to = "/config/blog/entries" className="principal_option pointer link-options mb-2" replace >
+                    <div className="principal_option_icon">
+                        <i className="fab fa-microblog"></i>
+                    </div>
+                    <div className="principal_option_text">
+                        Blog 
+                    </div>
+                </Link>
             </div>
 
 

@@ -60,8 +60,8 @@ export const NewEntryScreen = () => {
     };
 
     return (
-        <div className="principal__content">
-            <div className="entry-blog__submit">
+        <div className="principal__content scroll_options">
+            <div className="blog__submit">
                 <button type="Submit" className="btn btn-primary" onClick={handleSubmit}>
                     {
                         fetch?<LoadingIconScreen/>:<span>Guardar</span>
@@ -69,12 +69,12 @@ export const NewEntryScreen = () => {
                 </button>
             </div>
 
-            <div className="entry-blog__content">
-                <div className="entry-blog__text">
+            <div className="blog__content">
+                <div className="blog__text">
                     <h3 className="principal__title"><i className="fas fa-file-alt m-2"></i> Nueva entrada</h3>
                 </div>
 
-                <form className="entry-blog__newEntry">
+                <form className="blog__newEntry">
                     {
                         msgError&&<div className="auth__alert-error">{msgError}</div>
                     }
