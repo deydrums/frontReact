@@ -29,6 +29,17 @@ export const NewEntryScreen = () => {
 	
     const{ title, content} = values;
 
+
+    //Cargar valores
+    useEffect(() => {
+        if(activeEntry) {
+            setValues(activeEntry);
+        }else{
+            reset();
+        }
+    }, [activeEntry,setValues,reset]);
+
+
     //config jodit
 	const config = {
 		readonly: false, // all options from https://xdsoft.net/jodit/doc/

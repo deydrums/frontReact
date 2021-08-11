@@ -27,7 +27,9 @@ export const UsersListScreen = () => {
                         {
                             fetch
                             ?
+                            <div className="mt-5">
                                 <LoadingIconScreen/>
+                            </div>
                             :
                                 users.map(user => (
                                     <UserScreen 

@@ -3,14 +3,17 @@
 
 import { fetchWithoutToken } from "../helpers/fetch";
 import { types } from "../types/types";
-import { setPagination } from "./ui";
+import { finishFetch, setPagination, startFetch } from "./ui";
+
 
 //errors msg ___________________________________________________________________________
 
 export const startLoadingUsers = (page = 1) => {
     return async(dispatch) => {
+        dispatch(startFetch());
         const resp = await fetchWithoutToken(`user?page=${page}`,'','GET');
         const body = await resp.json();
+        dispatch(finishFetch());
         if(resp.ok) {
             const {data:users} = body.users;
             const pagination = ({
