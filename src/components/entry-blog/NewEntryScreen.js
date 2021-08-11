@@ -34,10 +34,8 @@ export const NewEntryScreen = () => {
     useEffect(() => {
         if(activeEntry) {
             setValues(activeEntry);
-        }else{
-            reset();
         }
-    }, [activeEntry,setValues,reset]);
+    }, [activeEntry,setValues]);
 
 
     //config jodit
