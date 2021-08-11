@@ -8,6 +8,12 @@ const initialState = {
     msgError: null,
     fetch: false,
     redirectLogin: false,
+    pagination: {
+        current: '',
+        prev: '',
+        next: '',
+        total: '',
+    } 
 }
 
 export const uiReducer = (state = initialState, action) => {
@@ -47,6 +53,19 @@ export const uiReducer = (state = initialState, action) => {
                 ...state,
                 redirectLogin: false
             }
+
+        case types.uiUnsetPagination:
+            return{
+                ...state,
+                pagination: initialState.pagination
+            }    
+
+        case types.uiSetPagination:
+            return{
+                ...state,
+                pagination: action.payload
+            }    
+
         default:
             return state;
     }

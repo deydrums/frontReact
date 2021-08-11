@@ -1,25 +1,26 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { startGetEntries } from '../../actions/blog';
 import { startLoadingUsers } from '../../actions/user';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const BlogPaginateScreen = () => {
 
     const dispatch = useDispatch();
-    const {pagination} = useSelector(state => state.user);
+    const {pagination} = useSelector(state => state.ui);
     const {current, next, prev, total} = pagination;
 
     
 
     const handlePrevClick = () => {
         if(prev) {
-            dispatch(startLoadingUsers(prev));
+            dispatch(startGetEntries(prev));
         }
     }
 
     const handleNextClick = () => {
         if(next){
-            dispatch(startLoadingUsers(next));
+            dispatch(startGetEntries(next));
         }
     }
     return (

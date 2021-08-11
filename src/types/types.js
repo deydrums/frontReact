@@ -9,6 +9,9 @@ export const types = {
     uiSetRedirectLogin: '[UI] Set RedirectLogin',
     uiRemoveRedirectLogin: '[UI] Remove RedirectLogin',
 
+    uiUnsetPagination: '[UI] Unset Pagination',
+    uiSetPagination: '[UI] Set Pagination',
+
     authCheckingFinish: '[auth] Finish login checking',
     authStartLogin: '[auth] Start login',
     authLogin: '[auth] Login',

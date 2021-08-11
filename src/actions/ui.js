@@ -33,3 +33,10 @@ export const startRedirectLogin = () =>({
 export const finishRedirectLogin = () =>({
     type: types.uiRemoveRedirectLogin
 });
+
+//Pagination ___________________________________________________________________________
+
+export const setPagination = (pagination) => ({
+    type: types.uiSetPagination,
+    payload: pagination
+});

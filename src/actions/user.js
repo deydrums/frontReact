@@ -3,6 +3,7 @@
 
 import { fetchWithoutToken } from "../helpers/fetch";
 import { types } from "../types/types";
+import { setPagination } from "./ui";
 
 //errors msg ___________________________________________________________________________
 
@@ -20,6 +21,7 @@ export const startLoadingUsers = (page = 1) => {
             })
             dispatch(setUsers(users));
             dispatch(setPaginate(pagination));
+            dispatch(setPagination(pagination));
         }
     }
 };

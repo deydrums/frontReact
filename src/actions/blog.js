@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import { fetchWithToken } from "../helpers/fetch";
 import { types } from "../types/types";
-import { finishFetch, startFetch } from "./ui";
+import { finishFetch, setPagination, startFetch } from "./ui";
 
 //create entry ___________________________________________________________________________
 export const startCreateEntry = (title, content, reset) => {
@@ -20,10 +20,10 @@ export const startCreateEntry = (title, content, reset) => {
 };
 
 //get entries ___________________________________________________________________________
-export const startGetEntries = () => {
+export const startGetEntries = (page = 1) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithToken('get-entries');
+        const resp = await fetchWithToken(`get-entries?page=${page}`);
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {
@@ -35,6 +35,7 @@ export const startGetEntries = () => {
                 'next' : (body.entries.current_page < body.entries.last_page)?body.entries.current_page + 1 : null
             })
             dispatch(setEntries(entries));
+            dispatch(setPagination(pagination));
         }else{
             console.log(body.message?body.message:'Ha ocurrido un error');
         }
