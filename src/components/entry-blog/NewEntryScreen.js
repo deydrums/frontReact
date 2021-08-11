@@ -11,6 +11,7 @@ export const NewEntryScreen = () => {
     //redux
     const dispatch = useDispatch();
     const {msgError, fetch} = useSelector(state => state.ui);
+    const {activeEntry} = useSelector(state => state.blog);
 
     //useEffect hook
     useEffect(() => {
@@ -42,7 +43,11 @@ export const NewEntryScreen = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (isFormValid()){
-            dispatch(startCreateEntry(title,content,reset));
+            if(activeEntry){
+                console.log('Editar')
+            }else{
+                dispatch(startCreateEntry(title,content,reset));
+            }
         }
     }
 
@@ -86,7 +91,13 @@ export const NewEntryScreen = () => {
 
             <div className="blog__content">
                 <div className="blog__text">
-                    <h3 className="principal__title"><i className="fas fa-file-alt m-2"></i> Nueva entrada</h3>
+                    {
+                        activeEntry
+                        ?
+                            <h3 className="principal__title"><i className="fas fa-file-alt m-2"></i> Editar entrada</h3>
+                        :
+                            <h3 className="principal__title"><i className="fas fa-file-alt m-2"></i> Nueva entrada</h3>
+                    }
                 </div>
 
                 <form className="blog__newEntry">
