@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { startGetEntries } from '../../actions/blog';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 import { PaginateScreen } from '../ui/PaginateScreen';
+import { EntryModal } from './EntryModal';
 import { EntryScreen } from './EntryScreen';
 
 export const EntriesScreen = () => {
@@ -44,12 +45,14 @@ export const EntriesScreen = () => {
                         </div>
                         <div className="blog__content__paginate w-100 h-20">
                             <PaginateScreen/>
+                           
                         </div>
 
 
                     </div>
                 </div>
             </div>
+            <EntryModal/>
         </div>
     )
 }
