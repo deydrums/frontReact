@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { NewEntryScreen } from './NewEntryScreen';
 
 const customStyles = {
     content: {
@@ -7,8 +8,6 @@ const customStyles = {
       left: '50%',
       right: 'auto',
       bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
     },
 };
 
@@ -27,13 +26,12 @@ export const EntryModal = () => {
         // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        className="modal"
+        className="modal scroll_options"
         overlayClassName="modal-fondo"
         closeTimeoutMS={200}
         ariaHideApp={!process.env.NODE_ENV === 'test'}
        >
-           <h1>Hola Mundo</h1>
-
+           <NewEntryScreen/>
        </Modal>
     )
 }
