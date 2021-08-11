@@ -20,11 +20,9 @@ export const types = {
     authLogout: '[auth] Logout',
 
     userLoadingUsers: '[user] Loading users',
-    userSetPagination: '[user] Set Pagination',
-
-    userUnSetPagination: '[user] UnSet Pagination',
     userUnSetUsers: '[user] UnSet users',
 
     blogLoadingEntries: '[blog] Loading entries',
-    userSetEntryPagination: '[blog] Set Pagination',
+    blogSetActiveEntry: '[blog] Set active entry',
+    blogUnsetActiveEntry: '[blog] Unset active entry',
 }

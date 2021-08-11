@@ -6,7 +6,7 @@ import { types } from "../types/types";
 
 const initialState = {
     entries: [],
-    activeEntry: false
+    activeEntry: []
 }
 
 export const blogReducer = (state = initialState, action) => {
@@ -18,6 +18,18 @@ export const blogReducer = (state = initialState, action) => {
                 entries: action.payload,
             }
 
+        case types.blogSetActiveEntry:
+            return {
+                ...state,
+                activeEntry: action.payload,
+            }
+
+        case types.blogUnsetActiveEntry:
+            return {
+                ...state,
+                activeEntry: initialState.activeEntry
+            }
+            
         default:
             return state;
     }

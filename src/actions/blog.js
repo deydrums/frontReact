@@ -48,3 +48,11 @@ const setEntries = (entries) => ({
     payload: entries
 });
 
+export const setActiveEntry = (entry) => ({
+    type: types.blogSetActiveEntry,
+    payload: entry
+});
+
+export const unsetActiveEntry = () => ({
+    type: types.blogUnsetActiveEntry
+});

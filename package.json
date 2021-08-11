@@ -10,6 +10,7 @@
     "alloyeditor": "^2.14.3",
     "animate.css": "^4.1.1",
     "jodit-react": "^1.1.1",
+    "moment": "^2.29.1",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
