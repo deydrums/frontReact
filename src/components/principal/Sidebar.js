@@ -43,7 +43,7 @@ export const Sidebar = () => {
                         <i className="fas fa-cog"></i>
                         <Link 
                                 className="btn link-options"
-                                to="/user/settings"
+                                to="/config/user/settings"
                                 replace 
                         >
                                  Ajustes de usuario
@@ -59,7 +59,7 @@ export const Sidebar = () => {
 
             <div className="principal__options">
 
-                <Link to = "/inicio" className="principal_option pointer link-options mb-2" replace >
+                <Link to = "/config/inicio" className="principal_option pointer link-options mb-2" replace >
                     <div className="principal_option_icon">
                         <i className="fas fa-home"></i>
                     </div>
@@ -68,7 +68,7 @@ export const Sidebar = () => {
                     </div>
                 </Link>
 
-                <Link to = "/users" className="principal_option pointer link-options mb-2" replace >
+                <Link to = "/config/users" className="principal_option pointer link-options mb-2" replace >
                     <div className="principal_option_icon">
                         <i className="fas fa-users"></i>
                     </div>
@@ -77,7 +77,7 @@ export const Sidebar = () => {
                     </div>
                 </Link>
 
-                <Link to = "/entry-blog" className="principal_option pointer link-options mb-2" replace >
+                <Link to = "/config/entry-blog" className="principal_option pointer link-options mb-2" replace >
                     <div className="principal_option_icon">
                         <i className="fas fa-file-alt"></i>
                     </div>

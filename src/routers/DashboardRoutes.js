@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
+//import { useDispatch } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { NewEntryScreen } from '../components/entry-blog/NewEntryScreen'
 import { ConfirmEmailScreen } from '../components/principal/ConfirmEmailScreen'
 //import { startLoadingUsers } from '../actions/user'
-import { startGetEntries } from '../actions/blog'
+//import { startGetEntries } from '../actions/blog'
 import { IndexScreen } from '../components/principal/IndexScreen'
 import { Sidebar } from '../components/principal/Sidebar'
 import { UserSettingsScreen } from '../components/principal/UserSettingsScreen'
@@ -13,9 +13,9 @@ import { UsersListScreen } from '../components/users/UsersListScreen'
 
 export const DashboardRoutes = () => {
 
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
     // dispatch(startLoadingUsers());
-    dispatch(startGetEntries());
+    //dispatch(startGetEntries());
     const {email_verified_at} = useSelector(state => state.auth)
 
     const btnmoreClick = () => { 
@@ -38,11 +38,11 @@ export const DashboardRoutes = () => {
                     :
                         <div className = "principal__dashboard" onClick={btnmoreOutClick}>
                             <Switch>
-                                <Route exact path="/inicio" component={IndexScreen}/>
-                                <Route exact path="/user/settings" component={UserSettingsScreen}/>
-                                <Route exact path="/users" component={UsersListScreen}/>
-                                <Route exact path="/entry-blog" component={NewEntryScreen}/>
-                                <Redirect to="/inicio"/>
+                                <Route exact path="/config/inicio" component={IndexScreen}/>
+                                <Route exact path="/config/user/settings" component={UserSettingsScreen}/>
+                                <Route exact path="/config/users" component={UsersListScreen}/>
+                                <Route exact path="/config/entry-blog" component={NewEntryScreen}/>
+                                <Redirect to="/config/inicio"/>
                             </Switch>
                         </div>
                 }

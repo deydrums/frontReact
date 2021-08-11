@@ -21,7 +21,7 @@ export const PublicRoute = ({
             component = { (props)=>(
                 (isAuthenticated)
                     // ? <Redirect to={lastPath}/>
-                    ? <Redirect to='/'/>
+                    ? <Redirect to='/config'/>
                     : <Component {...props}/>
             )}
         

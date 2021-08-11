@@ -36,7 +36,7 @@ export const AppRouter = () => {
                     isAuthenticated={!!uid}
                 />
                 <PrivateRoute 
-                    path="/" 
+                    path="/config" 
                     component ={DashboardRoutes}
                     isAuthenticated={!!uid}
                 />
