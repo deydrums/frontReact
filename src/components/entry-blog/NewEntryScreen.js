@@ -1,17 +1,32 @@
-import React, {useState, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import JoditEditor from "jodit-react";
+import { useForm } from '../../hooks/useForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeError, setError } from '../../actions/ui';
 
 export const NewEntryScreen = () => {
     
+    //redux
+    const dispatch = useDispatch();
+    const {msgError} = useSelector(state => state.ui);
+
+    //useEffect hook
+    useEffect(() => {
+        dispatch(removeError());
+    }, [dispatch])
+
+    //useRef
 	const editor = useRef(null);
-    const initialState = {
-        title: 'New Entry',
-        content: 'New Entry'
-    }
-	const [values, setValues] = useState(initialState);
+
+    //useForm customHook
+    const [values, handleInputChange, setValues] = useForm({
+        title: '',
+        content: ''
+    });
 	
     const{ title, content} = values;
 
+    //config jodit
 	const config = {
 		readonly: false, // all options from https://xdsoft.net/jodit/doc/
         height: 470,
@@ -19,17 +34,27 @@ export const NewEntryScreen = () => {
         language: "es",
 	}
 
+    //submit
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(values)
+        if (isFormValid()){
+            console.log(values)
+        }
     }
 
-    const handleInputChange = ({target}) => {
-        setValues({
-            ...values,
-            [target.name]:target.value
-        });
-    }
+    //form validate
+    const isFormValid = () =>{
+        if(title.trim().length ===0){
+            dispatch(setError('El titulo es requerido'));
+            return false;
+        }else if(content.trim().length ===0){
+            dispatch(setError('El contenido es requerido'));
+            return false;
+        }
+        dispatch(removeError());
+        return true;
+    };
 
     return (
         <div className="principal__content">
@@ -41,7 +66,11 @@ export const NewEntryScreen = () => {
                 <div className="entry-blog__text">
                     <h3 className="principal__title"><i className="fas fa-file-alt m-2"></i> Nueva entrada</h3>
                 </div>
+
                 <form className="entry-blog__newEntry">
+                    {
+                        msgError&&<div className="auth__alert-error">{msgError}</div>
+                    }
                     <input
                         type="text"
                         placeholder="Titulo..."
