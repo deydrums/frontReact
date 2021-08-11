@@ -5,7 +5,7 @@ import { types } from "../types/types";
 
 
 const initialState = {
-    entries: null,
+    entries: [],
     activeEntry: false
 }
 

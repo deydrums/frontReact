@@ -27,7 +27,13 @@ export const startGetEntries = () => {
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {
-            const {entries} = body;
+            const {data:entries} = body.entries;
+            const pagination = ({
+                'total': body.entries.last_page,
+                'current': body.entries.current_page,
+                'prev' : !body.entries.links[0].url?null:parseInt(body.entries.links[0].url.split('=')[1]),
+                'next' : (body.entries.current_page < body.entries.last_page)?body.entries.current_page + 1 : null
+            })
             dispatch(setEntries(entries));
         }else{
             console.log(body.message?body.message:'Ha ocurrido un error');
