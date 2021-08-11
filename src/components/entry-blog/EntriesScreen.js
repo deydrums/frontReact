@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { startGetEntries } from '../../actions/blog';
+import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 import { PaginateScreen } from '../ui/PaginateScreen';
 import { EntryScreen } from './EntryScreen';
 
 export const EntriesScreen = () => {
 
     const {entries} = useSelector(state => state.blog);
-
+    const {fetch} = useSelector(state => state.ui);
     const dispatch = useDispatch();
     
     useEffect(() => {
@@ -28,12 +29,17 @@ export const EntriesScreen = () => {
 
                         <div className="blog__content_entries w-100 h-80">
                             {
-                                entries.map(entry => (
-                                    <EntryScreen 
-                                        key={entry.id}
-                                        {...entry}
-                                    />
-                                ))
+                                fetch
+                                ?
+                                    <LoadingIconScreen/>
+                                :
+                                    entries.map(entry => (
+                                        <EntryScreen 
+                                            key={entry.id}
+                                            {...entry}
+                                        />
+                                    ))
+
                             }
                         </div>
                         <div className="blog__content__paginate w-100 h-20">

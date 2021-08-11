@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const EntryScreen = ({title,user}) => {
+export const EntryScreen = ({title,user,content,created_at}) => {
     return (
         <div className="blog__content__entry pointer"> 
             <div className="blog__content__color">

@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { startLoadingUsers } from '../../actions/user';
-import { BlogPaginateScreen, PaginateScreen } from '../ui/PaginateScreen';
+import { LoadingIconScreen } from '../ui/LoadingIconScreen';
+import { PaginateScreen } from '../ui/PaginateScreen';
 import { UserScreen } from './UserScreen'
 
 export const UsersListScreen = () => {
 
     const {users} = useSelector(state => state.user);
+    const {fetch} = useSelector(state => state.ui);
 
     const dispatch = useDispatch();
     
@@ -23,12 +25,16 @@ export const UsersListScreen = () => {
                 <div className="container_content">
                     <div className="users_content_UserScreen">
                         {
-                            users.map(user => (
-                                <UserScreen 
-                                    key={user.id}
-                                    {...user}
-                                />
-                            ))
+                            fetch
+                            ?
+                                <LoadingIconScreen/>
+                            :
+                                users.map(user => (
+                                    <UserScreen 
+                                        key={user.id}
+                                        {...user}
+                                    />
+                                ))
                         }
                     </div>
                     <div className="users__content__paginate">
