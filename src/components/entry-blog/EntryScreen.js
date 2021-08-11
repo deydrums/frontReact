@@ -22,7 +22,7 @@ export const EntryScreen = (entry) => {
 
     useEffect(() => {
         dispatch(unsetActiveEntry())
-    }, [])
+    }, [dispatch])
 
     const handleEntryClick = () => {
         dispatch(setActiveEntry(entry));
