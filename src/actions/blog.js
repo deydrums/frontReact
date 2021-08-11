@@ -32,7 +32,8 @@ export const startGetEntries = (page = 1) => {
                 'total': body.entries.last_page,
                 'current': body.entries.current_page,
                 'prev' : !body.entries.links[0].url?null:parseInt(body.entries.links[0].url.split('=')[1]),
-                'next' : (body.entries.current_page < body.entries.last_page)?body.entries.current_page + 1 : null
+                'next' : (body.entries.current_page < body.entries.last_page)?body.entries.current_page + 1 : null,
+                'origin' : 'entries'
             })
             dispatch(setEntries(entries));
             dispatch(setPagination(pagination));

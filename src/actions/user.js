@@ -17,7 +17,8 @@ export const startLoadingUsers = (page = 1) => {
                 'total': body.users.last_page,
                 'current': body.users.current_page,
                 'prev' : !body.users.links[0].url?null:parseInt(body.users.links[0].url.split('=')[1]),
-                'next' : (body.users.current_page < body.users.last_page)?body.users.current_page + 1 : null
+                'next' : (body.users.current_page < body.users.last_page)?body.users.current_page + 1 : null,
+                'origin' : 'users'
             })
             dispatch(setUsers(users));
             dispatch(setPaginate(pagination));

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { startLoadingUsers } from '../../actions/user';
+import { BlogPaginateScreen } from '../entry-blog/BlogPaginateScreen';
 import { UserPaginateScreen } from './UserPaginateScreen';
 import { UserScreen } from './UserScreen'
 
@@ -32,7 +33,7 @@ export const UsersListScreen = () => {
                         }
                     </div>
                     <div className="users__content__paginate">
-                        <UserPaginateScreen/>
+                        <BlogPaginateScreen/>
                     </div>
                 </div>    
             </div>

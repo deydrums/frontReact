@@ -8,19 +8,23 @@ export const BlogPaginateScreen = () => {
 
     const dispatch = useDispatch();
     const {pagination} = useSelector(state => state.ui);
-    const {current, next, prev, total} = pagination;
+    const {current, next, prev, total, origin} = pagination;
 
     
 
     const handlePrevClick = () => {
-        if(prev) {
+        if(prev && origin === 'entries') {
             dispatch(startGetEntries(prev));
+        }else if(prev && origin === 'users') {
+            dispatch(startLoadingUsers(prev));
         }
     }
 
     const handleNextClick = () => {
-        if(next){
+        if(next && origin === 'entries'){
             dispatch(startGetEntries(next));
+        }else if(next && origin === 'users') {
+            dispatch(startLoadingUsers(next));
         }
     }
     return (
