@@ -2,8 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import JoditEditor from "jodit-react";
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeError, setError } from '../../actions/ui';
-import { startCreateEntry } from '../../actions/blog';
+import { closeModal, removeError, setError } from '../../actions/ui';
+import { startCreateEntry, unsetActiveEntry } from '../../actions/blog';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const NewEntryScreen = () => {
@@ -46,6 +46,13 @@ export const NewEntryScreen = () => {
         }
     }
 
+    //Close Modal
+
+    const handleCloseModal = () =>{
+        dispatch(closeModal());
+        dispatch(unsetActiveEntry());
+    }
+
     //form validate
     const isFormValid = () =>{
         if(title.trim().length ===0){
@@ -61,12 +68,20 @@ export const NewEntryScreen = () => {
 
     return (
         <div className="principal__content scroll_options">
-            <div className="blog__submit">
-                <button type="Submit" className="btn btn-primary" onClick={handleSubmit}>
-                    {
-                        fetch?<LoadingIconScreen/>:<span>Guardar</span>
-                    }
-                </button>
+            <div className="blog__buttons">
+                <div className = "blog__button__save">
+                    <button type="Submit" className="btn btn-primary w-100" onClick={handleSubmit}>
+                        {
+                            fetch?<LoadingIconScreen/>:<span>Guardar</span>
+                        }
+                    </button>
+                </div>
+
+                <div className = "blog__button__save">
+                    <button className="btn btn-close" onClick={handleCloseModal}>
+                        <i className="fas fa-times"></i>
+                    </button>
+                </div>
             </div>
 
             <div className="blog__content">

@@ -12,6 +12,9 @@ export const types = {
     uiUnsetPagination: '[UI] Unset Pagination',
     uiSetPagination: '[UI] Set Pagination',
 
+    uiOpenModal: '[UI] OpenModal',
+    uiCloseModal: '[UI] CloseModal',
+
     authCheckingFinish: '[auth] Finish login checking',
     authStartLogin: '[auth] Start login',
     authLogin: '[auth] Login',

@@ -13,7 +13,8 @@ const initialState = {
         prev: '',
         next: '',
         total: '',
-    } 
+    },
+    modalOpen: false
 }
 
 export const uiReducer = (state = initialState, action) => {
@@ -66,6 +67,17 @@ export const uiReducer = (state = initialState, action) => {
                 pagination: action.payload
             }    
 
+        case types.uiOpenModal:
+            return{
+                ...state,
+                modalOpen: true
+            }    
+
+        case types.uiCloseModal:
+            return{
+                ...state,
+                modalOpen: false
+            }    
         default:
             return state;
     }

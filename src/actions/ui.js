@@ -44,3 +44,13 @@ export const setPagination = (pagination) => ({
 export const unsetPagination = () => ({
     type: types.uiUnsetPagination
 });
+
+//Modal ___________________________________________________________________________
+
+export const openModal = () => ({
+    type: types.uiOpenModal
+});
+
+export const closeModal = () => ({
+    type: types.uiCloseModal
+});

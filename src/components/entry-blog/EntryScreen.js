@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { setActiveEntry, unsetActiveEntry } from '../../actions/blog';
+import { openModal } from '../../actions/ui';
 
 moment.updateLocale('es', {
     months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
@@ -26,6 +27,7 @@ export const EntryScreen = (entry) => {
 
     const handleEntryClick = () => {
         dispatch(setActiveEntry(entry));
+        dispatch(openModal());
     }
 
     return (
