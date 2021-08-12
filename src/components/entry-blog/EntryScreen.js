@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import moment from 'moment';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setActiveEntry, unsetActiveEntry } from '../../actions/blog';
 import { openModal } from '../../actions/ui';
 
@@ -17,6 +17,7 @@ moment.updateLocale('es', {
 export const EntryScreen = (entry) => {
 
     const dispatch = useDispatch();
+    const {uid} = useSelector(state => state.auth)
 
     const {title,user,created_at} = entry;
     const date = moment(created_at);
@@ -33,7 +34,9 @@ export const EntryScreen = (entry) => {
     return (
         <div className="blog__content__entry pointer" onClick={handleEntryClick}> 
             <div className="blog__content__color">
-
+                {
+                    (uid === entry.user_id)&&<i className="fas fa-user"></i>
+                }
             </div>
             <div className="blog__content__entry-data">
                 <h2>{title}</h2>

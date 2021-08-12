@@ -88,6 +88,10 @@
         height: 100%;
         overflow: hidden;
         background-color:lighten($color: $dark-grey, $amount: 15);
+        color: lighten($color: $primary, $amount: 40);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .blog__content__entry-data{

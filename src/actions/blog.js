@@ -12,7 +12,9 @@ export const startCreateEntry = (title, content, reset) => {
         dispatch(finishFetch());
         if(resp.ok) {
             Swal.fire('Hecho',body.message,'success');
-            reset();
+            dispatch(startGetEntries());
+            dispatch(closeModal());
+            dispatch(unsetActiveEntry());
         }else{
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
         }
