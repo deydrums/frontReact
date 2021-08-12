@@ -90,22 +90,26 @@ export const NewEntryScreen = () => {
     return (
         <div className="principal__content scroll_options">
             <div className="blog__buttons">
-                <div className = "blog__button__save">
-                    <button type="Submit" className="btn btn-primary w-90" onClick={handleSubmit}>
-                        {
-                            fetch?<LoadingIconScreen/>:<span>Guardar</span>
-                        }
-                    </button>
-                </div>
+
                 {
                     (activeEntry && activeEntry.user_id === uid)&&
-                    <div className = "blog__button__save">
-                        <button className="btn btn-danger w-90" onClick={handleDeleteEntry}>
-                            {
-                                fetch?<LoadingIconScreen/>:<span>Borrar</span>
-                            }
-                        </button>
-                    </div>
+                    <>
+                        <div className = "blog__button">
+                            <button type="Submit" className="btn btn-primary w-90" onClick={handleSubmit}>
+                                {
+                                    fetch?<LoadingIconScreen/>:<span>Guardar</span>
+                                }
+                            </button>
+                        </div>
+
+                        <div className = "blog__button">
+                            <button className="btn btn-danger w-90" onClick={handleDeleteEntry}>
+                                {
+                                    fetch?<LoadingIconScreen/>:<span>Borrar</span>
+                                }
+                            </button>
+                        </div>
+                    </>
                 }
 
                 <div className = "blog__button__save">
