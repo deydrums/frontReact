@@ -3,7 +3,7 @@ import JoditEditor from "jodit-react";
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal, removeError, setError } from '../../actions/ui';
-import { startCreateEntry, startDeleteEntry, unsetActiveEntry, updateEntry } from '../../actions/blog';
+import { startCreateEntry, startDeleteEntry, startUpdateEntry, unsetActiveEntry } from '../../actions/blog';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const NewEntryScreen = () => {
@@ -54,8 +54,7 @@ export const NewEntryScreen = () => {
         e.preventDefault()
         if (isFormValid()){
             if(activeEntry){
-                console.log('Editar')
-                dispatch(updateEntry(activeEntry.id, values))
+                dispatch(startUpdateEntry(activeEntry.id, values))
             }else{
                 dispatch(startCreateEntry(title,content,reset));
             }

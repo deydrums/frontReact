@@ -61,6 +61,24 @@ export const startDeleteEntry = (id) => {
     }
 };
 
+//create entry ___________________________________________________________________________
+export const startUpdateEntry = (id, entry) => {
+    const {title, content} = entry;
+    return async(dispatch) => {
+        dispatch(startFetch());
+        const resp = await fetchWithToken(`entry/update-entry/${id}`,{title,content},'PUT');
+        const body = await resp.json();
+        dispatch(finishFetch());
+        if(resp.ok) {
+            Swal.fire('Hecho',body.message,'success');
+            dispatch(updateEntry(id, entry));
+            dispatch(setActiveEntry(entry));
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+};
+
 
 const setEntries = (entries) => ({
     type: types.blogLoadingEntries,
