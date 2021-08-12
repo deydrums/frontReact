@@ -4,7 +4,7 @@ import { types } from "../types/types";
 import Swal from 'sweetalert2';
 import { fetchWithoutToken, fetchWithToken, fileUpload } from "../helpers/fetch";
 import { finishFetch, startFetch, startRedirectLogin, unsetPagination } from "./ui";
-import { unsetUsers } from "./user";
+import { unsetUsers, updateUser } from "./user";
 
 //login ___________________________________________________________________________
 
@@ -232,7 +232,6 @@ export const startConfirmEmail = () => {
 
 //set Admin ___________________________________________________________________________
 export const setAdmin = (id,action) => {
-    console.log(id,action);
     let act = 'unset'
     if(action === true){
         act = 'set'
@@ -250,10 +249,3 @@ export const setAdmin = (id,action) => {
     }
 };
 
-export const updateUser = (id, user) =>({
-    type: types.userUpdateUser,
-    payload: {
-        id, 
-        user
-    }
-});

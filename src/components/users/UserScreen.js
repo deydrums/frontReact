@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { setAdmin } from '../../actions/auth';
 import {fetchWithToken } from '../../helpers/fetch';
@@ -7,8 +7,13 @@ import {fetchWithToken } from '../../helpers/fetch';
 const baseUrl = process.env.REACT_APP_API_URL;
 
 export const UserScreen = (user) => {
+    //useSelector hook
+    const {role,uid} = useSelector(state => state.auth)
+
+    //dispatch hook
     const dispatch = useDispatch();
 
+    //useEffect hook (changes user.role)
     useEffect(() => {
         if(user.role === '_ADMIN'){
             setState(true)
@@ -17,11 +22,12 @@ export const UserScreen = (user) => {
         }
     }, [user.role])
 
-    
+    //useState hook (checkbox checked)
     let initialState = false;
     const [check, setState] = useState(initialState);
 
 
+    //HandleChange 
     const handleChange = () =>{
  
         Swal.fire({
@@ -32,7 +38,9 @@ export const UserScreen = (user) => {
             },
             showCancelButton: true,
             confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar',
             showLoaderOnConfirm: true,
+            backdrop: true,
             preConfirm: async(password) => {
                 if (!password || password.length <= 7) {
                     Swal.showValidationMessage(
@@ -42,11 +50,14 @@ export const UserScreen = (user) => {
                 }
                 const resp = await fetchWithToken(`confirm-password`,{password},'POST');
                 const body = await resp.json();
-                console.log(body)
-                if(resp.ok){
-                    return true
+                if(!resp.ok){
+                    if(body.errors.password){
+                        Swal.fire('Error',body.errors.password[0],'error');
+                    }else{
+                        Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+                    }
                 }
-              return false
+              return true
             },
             allowOutsideClick: () => !Swal.isLoading()
           }).then((result) => {
@@ -78,10 +89,13 @@ export const UserScreen = (user) => {
                     :
                     <i className="fas fa-user"></i>
                 }
-                <label className="switch">
-                    <input type="checkbox" onChange = {handleChange} name='role' checked={check}/>
-                    <span className="slider round"></span>
-                </label>
+                {
+                    (role === '_ADMIN' && user.id !== uid)&&
+                    <label className="switch">
+                        <input type="checkbox" onChange = {handleChange} name='role' checked={check}/>
+                        <span className="slider round"></span>
+                    </label>
+                }
             </div>
         </div>
     )

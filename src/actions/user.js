@@ -37,3 +37,11 @@ export const setUsers = (users) => ({
 export const unsetUsers = () => ({
     type: types.userUnSetUsers,
 });
+
+export const updateUser = (id, user) =>({
+    type: types.userUpdateUser,
+    payload: {
+        id, 
+        user
+    }
+});
