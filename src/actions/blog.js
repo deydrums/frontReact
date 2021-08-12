@@ -80,3 +80,14 @@ export const deleteEntry = (id) => ({
     type: types.blogDeleteEntry,
     payload: id
 });
+
+export const updateEntry = (id, entry) => ({
+    type: types.blogUpdateEntry,
+    payload: {
+        id, 
+        entry: {
+            id,
+            ...entry
+        }
+    }
+});

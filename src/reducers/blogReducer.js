@@ -36,6 +36,15 @@ export const blogReducer = (state = initialState, action) => {
                 entries: state.entries.filter(entry=>entry.id !== action.payload)
             }
 
+        case types.blogUpdateEntry:
+            return {
+                ...state,
+                entries: state.entries.map(
+                    entry => entry.id === action.payload.id 
+                        ? action.payload.entry
+                        : entry
+                )
+            }
         default:
             return state;
     }
