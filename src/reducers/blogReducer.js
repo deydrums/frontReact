@@ -30,6 +30,12 @@ export const blogReducer = (state = initialState, action) => {
                 activeEntry: initialState.activeEntry
             }
 
+        case types.blogDeleteEntry:
+            return {
+                ...state,
+                entries: state.entries.filter(entry=>entry.id !== action.payload)
+            }
+
         default:
             return state;
     }

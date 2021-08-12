@@ -54,6 +54,7 @@ export const startDeleteEntry = (id) => {
             Swal.fire('Hecho',body.message,'success');
             dispatch(closeModal());
             dispatch(unsetActiveEntry());
+            dispatch(deleteEntry(id));
         }else{
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
         }
@@ -73,4 +74,9 @@ export const setActiveEntry = (entry) => ({
 
 export const unsetActiveEntry = () => ({
     type: types.blogUnsetActiveEntry
+});
+
+export const deleteEntry = (id) => ({
+    type: types.blogDeleteEntry,
+    payload: id
 });

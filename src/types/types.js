@@ -28,4 +28,5 @@ export const types = {
     blogLoadingEntries: '[blog] Loading entries',
     blogSetActiveEntry: '[blog] Set active entry',
     blogUnsetActiveEntry: '[blog] Unset active entry',
+    blogDeleteEntry: '[blog] Delete Entry',
 }
