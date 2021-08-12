@@ -22,7 +22,7 @@ export const EntriesScreen = () => {
     }
 
     return (
-        <div className="principal__content">
+        <div className="principal__content scroll_options">
             <div className="blog__content ">
                 <div className="blog__text">
                     <h3 className="principal__title"><i className="fab fa-microblog m-2"></i> Blog</h3>
