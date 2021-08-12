@@ -102,7 +102,7 @@ export const NewEntryScreen = () => {
                             </button>
                         </div>
 
-                        <div className = "blog__button">
+                        <div className = "blog__button ">
                             <button className="btn btn-danger w-90" onClick={handleDeleteEntry}>
                                 {
                                     fetch?<LoadingIconScreen/>:<span>Borrar</span>
@@ -112,7 +112,7 @@ export const NewEntryScreen = () => {
                     </>
                 }
 
-                <div className = "blog__button__save">
+                <div className = "blog__button">
                     <button className="btn btn-close" onClick={handleCloseModal}>
                         <i className="fas fa-times"></i>
                     </button>
