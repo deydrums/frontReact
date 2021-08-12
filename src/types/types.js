@@ -24,6 +24,7 @@ export const types = {
 
     userLoadingUsers: '[user] Loading users',
     userUnSetUsers: '[user] UnSet users',
+    userUpdateUser: '[user] Update user',
 
     blogLoadingEntries: '[blog] Loading entries',
     blogSetActiveEntry: '[blog] Set active entry',

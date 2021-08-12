@@ -183,8 +183,6 @@ export const startUpdate = (name) => {
 
 ////upload image user ___________________________________________________________________________
 
-
-
 export const startUpload = (file) => {
     return async(dispatch) => {
         dispatch(startFetch());
@@ -231,3 +229,31 @@ export const startConfirmEmail = () => {
         }
     }
 };
+
+//set Admin ___________________________________________________________________________
+export const setAdmin = (id,action) => {
+    console.log(id,action);
+    let act = 'unset'
+    if(action === true){
+        act = 'set'
+    }
+    return async(dispatch) => {
+        const resp = await fetchWithToken(`user/set-admin/${id}/${act}`,'','PUT');
+        const body = await resp.json();
+        if(resp.ok) {
+            const {user} = body;
+            dispatch(updateUser(id,user));
+            Swal.fire('Hecho',body.message,'success');
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+};
+
+export const updateUser = (id, user) =>({
+    type: types.userUpdateUser,
+    payload: {
+        id, 
+        user
+    }
+});
