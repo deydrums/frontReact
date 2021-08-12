@@ -13,6 +13,7 @@ import { AuthRouter } from "./AuthRouter";
 import { DashboardRoutes } from "./DashboardRoutes";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
+import { PublicRoutes } from "./PublicRoutes";
 
 export const AppRouter = () => {
 
@@ -40,6 +41,9 @@ export const AppRouter = () => {
                     component ={DashboardRoutes}
                     isAuthenticated={!!uid}
                 />
+
+                <PublicRoutes path="/"/>
+                
                 <Redirect to = "/auth/login"/>
             </Switch>
         </Router>
