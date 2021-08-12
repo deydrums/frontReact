@@ -7,7 +7,7 @@ import { finishFetch, setPagination, startFetch } from "./ui";
 export const startCreateEntry = (title, content, reset) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithToken('create-entry',{title,content},'POST');
+        const resp = await fetchWithToken('entry/create-entry',{title,content},'POST');
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {
@@ -23,7 +23,7 @@ export const startCreateEntry = (title, content, reset) => {
 export const startGetEntries = (page = 1) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithToken(`get-entries?page=${page}`);
+        const resp = await fetchWithToken(`entry/get-entries?page=${page}`);
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {
