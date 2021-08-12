@@ -2,7 +2,6 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { EntriesScreen } from '../components/entry-blog/EntriesScreen'
-import { NewEntryScreen } from '../components/entry-blog/NewEntryScreen'
 import { ConfirmEmailScreen } from '../components/principal/ConfirmEmailScreen'
 import { IndexScreen } from '../components/principal/IndexScreen'
 import { Sidebar } from '../components/principal/Sidebar'
@@ -36,7 +35,6 @@ export const DashboardRoutes = () => {
                                 <Route exact path="/config/inicio" component={IndexScreen}/>
                                 <Route exact path="/config/user/settings" component={UserSettingsScreen}/>
                                 <Route exact path="/config/users" component={UsersListScreen}/>
-                                <Route exact path="/config/entry-blog" component={NewEntryScreen}/>
                                 <Route exact path="/config/blog/entries" component={EntriesScreen}/>
                                 <Redirect to="/config/inicio"/>
                             </Switch>

@@ -111,6 +111,16 @@ export const NewEntryScreen = () => {
                         </div>
                     </>
                 }
+                {
+                    (!activeEntry)&&
+                        <div className = "blog__button">
+                            <button type="Submit" className="btn btn-primary w-90" onClick={handleSubmit}>
+                                {
+                                    fetch?<LoadingIconScreen/>:<span>Guardar</span>
+                                }
+                            </button>
+                        </div>
+                }
 
                 <div className = "blog__button">
                     <button className="btn btn-close" onClick={handleCloseModal}>

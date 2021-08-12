@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { startGetEntries } from '../../actions/blog';
+import { openModal } from '../../actions/ui';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 import { PaginateScreen } from '../ui/PaginateScreen';
 import { EntryModal } from './EntryModal';
@@ -15,7 +16,11 @@ export const EntriesScreen = () => {
     useEffect(() => {
         dispatch(startGetEntries());
     },[dispatch]);
-    
+
+    const handleNewEntry = () => {
+        dispatch(openModal());
+    }
+
     return (
         <div className="principal__content">
             <div className="blog__content ">
@@ -25,6 +30,9 @@ export const EntriesScreen = () => {
                 <div className="container_content w-90">
                     <div className="blog__new-entry">
                         <h5 className="principal__title_secundary"><i className="fas fa-file-alt m-2"></i> Entradas</h5>
+                        <button className="btn btn-primary h-100" onClick ={handleNewEntry}>
+                            <span>Nueva entrada</span>
+                        </button>
                     </div>
                     <div className="blog__entries w-100 h-100">
 

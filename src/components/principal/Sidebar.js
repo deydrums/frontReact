@@ -76,16 +76,6 @@ export const Sidebar = () => {
                         Usuarios
                     </div>
                 </Link>
-
-                <Link to = "/config/entry-blog" className="principal_option pointer link-options mb-2" replace >
-                    <div className="principal_option_icon">
-                        <i className="fas fa-file-alt"></i>
-                    </div>
-                    <div className="principal_option_text">
-                        Nueva entrada
-                    </div>
-                </Link>
-
                 
                 <Link to = "/config/blog/entries" className="principal_option pointer link-options mb-2" replace >
                     <div className="principal_option_icon">

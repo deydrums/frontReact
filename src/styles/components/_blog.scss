@@ -45,8 +45,12 @@
     align-items: center;
     background-color:lighten($color: $dark-grey, $amount: 15);
     h5{
-        width: 90%;
-        margin: 0 auto;
+        width: 65%;
+        margin-left: 50px;
+    }
+
+    button{
+        width: 30%;
     }
 }
 
