@@ -12,6 +12,7 @@ export const NewEntryScreen = () => {
     const dispatch = useDispatch();
     const {msgError, fetch} = useSelector(state => state.ui);
     const {activeEntry} = useSelector(state => state.blog);
+    const {uid} = useSelector(state => state.auth);
 
     //useEffect hook
     useEffect(() => {
@@ -84,12 +85,22 @@ export const NewEntryScreen = () => {
         <div className="principal__content scroll_options">
             <div className="blog__buttons">
                 <div className = "blog__button__save">
-                    <button type="Submit" className="btn btn-primary w-100" onClick={handleSubmit}>
+                    <button type="Submit" className="btn btn-primary w-90" onClick={handleSubmit}>
                         {
                             fetch?<LoadingIconScreen/>:<span>Guardar</span>
                         }
                     </button>
                 </div>
+                {
+                    (activeEntry && activeEntry.user_id === uid)&&
+                    <div className = "blog__button__save">
+                        <button className="btn btn-danger w-90" >
+                            {
+                                fetch?<LoadingIconScreen/>:<span>Borrar</span>
+                            }
+                        </button>
+                    </div>
+                }
 
                 <div className = "blog__button__save">
                     <button className="btn btn-close" onClick={handleCloseModal}>
