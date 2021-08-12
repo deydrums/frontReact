@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import { fetchWithToken } from "../helpers/fetch";
 import { types } from "../types/types";
-import { finishFetch, setPagination, startFetch } from "./ui";
+import { closeModal, finishFetch, setPagination, startFetch } from "./ui";
 
 //create entry ___________________________________________________________________________
 export const startCreateEntry = (title, content, reset) => {
@@ -42,6 +42,24 @@ export const startGetEntries = (page = 1) => {
         }
     }
 };
+
+//delete entry ___________________________________________________________________________
+export const startDeleteEntry = (id) => {
+    return async(dispatch) => {
+        dispatch(startFetch());
+        const resp = await fetchWithToken(`entry/delete/${id}`,'','DELETE');
+        const body = await resp.json();
+        dispatch(finishFetch());
+        if(resp.ok) {
+            Swal.fire('Hecho',body.message,'success');
+            dispatch(closeModal());
+            dispatch(unsetActiveEntry());
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+};
+
 
 const setEntries = (entries) => ({
     type: types.blogLoadingEntries,

@@ -3,7 +3,7 @@ import JoditEditor from "jodit-react";
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal, removeError, setError } from '../../actions/ui';
-import { startCreateEntry, unsetActiveEntry } from '../../actions/blog';
+import { startCreateEntry, startDeleteEntry, unsetActiveEntry } from '../../actions/blog';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const NewEntryScreen = () => {
@@ -68,6 +68,12 @@ export const NewEntryScreen = () => {
         dispatch(unsetActiveEntry());
     }
 
+    //Delete Entre
+
+    const handleDeleteEntry = () => {
+        dispatch(startDeleteEntry(activeEntry.id));
+    }
+
     //form validate
     const isFormValid = () =>{
         if(title.trim().length ===0){
@@ -94,7 +100,7 @@ export const NewEntryScreen = () => {
                 {
                     (activeEntry && activeEntry.user_id === uid)&&
                     <div className = "blog__button__save">
-                        <button className="btn btn-danger w-90" >
+                        <button className="btn btn-danger w-90" onClick={handleDeleteEntry}>
                             {
                                 fetch?<LoadingIconScreen/>:<span>Borrar</span>
                             }
