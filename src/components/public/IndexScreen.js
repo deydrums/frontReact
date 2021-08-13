@@ -3,7 +3,6 @@ import { Header } from './Header';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import { AboutUs } from './AboutUs';
-import { Footer } from './Footer';
 
 export const IndexScreen = () => {
 
@@ -18,7 +17,6 @@ export const IndexScreen = () => {
         <>
             <Header/>
             <AboutUs/>
-            <Footer/>
         </>
         
     )
