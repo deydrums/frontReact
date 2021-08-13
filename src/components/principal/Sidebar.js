@@ -1,7 +1,7 @@
 import React from 'react';
 import { startLogout } from '../../actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
@@ -44,7 +44,6 @@ export const Sidebar = () => {
                         <Link 
                                 className="btn link-options"
                                 to="/config/user/settings"
-                                replace 
                         >
                                  Ajustes de usuario
                         </Link>
@@ -59,32 +58,32 @@ export const Sidebar = () => {
 
             <div className="principal__options">
 
-                <Link to = "/config/inicio" className="principal_option pointer link-options mb-2" replace >
+                <NavLink to = "/config/inicio" className="principal_option pointer link-options mb-2" activeClassName = "principal_opcion--active" >
                     <div className="principal_option_icon">
                         <i className="fas fa-home"></i>
                     </div>
                     <div className="principal_option_text">
                         Inicio
                     </div>
-                </Link>
+                </NavLink>
 
-                <Link to = "/config/users" className="principal_option pointer link-options mb-2" replace >
+                <NavLink to = "/config/users" className="principal_option pointer link-options mb-2" activeClassName = "principal_opcion--active" >
                     <div className="principal_option_icon">
                         <i className="fas fa-users"></i>
                     </div>
                     <div className="principal_option_text">
                         Usuarios
                     </div>
-                </Link>
+                </NavLink>
                 
-                <Link to = "/config/blog/entries" className="principal_option pointer link-options mb-2" replace >
+                <NavLink to = "/config/blog/entries" className="principal_option pointer link-options mb-2" activeClassName = "principal_opcion--active" >
                     <div className="principal_option_icon">
                         <i className="fab fa-microblog"></i>
                     </div>
                     <div className="principal_option_text">
                         Blog 
                     </div>
-                </Link>
+                </NavLink>
             </div>
 
 

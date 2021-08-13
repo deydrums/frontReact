@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { images } from '../../helpers/getImages';
 
 export const NavBar = () => {
@@ -41,21 +41,21 @@ export const NavBar = () => {
                         <img src={images(`./dg-logo.svg`).default} alt=""/>
                     </div>
                     <div className="public__links">
-                        <Link to = "/" replace className="navbar__links" >
+                        <NavLink to = "/"  className="navbar__links"  activeClassName = "public__links-active" >
                                 Inicio 
-                        </Link>
-                        <Link to = "/" replace className="navbar__links" >
+                        </NavLink>
+                        <NavLink to = "/"  className="navbar__links"  activeClassName = "public__links-active" >
                                 Blog 
-                        </Link>
-                        <Link to = "/" replace className="navbar__links">
+                        </NavLink>
+                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" >
                                 Sobre nosotros 
-                        </Link>
-                        <Link to = "/" replace className="navbar__links">
+                        </NavLink>
+                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" >
                                 Portafolio 
-                        </Link>
-                        <Link to = "/auth" replace className="navbar__links">
+                        </NavLink>
+                        <NavLink to = "/auth"  className="navbar__links" activeClassName = "public__links-active" >
                                 Entrar 
-                        </Link>
+                        </NavLink>
                     </div>
                     <div className="hamburguer" onClick ={onClickButton}>
                         <i className="fas fa-bars"></i>

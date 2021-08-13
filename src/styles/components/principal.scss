@@ -188,6 +188,10 @@
     }
 }
 
+.principal_opcion--active{
+    background-color: transparentize($color: $primary, $amount: 0.7);
+}
+
 .principal_option_icon{
     height:100%;
     width: 30%;
