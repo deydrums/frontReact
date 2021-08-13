@@ -63,3 +63,25 @@
 
 
 
+/*Responsive*/
+
+@media screen and (max-width:1000px){
+
+    .public__article{
+        width: 40% !important;
+    }
+}
+
+@media screen and (max-width:800px){
+
+    .public__article{
+        width: 35% !important;
+    }
+}
+
+@media screen and (max-width:600px){
+
+    .public__article{
+        width: 100% !important;
+    }
+}

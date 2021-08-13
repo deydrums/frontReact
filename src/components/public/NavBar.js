@@ -52,8 +52,8 @@ export const NavBar = () => {
                         <Link to = "/" replace className="navbar__links">
                                 Portafolio 
                         </Link>
-                        <Link to = "/" replace className="navbar__links">
-                                Contacto 
+                        <Link to = "/auth" replace className="navbar__links">
+                                Entrar 
                         </Link>
                     </div>
                     <div className="hamburguer" onClick ={onClickButton}>
