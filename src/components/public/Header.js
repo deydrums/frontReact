@@ -12,7 +12,7 @@ export const Header = () => {
                             molestias quia inventore?</p>
                         <a href="https://www.google.com">Lear more</a>
                     </section>
-                    <img src={images(`./primeraIlustracion.svg`).default} alt=""/>
+                    <img src={images(`./soundwhite.svg`).default} alt=""/>
                 </section>
             </div>
         </header>

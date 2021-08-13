@@ -23,11 +23,11 @@
     .public__icon{
         width:70px;
         height:70px;  
-        background-color: #1fde82;
+        background-color: $primary;
         border-radius: 50%;
         color: #fff;
         font-size: 30px;
-        box-shadow: 0 8px 32px rgba(32,222,130,.46);
+        box-shadow: 0 8px 32px transparentize($color: $primary, $amount: .46);
         display: flex;
         justify-content: center;
         align-items: center;

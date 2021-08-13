@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { images } from '../../helpers/getImages';
 
 export const NavBar = () => {
 
@@ -37,7 +38,7 @@ export const NavBar = () => {
             <nav id="public_nav">
             <section className="public__container public__nav">
                     <div className="public__nav__logo">
-                        <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" alt=""/>
+                        <img src={images(`./dg-logo.svg`).default} alt=""/>
                     </div>
                     <div className="public__links">
                         <Link to = "/" replace className="navbar__links" >

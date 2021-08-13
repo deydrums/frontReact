@@ -1,6 +1,12 @@
 header{
     background-color: transparentize($color: $dark-grey, $amount: 0.9);
     padding-top: 80px;
+    width: 100%;
+    height: 650px;
+    background: linear-gradient(to right, rgba(28, 17, 34, 0.671), hsla(293, 80%, 61%, 0.664)), url(../../../assets/portada.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
 }
 
 
@@ -25,14 +31,14 @@ header{
     margin: 0 0 0 30px;
     h1{
         font-size: 50px;
-        color: #1d273b;
+        color:$white;
         font-weight: 300;
     }
 
     p{
         font-weight: 100;
         margin-top: 15px;
-        color: #5d6678;
+        color: darken($color: $white, $amount: 20);
     }
 
     a{
@@ -40,15 +46,20 @@ header{
         width: 130px;
         display:inline-block;
         text-decoration: none;
-        background-color: #1fde82;
+        background-color: $primary;
         text-align: center;
-        color: #fff;
+        color: $white;
         padding: 12px 0;
         font-weight: 400;
         text-transform: uppercase;
         font-size: 14px;
         border-radius:5px;
-        box-shadow: 0 8px 32px rgba(32,222,130,.46);
+        box-shadow: 0 8px 32px transparentize($color: $primary, $amount: 0.45);
+        transition: all 0.5s;
+        &:hover{
+            color: $primary;
+            background-color: $white;
+        }
     }
     
 }
