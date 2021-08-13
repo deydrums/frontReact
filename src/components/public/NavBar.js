@@ -4,34 +4,46 @@ import { images } from '../../helpers/getImages';
 
 export const NavBar = () => {
 
-    let ubicacionPrincipal = window.pageYOffset;
 
-    window.addEventListener("scroll",function(){
-        let desplazamientoActual = window.pageYOffset;
-        if(ubicacionPrincipal>=desplazamientoActual){
-            document.getElementById("public_nav").style.top = '0px';
-        }else{
-            document.getElementById("public_nav").style.top = "-100px";
-        }
-        ubicacionPrincipal = desplazamientoActual;
-    });
+    const scrollNavBar = () => {
 
-    //Menu
+        let ubicacionPrincipal = window.pageYOffset;
+
+        window.addEventListener("scroll",function(){
+            let desplazamientoActual = window.pageYOffset;
+            const navbar = document.getElementById("public_nav");
+            const menu = document.querySelector('.showMenu');
+            if((ubicacionPrincipal>=desplazamientoActual && navbar) || menu){
+                navbar.style.top = '0px';
+            }else if(navbar){
+                navbar.style.top = "-100px";
+            }
+            ubicacionPrincipal = desplazamientoActual;
+        });
+    }
+
+    scrollNavBar();
+    
+
+
     let semaforo = true;
     const onClickButton = () => {
-        let enlacesHeader = document.querySelector('.public__links');
-        
-        if(semaforo){
-            document.querySelectorAll(".hamburguer")[0].style.color = "#fff";
+        const enlacesHeader = document.querySelector('.public__links');
+        const hamburguer =  document.querySelectorAll(".hamburguer")[0];
+        if(semaforo && hamburguer){
+            hamburguer.style.color = "#fff";
             semaforo = false;
-        }else{
-            document.querySelectorAll(".hamburguer")[0].style.color = "#000";
+        }else if (!semaforo && hamburguer){
+            hamburguer.style.color = "#000";
             semaforo = true;
         }
         enlacesHeader.classList.toggle("showMenu");
     }
 
-
+    const handleLinkClick = () => {
+        const enlacesHeader = document.querySelector('.public__links');
+        enlacesHeader.classList.remove("showMenu");
+    }
 
     return (
         <div className="public__navbar">
@@ -41,25 +53,26 @@ export const NavBar = () => {
                         <img src={images(`./dg-logo.svg`).default} alt=""/>
                     </div>
                     <div className="public__links">
-                        <NavLink to = "/"  className="navbar__links"  activeClassName = "public__links-active" >
+                        <NavLink to = "/"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Inicio 
                         </NavLink>
-                        <NavLink to = "/"  className="navbar__links"  activeClassName = "public__links-active" >
+                        <NavLink to = "/"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Blog 
                         </NavLink>
-                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" >
+                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Sobre nosotros 
                         </NavLink>
-                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" >
+                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Portafolio 
                         </NavLink>
-                        <NavLink to = "/auth"  className="navbar__links" activeClassName = "public__links-active" >
+                        <NavLink to = "/auth"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Entrar 
                         </NavLink>
                     </div>
-                    <div className="hamburguer" onClick ={onClickButton}>
+                    <div className="hamburguer navbar__links" onClick ={onClickButton}>
                         <i className="fas fa-bars"></i>
                     </div>
+
                 </section>
             </nav>
         </div>
