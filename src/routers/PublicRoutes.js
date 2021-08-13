@@ -10,8 +10,8 @@ export const PublicRoutes = () => {
                  <NavBar/>
                  <div className="public__principal__content">
                 <Switch>
-                    <Route exact path="/index" component={IndexScreen}/>
-                    <Redirect to="/index"/>
+                    <Route exact path="/" component={IndexScreen}/>
+                    <Redirect to="/"/>
                 </Switch>
                 </div>
         </>
