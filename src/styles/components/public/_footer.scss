@@ -1,0 +1,105 @@
+
+.principal__footer{
+    background: transparentize($color: $dark-grey, $amount: 0.1);
+    padding: 60px 0;
+    overflow: hidden;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    margin: auto;
+}
+
+.principal__footer__section{
+    width: 20%;
+    text-align: center;
+
+    img{
+        width:50%;
+    }
+
+    h4{
+        color: $white;
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 30px;
+    }
+
+    a{
+        display: block;
+        text-decoration: none;
+        color: lighten($color: $primary, $amount:30);
+        font-weight: 400;
+        transition:color .3s ease-in-out;
+        margin-bottom:10px;
+        &:hover{
+            color: lighten($color: $primary, $amount:70);;
+        }
+    }
+
+    .principal__social-media{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-around;
+
+        .social-media-icon{
+            margin-top:5px;
+            width: 40px;
+            height: 40px;
+            color: #adb6c7;
+            border: 1px solid #adb6c7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all ease-in-out .3s;
+            &:hover{
+                color: #fff;
+                background-color: $primary;
+                border-color: $primary;
+            }
+        }
+        
+    }
+}
+
+
+
+/*Responsive*/
+
+
+@media screen and (max-width:1100){
+
+    .principal__social-media{
+        display: flex;
+        justify-content:space-evenly;
+    }
+}
+
+@media screen and (max-width:800px){
+    /*Footer*/
+    .principal__footer{
+        justify-content:space-evenly;
+    }
+    .principal__footer__section{
+        width:40%;
+        margin-bottom: 40px;
+        img{
+            width:30%;
+        }
+    }
+
+}
+
+@media screen and (max-width:600px){
+
+    /*Footer*/
+
+    .principal__footer__section{
+        width:95%;
+        img{
+            width:20%;
+        }
+    }
+
+}
