@@ -1,9 +1,3 @@
-.public__container{
-    width:90%;
-    max-width: 1000px;
-    margin: auto;
-    overflow: hidden;
-}
 
 
 
@@ -17,7 +11,7 @@ header::before{
 .public__navbar>nav{
     width: 100%;
     height: 80px;
-    background-color:white;
+    background-color:$dark-grey;
     border-bottom: 1px solid transparent;
     box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.2);
     position:fixed;
@@ -51,7 +45,7 @@ header::before{
 }
 
 .public__nav .public__links .navbar__links{
-    color: #5D6678;
+    color: $white;
     text-decoration: none;
     margin-left: 20px;
 }
@@ -97,7 +91,7 @@ header::before{
 
     }
 
-    .public__nav .menudos{
+    .public__nav .showMenu{
         -webkit-clip-path: circle(150% at 100% 0);
         clip-path: circle(150% at 100% 0);
     }

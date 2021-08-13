@@ -7,15 +7,11 @@ export const PublicRoutes = () => {
 
     return (
         <>
-            <body>
-                <header>
-                    <NavBar/>
-                </header>
+                 <NavBar/>
                 <Switch>
                     <Route exact path="/index" component={IndexScreen}/>
                     <Redirect to="/index"/>
                 </Switch>
-            </body>
         </>
     )
 }
