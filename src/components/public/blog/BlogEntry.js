@@ -1,6 +1,7 @@
 import React from 'react';
 import { images } from '../../../helpers/getImages';
 import moment from 'moment';
+//import ReactHtmlParser from 'react-html-parser';
 
 
 moment.updateLocale('es', {
@@ -28,8 +29,16 @@ export const BlogEntry = (entry) => {
             }}
         >
             <div className="public__blog-entrie-content" >
+            {/* { ReactHtmlParser(entry.content) } */}
                 <div className="public__blog-entrie-desc">
-                    <h1>{entry.title}</h1>
+                        {
+                            (entry.title.length < 1000)
+                            ?
+                            <h1>{entry.title}</h1>
+                            :
+                            <h1>{entry.title.substring(0,1000)}...</h1>
+                        
+                        }
                     <p><strong>{entry.user.name}</strong> | {date.format('LL')} </p>
                 </div>
             </div>
