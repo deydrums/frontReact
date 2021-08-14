@@ -1,0 +1,90 @@
+.public__blog-header{
+    background-color: transparentize($color: $dark-grey, $amount: 0.9);
+    padding-top: 80px;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to left, hsla(273, 80%, 61%, 0.664), rgba(28, 17, 34, 0.671)), url(../../../../assets/portada.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+
+.public__blog-contenido-header {
+    width:100%;
+    height:300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.public__blog-contenido-header > img{
+    width:400px;
+    animation: ease-in animat 1s;
+}
+
+
+
+.public__blog-textos-header{
+    margin: 0 0 0 30px;
+    h1{
+        font-size: 100px;
+        color:$white;
+        font-weight: 300;
+    }
+}
+
+
+@keyframes animat{
+    0% {
+        transform: scale(0);
+    }100%{
+        transform: scale(1);
+    }
+}
+
+
+/*Responsive*/
+@media screen and (max-width:800px){
+
+    .public__blog-contenido-header{
+
+        height:300px;
+    }
+    .public__blog-contenido-header>img{
+        width:300px;
+    }
+    .public__blog-textos-header{
+        margin:0;
+    }
+
+
+}
+
+@media screen and (max-width:600px){
+
+    .public__blog-header{
+        height: 200px;
+    }
+    
+
+    .public__blog-contenido-header{
+        height: 200px;
+
+    }
+    
+
+    .public__blog-contenido-header>img{
+        width:200px;
+        display: none;
+    }
+
+    .public__blog-textos-header{
+        margin: 0 0 0 0px;
+        h1{
+            font-size: 100px;
+        }
+    }
+
+}

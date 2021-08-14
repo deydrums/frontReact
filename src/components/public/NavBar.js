@@ -56,14 +56,11 @@ export const NavBar = () => {
                         <NavLink to = "/"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Inicio 
                         </NavLink>
-                        <NavLink to = "/"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        <NavLink to = "/blog"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Blog 
                         </NavLink>
                         <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Sobre nosotros 
-                        </NavLink>
-                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
-                                Portafolio 
                         </NavLink>
                         <NavLink to = "/auth"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Entrar 
