@@ -72,10 +72,17 @@
     height:13px;
 }
 
-.loader-icon div:nth-child(1){
+.loader-icon .loader-icon-white{
     height:20px;
     width:20px;
     border-color: $white;
+    animation-duration: 1.2s;
+}
+
+.loader-icon .loader-icon-primary{
+    height:20px;
+    width:20px;
+    border-color: darken($color: $primary, $amount: 20);
     animation-duration: 1.2s;
 }
 

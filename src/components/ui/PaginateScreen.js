@@ -13,6 +13,7 @@ export const PaginateScreen = () => {
     
 
     const handlePrevClick = () => {
+        window.scrollTo({ top: 220, behavior: 'smooth' });
         if(prev && origin === 'entries') {
             dispatch(startGetEntries(prev));
         }else if(prev && origin === 'users') {
@@ -21,6 +22,7 @@ export const PaginateScreen = () => {
     }
 
     const handleNextClick = () => {
+        window.scrollTo({ top: 220, behavior: 'smooth' });
         if(next && origin === 'entries'){
             dispatch(startGetEntries(next));
         }else if(next && origin === 'users') {
