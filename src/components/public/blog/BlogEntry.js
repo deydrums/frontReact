@@ -32,11 +32,11 @@ export const BlogEntry = (entry) => {
             {/* { ReactHtmlParser(entry.content) } */}
                 <div className="public__blog-entrie-desc">
                         {
-                            (entry.title.length < 1000)
+                            (entry.title.length < 60)
                             ?
                             <h1>{entry.title}</h1>
                             :
-                            <h1>{entry.title.substring(0,1000)}...</h1>
+                            <h1>{entry.title.substring(0,60)}...</h1>
                         
                         }
                     <p><strong>{entry.user.name}</strong> | {date.format('LL')} </p>

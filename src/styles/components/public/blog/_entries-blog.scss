@@ -33,8 +33,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-left: 50px;
-    padding-right: 50px;
+    align-items: center;
     transition: all 0.3s ease-in-out;
     &:hover{
         background-color:transparentize($color: $dark-grey, $amount: 0.6);
@@ -42,7 +41,7 @@
 }
 
 .public__blog-entrie-desc{
-    width: 100%;
+    width: 90%;
     height: 40%;
     h1{
         font-weight: 300;
@@ -51,5 +50,33 @@
     }
     p{
         color: $white;
+    }
+}
+
+@media screen and (max-width:800px){
+
+    .public__blog-entries-cont{
+        display: flex;
+        width: 100%;
+    }
+    .public__blog-entrie-cont{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:600px){
+
+    .public__blog-entrie-cont{
+        width: 95%;
+        height: 250px;
+    }
+
+    .public__blog-entrie-desc{
+        h1{
+            font-size: 20px;
+        }
+        p{
+            color: $white;
+        }
     }
 }
