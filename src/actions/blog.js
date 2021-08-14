@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { fetchWithToken } from "../helpers/fetch";
+import { fetchWithoutToken, fetchWithToken } from "../helpers/fetch";
 import { types } from "../types/types";
 import { closeModal, finishFetch, setPagination, startFetch } from "./ui";
 
@@ -44,6 +44,29 @@ export const startGetEntries = (page = 1) => {
         }
     }
 };
+
+//get entry ___________________________________________________________________________
+export const startGetEntry = (id) => {
+    return async(dispatch) => {
+        dispatch(unsetActivePublicEntry());
+        dispatch(startFetch());
+        const resp = await fetchWithoutToken(`entry/get-entry/${id}`);
+        const body = await resp.json();
+        dispatch(finishFetch());
+        if(resp.ok) {
+            dispatch(setActivePublicEntry(body.entry));
+        }
+    }
+};
+
+export const setActivePublicEntry = (entry) => ({
+    type: types.blogSetActivePublicEntry,
+    payload: entry
+});
+
+export const unsetActivePublicEntry = () => ({
+    type: types.blogUnsetActivePublicEntry
+});
 
 //delete entry ___________________________________________________________________________
 export const startDeleteEntry = (id) => {
