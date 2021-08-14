@@ -14,9 +14,18 @@ import { DashboardRoutes } from "./DashboardRoutes";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 import { PublicRoutes } from "./PublicRoutes";
+import AOS from 'aos';
+import "aos/dist/aos.css";
+
 
 export const AppRouter = () => {
 
+    useEffect(() => {
+        AOS.init({
+          duration : 1000
+        });
+      }, []);
+      
     const dispatch = useDispatch();
     const {checking, uid} = useSelector(state => state.auth)
 
