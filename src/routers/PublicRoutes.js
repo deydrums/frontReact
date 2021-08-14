@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import { BlogEntryScreen } from '../components/public/blog/BlogEntryScreen';
 import { BlogScreen } from '../components/public/blog/BlogScreen';
 import { Footer } from '../components/public/Footer';
 import { IndexScreen } from '../components/public/IndexScreen';
@@ -14,6 +15,7 @@ export const PublicRoutes = () => {
                         <Switch>
                             <Route exact path="/" component={IndexScreen}/>
                             <Route exact path="/blog" component={BlogScreen}/>
+                            <Route exact path="/blog/:id" component={BlogEntryScreen}/>
                             <Redirect to="/"/>
                         </Switch>
                     </div>

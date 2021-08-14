@@ -16,6 +16,7 @@
     width: 90%;
     padding-top: 100px;
     padding-bottom: 100px;
+    
 }
 .public__blog-entrie-cont{
     width: 70%;
@@ -24,6 +25,7 @@
     background-color: darken($color: $white, $amount: 50) !important;
     margin: 10px;
     overflow: hidden;
+    text-decoration: none !important;
 }
 
 .public__blog-entrie-content{
@@ -46,7 +48,7 @@
     h1{
         font-weight: 300;
         color: $white;
-        font-size: 30px;
+        font-size: 30px;        
     }
     p{
         color: $white;

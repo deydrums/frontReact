@@ -1,6 +1,7 @@
 import React from 'react';
 import { images } from '../../../helpers/getImages';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 //import ReactHtmlParser from 'react-html-parser';
 
 
@@ -19,7 +20,8 @@ export const BlogEntry = (entry) => {
     const date = moment(entry.created_at);
 
     return (
-        <div 
+        <Link 
+            to = {`/blog/${entry.id}`}
             className="public__blog-entrie-cont pointer" 
             data-aos="zoom-in-right"
             style = {{
@@ -42,6 +44,6 @@ export const BlogEntry = (entry) => {
                     <p><strong>{entry.user.name}</strong> | {date.format('LL')} </p>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
