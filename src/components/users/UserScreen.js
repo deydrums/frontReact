@@ -68,7 +68,7 @@ export const UserScreen = (user) => {
     }
 
     return (
-        <div className="users__content__user">
+        <div className="users__content__user" data-aos="zoom-in">
             <div className="users__content__userphoto">
                 {
                     user.image

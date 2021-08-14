@@ -13,7 +13,7 @@ export const Sidebar = () => {
         dispatch(startLogout());
     }
     return (
-        <nav className = "principal__sidebar">
+        <nav className = "principal__sidebar" >
             <div className="principal__userprofile">
 
                 <div className="principal__userphoto">
@@ -56,9 +56,9 @@ export const Sidebar = () => {
                 </div>
             </div>
 
-            <div className="principal__options">
+            <div className="principal__options" >
 
-                <NavLink to = "/config/inicio" className="principal_option pointer link-options mb-2" activeClassName = "principal_opcion--active" >
+                <NavLink to = "/config/inicio" className="principal_option pointer link-options mb-2"  activeClassName = "principal_opcion--active" >
                     <div className="principal_option_icon">
                         <i className="fas fa-home"></i>
                     </div>

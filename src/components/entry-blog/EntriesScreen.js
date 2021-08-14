@@ -27,8 +27,8 @@ export const EntriesScreen = () => {
                 <div className="blog__text">
                     <h3 className="principal__title"><i className="fab fa-microblog m-2"></i> Blog</h3>
                 </div>
-                <div className="container_content w-90">
-                    <div className="blog__new-entry">
+                <div className="blog__container__entries">
+                    <div className="blog__options__entries">
                         <h5 className="principal__title_secundary"><i className="fas fa-file-alt m-2"></i> Entradas</h5>
                         <button className="btn btn-primary h-100" onClick ={handleNewEntry}>
                             <span>Nueva entrada</span>

@@ -32,15 +32,17 @@ export const EntryScreen = (entry) => {
     }
 
     return (
-        <div className="blog__content__entry pointer" onClick={handleEntryClick}> 
+        <div className="blog__content__entry pointer" onClick={handleEntryClick} data-aos="zoom-in"> 
             <div className="blog__content__color">
                 {
                     (uid === entry.user_id)&&<i className="fas fa-user"></i>
                 }
             </div>
             <div className="blog__content__entry-data">
-                <h2>{title}</h2>
-                <h3>{user.name}</h3>
+                <div className="blog__content__entry-data-txt">
+                    {(title.length < 50)?<h2>{title}</h2>:<h2>{title.substring(0,50)}...</h2>}
+                    <h3>{user.name}</h3>
+                </div>
             </div>
             <div className="blog__content__date">
                 <h3>{date.format('dddd')}</h3>
