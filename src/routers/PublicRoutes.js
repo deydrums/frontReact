@@ -15,7 +15,7 @@ export const PublicRoutes = () => {
                         <Switch>
                             <Route exact path="/" component={IndexScreen}/>
                             <Route exact path="/blog" component={BlogScreen}/>
-                            <Route exact path="/blog/:id" component={BlogEntryScreen}/>
+                            <Route exact path="/blog/entrada/:id" component={BlogEntryScreen}/>
                             <Redirect to="/"/>
                         </Switch>
                     </div>
