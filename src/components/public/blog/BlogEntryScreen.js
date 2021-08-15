@@ -5,6 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 import { HeaderBlog } from './HeaderBlog';
 import { LoadingIconScreenPrimary } from '../../ui/LoadingIconScreen';
 import { images } from '../../../helpers/getImages';
+import { Link } from 'react-router-dom';
 
 export const BlogEntryScreen = ({match}) => {
 
@@ -28,7 +29,7 @@ export const BlogEntryScreen = ({match}) => {
                 <div className="public__blog-entries-head">
                     <div className="public__blog-entries-head-cont">
                         <div className="public__blog-entries-head-txt">
-                            <h1>Blog <i className="fas fa-angle-right"></i> { !fetch&&(publicActiveEntry ? publicActiveEntry.title: <>Not Found</>)}</h1>
+                            <h1><Link className= "public__blog__links" to = "/Blog" >Blog</Link> <i className="fas fa-angle-right"></i> { !fetch&&(publicActiveEntry ? publicActiveEntry.title: <>Not Found</>)}</h1>
                         </div>
                     </div>
                 </div>
