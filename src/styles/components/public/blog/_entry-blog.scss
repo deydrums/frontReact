@@ -20,6 +20,7 @@
 @media screen and (max-width:600px){
 
     .public__entry-blog-container{
+        min-height: 220px;
         .public__entry-blog-content{
             width: 95%;
             background-color:$white;
