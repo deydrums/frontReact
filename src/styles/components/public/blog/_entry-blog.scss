@@ -1,0 +1,29 @@
+.public__entry-blog-container{
+    margin: 0 auto;
+    width: 100% !important;
+    min-height: 300px;
+    overflow:hidden;
+    display: flex;
+    justify-content:center;
+    .public__entry-blog-content{
+        width: 90%;
+        background-color:$white;
+    }
+}
+
+.public__blog-entries-load{
+    >img{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width:600px){
+
+    .public__entry-blog-container{
+        .public__entry-blog-content{
+            width: 95%;
+            background-color:$white;
+        }
+    }
+
+}
