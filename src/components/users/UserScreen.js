@@ -48,7 +48,7 @@ export const UserScreen = (user) => {
                     )
                     return false;
                 }
-                const resp = await fetchWithToken(`confirm-password`,{password},'POST');
+                const resp = await fetchWithToken(`auth/confirm-password`,{password},'POST');
                 const body = await resp.json();
                 if(!resp.ok){
                     if(body.errors.password){
@@ -73,7 +73,7 @@ export const UserScreen = (user) => {
                 {
                     user.image
                     ?
-                        <img src={`${baseUrl}/user/avatar/${user.image.replace('.','/')}`} alt="user"></img>
+                        <img src={`${baseUrl}/user/get-avatar/${user.image.replace('.','/')}`} alt="user"></img>
                     :
                         <img src='https://i.stack.imgur.com/34AD2.jpg' alt="user"></img>    
                 }

@@ -11,7 +11,7 @@ import { finishFetch, setPagination, startFetch } from "./ui";
 export const startLoadingUsers = (page = 1) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithoutToken(`user?page=${page}`,'','GET');
+        const resp = await fetchWithoutToken(`user/get-users?page=${page}`,'','GET');
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {

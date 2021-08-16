@@ -95,7 +95,7 @@ export const UserSettingsScreen = () => {
                         {
                             user.avatar
                             ?
-                                <img src={`${baseUrl}/user/avatar/${user.avatar.replace('.','/')}`} alt="user"></img>
+                                <img src={`${baseUrl}/user/get-avatar/${user.avatar.replace('.','/')}`} alt="user"></img>
                             :
                                 <img src='https://i.stack.imgur.com/34AD2.jpg' alt="user"></img>    
                         }

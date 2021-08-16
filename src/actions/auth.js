@@ -11,7 +11,7 @@ import { unsetUsers, updateUser } from "./user";
 export const startLogin = (email, password) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithoutToken('login',{email,password},'POST');
+        const resp = await fetchWithoutToken('auth/login',{email,password},'POST');
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {
@@ -40,7 +40,7 @@ const login = (user) => ({
 export const startRegister = (name, email, password, password_confirmation) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithoutToken('register',{name,email,password, password_confirmation},'POST');
+        const resp = await fetchWithoutToken('auth/register',{name,email,password, password_confirmation},'POST');
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {
@@ -66,7 +66,7 @@ export const startRegister = (name, email, password, password_confirmation) => {
 
 export const startChecking = () => {
     return async(dispatch) => {
-        const resp = await fetchWithToken('renew', '','POST');
+        const resp = await fetchWithToken('auth/renew', '','POST');
         const body = await resp.json();
         if(resp.ok) {
             localStorage.setItem('token',body.token);
@@ -92,7 +92,7 @@ const checkingFinish = () => ({
 
 export const startLogout = () => {
     return async(dispatch) => {
-        await fetchWithToken('logout','','GET');
+        await fetchWithToken('auth/logout','','GET');
         localStorage.clear();
         dispatch(logout());
         dispatch(unsetPagination());
@@ -110,7 +110,7 @@ const logout = () => ({
 export const forgotPassword = (email) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithoutToken('forgot-password',{email},'POST');
+        const resp = await fetchWithoutToken('auth/forgot-password',{email},'POST');
         const body = await resp.json();
         if(resp.ok) {
             dispatch(finishFetch());
@@ -127,7 +127,7 @@ export const forgotPassword = (email) => {
 export const resetPassword = (email, password,password_confirmation, token) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithoutToken('reset-password',{email, password,password_confirmation, token},'POST');
+        const resp = await fetchWithoutToken('auth/reset-password',{email, password,password_confirmation, token},'POST');
         const body = await resp.json();
         if(resp.ok) {
             dispatch(finishFetch());
@@ -167,7 +167,7 @@ export const resetPassword = (email, password,password_confirmation, token) => {
 export const startUpdate = (name) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithToken('update',{name},'PUT');
+        const resp = await fetchWithToken('auth/update',{name},'PUT');
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {
@@ -194,7 +194,7 @@ export const startUpload = (file) => {
                 Swal.showLoading();
             }
         });
-        const resp = await fileUpload('upload',file[0],'POST');
+        const resp = await fileUpload('auth/upload',file[0],'POST');
         const body = await resp.json();
         dispatch(finishFetch());
         Swal.close();
@@ -218,7 +218,7 @@ export const startUpload = (file) => {
 export const startConfirmEmail = () => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithToken('email/verification-notification','','POST');
+        const resp = await fetchWithToken('auth/email-verification-notification','','POST');
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {

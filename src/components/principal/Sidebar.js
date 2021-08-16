@@ -21,7 +21,7 @@ export const Sidebar = () => {
                         {
                             avatar
                             ?
-                                <img src={`${baseUrl}/user/avatar/${avatar.replace('.','/')}`} alt="user"></img>
+                                <img src={`${baseUrl}/user/get-avatar/${avatar.replace('.','/')}`} alt="user"></img>
                             :
                                 <img src='https://i.stack.imgur.com/34AD2.jpg' alt="user"></img>    
                         }
