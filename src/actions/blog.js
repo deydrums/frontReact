@@ -45,6 +45,11 @@ export const startGetEntries = (page = 1) => {
     }
 };
 
+const setEntries = (entries) => ({
+    type: types.blogLoadingEntries,
+    payload: entries
+});
+
 //get entry ___________________________________________________________________________
 export const startGetEntry = (id) => {
     return async(dispatch) => {
@@ -126,11 +131,24 @@ const setCategories = (categories) => ({
     payload: categories
 });
 
+//create category ___________________________________________________________________________
+export const startCreateCategory = (name) => {
+    return async(dispatch) => {
+        dispatch(startFetch());
+        const resp = await fetchWithToken('category/create-category',{name},'POST');
+        const body = await resp.json();
+        dispatch(finishFetch());
+        if(resp.ok) {
+            Swal.fire('Hecho',body.message,'success');
+            dispatch(startGetCategories());
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+};
 
-const setEntries = (entries) => ({
-    type: types.blogLoadingEntries,
-    payload: entries
-});
+
+
 
 export const setActiveEntry = (entry) => ({
     type: types.blogSetActiveEntry,
