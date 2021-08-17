@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom'
+import { startGetCategories, startGetEntries } from '../actions/blog'
 import { BlogCategoriesScreen } from '../components/private-blog/BlogCategoriesScreen'
 import { BlogEntriesScreen } from '../components/private-blog/BlogEntriesScreen'
 
 
 export const PrivateBlogRoutes = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(startGetEntries());
+        dispatch(startGetCategories());
+    },[dispatch]);
 
     return (
         <div className="principal__content scroll_options">

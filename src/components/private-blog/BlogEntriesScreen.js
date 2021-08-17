@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { startGetEntries } from '../../actions/blog';
 import { openModal } from '../../actions/ui';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 import { PaginateScreen } from '../ui/PaginateScreen';
@@ -14,14 +13,10 @@ export const BlogEntriesScreen = () => {
     const {fetch} = useSelector(state => state.ui);
     const dispatch = useDispatch();
     
-    useEffect(() => {
-        dispatch(startGetEntries());
-    },[dispatch]);
-
     const handleNewEntry = () => {
         dispatch(openModal());
     }
-
+    
     return (
         <div className="blog__container__entries">
         <div className="blog__options__entries">

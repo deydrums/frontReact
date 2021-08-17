@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startGetCategories } from '../../actions/blog';
 import {CategoryScreen} from './CategoryScreen';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
@@ -9,10 +8,6 @@ export const BlogCategoriesScreen = () => {
     const {categories} = useSelector(state => state.blog);
     const {fetch} = useSelector(state => state.ui);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(startGetCategories());
-    }, [dispatch])
 
     return (
         <div className="blog__container__entries">
