@@ -32,7 +32,7 @@ export const EntryScreen = (entry) => {
     }
 
     return (
-        <div className="blog__content__entry pointer" onClick={handleEntryClick} data-aos="zoom-in"> 
+        <div className="blog__content__entry pointer animate__animated animate__zoomIn" onClick={handleEntryClick}> 
             <div className="blog__content__color">
                 {
                     (uid === entry.user_id)&&<i className="fas fa-user"></i>
