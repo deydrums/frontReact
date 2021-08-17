@@ -6,8 +6,8 @@ import { BlogCategoriesScreen } from '../components/private-blog/BlogCategoriesS
 import { BlogEntriesScreen } from '../components/private-blog/BlogEntriesScreen'
 
 
-export const PrivateBlogRoutes = () => {
-
+export const PrivateBlogRoutes = ({location}) => {
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -19,8 +19,8 @@ export const PrivateBlogRoutes = () => {
         <div className="principal__content scroll_options">
             <div className="blog__content ">
                 <div className="blog__text">
-                    <NavLink to = "/config/blog/entries" className="btn btn-primary">Entradas</NavLink>
-                    <NavLink to = "/config/blog/categories" className="btn btn-primary">Categorias</NavLink>
+                    <NavLink replace={"/config/blog/entries" === location.pathname} to = {"/config/blog/entries"} className="btn btn-primary">Entradas</NavLink>
+                    <NavLink replace={"/config/blog/categories" === location.pathname} to = {"/config/blog/categories"} className="btn btn-primary">Categorias</NavLink>
                 </div>
                     <Switch>
                         <Route exact path="/config/blog/entries" component={BlogEntriesScreen}/>
