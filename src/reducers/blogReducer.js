@@ -54,6 +54,16 @@ export const blogReducer = (state = initialState, action) => {
                 categories: action.payload,
             }
 
+        case types.blogUpdateCategory:
+            return {
+                ...state,
+                categories: state.categories.map(
+                    category => category.id === action.payload.category.id 
+                        ? action.payload.category
+                        : category
+                )
+            }
+
         case types.blogSetActivePublicEntry:
             return {
                 ...state,

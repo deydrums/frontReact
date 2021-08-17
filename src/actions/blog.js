@@ -147,6 +147,29 @@ export const startCreateCategory = (name) => {
     }
 };
 
+//update category ___________________________________________________________________________
+export const startUpdateCategory = (id,name) => {
+    return async(dispatch) => {
+        dispatch(startFetch());
+        const resp = await fetchWithToken(`category/update-category/${id}`,{name},'PUT');
+        const body = await resp.json();
+        dispatch(finishFetch());
+        if(resp.ok) {
+            dispatch(updateCategory(body.category));
+            Swal.fire('Hecho',body.message,'success');
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+};
+
+export const updateCategory = (category) => ({
+    type: types.blogUpdateCategory,
+    payload: {
+        category
+    }
+});
+
 
 
 

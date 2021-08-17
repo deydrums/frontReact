@@ -25,7 +25,6 @@ export const BlogCategoriesScreen = () => {
                     )
                     return false;
                 }
-                return true;
             }    
         }).then((result) => {
             if (result.value) {
