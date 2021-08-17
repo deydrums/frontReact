@@ -76,7 +76,7 @@ export const Sidebar = () => {
                     </div>
                 </NavLink>
                 
-                <NavLink to = "/config/blog/entries" className="principal_option pointer link-options mb-2" activeClassName = "principal_opcion--active" >
+                <NavLink to = "/config/blog" className="principal_option pointer link-options mb-2" activeClassName = "principal_opcion--active" >
                     <div className="principal_option_icon">
                         <i className="fab fa-microblog"></i>
                     </div>

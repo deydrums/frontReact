@@ -1,12 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
-import { EntriesScreen } from '../components/entry-blog/EntriesScreen'
 import { ConfirmEmailScreen } from '../components/principal/ConfirmEmailScreen'
 import { IndexScreen } from '../components/principal/IndexScreen'
 import { Sidebar } from '../components/principal/Sidebar'
 import { UserSettingsScreen } from '../components/principal/UserSettingsScreen'
 import { UsersListScreen } from '../components/users/UsersListScreen'
+import { PrivateBlogRoutes } from './PrivateBlogRoutes'
 
 export const DashboardRoutes = () => {
 
@@ -35,7 +35,7 @@ export const DashboardRoutes = () => {
                                 <Route exact path="/config/inicio" component={IndexScreen}/>
                                 <Route exact path="/config/user/settings" component={UserSettingsScreen}/>
                                 <Route exact path="/config/users" component={UsersListScreen}/>
-                                <Route exact path="/config/blog/entries" component={EntriesScreen}/>
+                                <Route path="/config/blog" component={PrivateBlogRoutes}/>
                                 <Redirect to="/config/inicio"/>
                             </Switch>
                         </div>
