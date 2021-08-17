@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { startGetCategories } from '../../actions/blog';
 import {CategoryScreen} from './CategoryScreen';
+import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 export const BlogCategoriesScreen = () => {
+
+    const {categories} = useSelector(state => state.blog);
+    const {fetch} = useSelector(state => state.ui);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(startGetCategories());
+    }, [dispatch])
+
     return (
         <div className="blog__container__entries">
             <div className="blog__options__entries">
@@ -12,9 +24,21 @@ export const BlogCategoriesScreen = () => {
             </div>
             <div className="blog__categories scroll_options ">
                 <div className="blog__categories_center">
-                    <CategoryScreen/>
-                    <CategoryScreen/>
-                    <CategoryScreen/>
+                {
+                    fetch
+                    ?
+                    <div className="mt-3">
+                        <LoadingIconScreen/>
+                    </div>
+                    :
+                        categories.map(category => (
+                            <CategoryScreen 
+                                key={category.id}
+                                {...category}
+                            />
+                        ))
+
+                }
                 </div>
             </div>
         </div>

@@ -105,6 +105,28 @@ export const startUpdateEntry = (id, entry) => {
 };
 
 
+//get categories ___________________________________________________________________________
+export const startGetCategories = () => {
+    return async(dispatch) => {
+        dispatch(startFetch());
+        const resp = await fetchWithoutToken(`category/get-categories`);
+        const body = await resp.json();
+        dispatch(finishFetch());
+        if(resp.ok) {
+            const {categories} = body;
+            dispatch(setCategories(categories));
+        }else{
+            console.log(body.message?body.message:'Ha ocurrido un error');
+        }
+    }
+};
+
+const setCategories = (categories) => ({
+    type: types.blogLoadingCategories,
+    payload: categories
+});
+
+
 const setEntries = (entries) => ({
     type: types.blogLoadingEntries,
     payload: entries
