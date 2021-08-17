@@ -36,7 +36,9 @@ export const BlogEntriesScreen = () => {
                 {
                     fetch
                     ?
+                    <div className="mt-3">
                         <LoadingIconScreen/>
+                    </div>
                     :
                         entries.map(entry => (
                             <EntryScreen 
