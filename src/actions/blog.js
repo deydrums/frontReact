@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { fetchWithoutToken, fetchWithToken } from "../helpers/fetch";
+import { fetchWithoutToken, fetchWithToken, fileUpload } from "../helpers/fetch";
 import { types } from "../types/types";
 import { closeModal, finishFetch, setPagination, startFetch } from "./ui";
 
@@ -234,6 +234,38 @@ export const startGetCategory = (category_id, page = 1) => {
         }
     }
 };
+
+
+////upload image entry ___________________________________________________________________________
+
+export const startUploadEntry = (id,file) => {
+    return async(dispatch) => {
+        Swal.fire({ 
+            title: 'Cargando...',
+            text: 'Espere mientras se carga el archivo,',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+        const resp = await fileUpload(`entry/upload/${id}`,file[0],'POST');
+        const body = await resp.json();
+        Swal.close();
+        if(resp.ok) {
+            Swal.fire('Hecho',body.message,'success');
+        }else{
+            if(body.errors.file){
+                Swal.fire('Error',body.errors.file[0],'error');
+            }else{
+                Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+            }
+        }
+
+    }
+}
+
+
+
 export const setActiveEntry = (entry) => ({
     type: types.blogSetActiveEntry,
     payload: entry

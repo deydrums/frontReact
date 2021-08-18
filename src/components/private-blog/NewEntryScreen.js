@@ -3,7 +3,7 @@ import JoditEditor from "jodit-react";
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal, removeError, setError } from '../../actions/ui';
-import { startCreateEntry, startDeleteEntry, startUpdateEntry, unsetActiveEntry } from '../../actions/blog';
+import { startCreateEntry, startDeleteEntry, startUpdateEntry, startUploadEntry, unsetActiveEntry } from '../../actions/blog';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 import { images } from '../../helpers/getImages';
 
@@ -101,10 +101,9 @@ export const NewEntryScreen = () => {
 
     const handleFileChange = (e) => {
         const file = e.target.files;
-        console.log(file);
-        // if(file){
-        //     dispatch(startUpload(file));
-        // }
+        if(file){
+            dispatch(startUploadEntry(activeEntry.id,file));
+        }
     }
 
     return (
