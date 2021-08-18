@@ -5,6 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeModal, removeError, setError } from '../../actions/ui';
 import { startCreateEntry, startDeleteEntry, startUpdateEntry, unsetActiveEntry } from '../../actions/blog';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
+import { images } from '../../helpers/getImages';
+
+const baseUrl = process.env.REACT_APP_API_URL;
+
 
 export const NewEntryScreen = () => {
     
@@ -104,7 +108,7 @@ export const NewEntryScreen = () => {
     }
 
     return (
-        <div className="principal__content scroll_options">
+        <div className="principal__content h-100">
             <div className="blog__buttons">
 
                 {
@@ -153,7 +157,7 @@ export const NewEntryScreen = () => {
                 </div>
             </div>
 
-            <div className="blog__newEntry_content">
+            <div className="blog__newEntry_content ">
                 <div className="blog__text">
                     {
                         activeEntry
@@ -206,6 +210,31 @@ export const NewEntryScreen = () => {
                         className="editor"
                         />                        
                 </form>
+               
+               {
+                   activeEntry&&
+                   (
+                    activeEntry.image&&
+                    <>
+                        <div className="blog__text">
+                            <h3 className="principal__title"><i className="fas fa-image m-2"></i> Imagen</h3>
+                        </div>
+
+                        <div 
+                            className="blog__image"
+                        >
+                            <img src={`${baseUrl}/entry/get-image/${activeEntry.image.replace('.','/')}`} alt="user"></img>
+                        </div>
+
+                    </>
+
+                   )
+               }
+               
+
+
+
+                
                 <input
                     type="file"
                     style = {{display:'none'}}
