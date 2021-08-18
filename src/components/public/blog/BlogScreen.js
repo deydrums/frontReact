@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { startGetEntries } from '../../../actions/blog';
 import { LoadingIconScreenPrimary } from '../../ui/LoadingIconScreen';
 import { PaginateScreen } from '../../ui/PaginateScreen';
 import { BlogEntry } from './BlogEntry';
-import { HeaderBlog } from './HeaderBlog';
 
 export const BlogScreen = () => {
     const {entries} = useSelector(state => state.blog);
@@ -19,15 +17,8 @@ export const BlogScreen = () => {
 
     return (
         <>
-        <HeaderBlog/>
-        <div className="public__blog-entries">
-            <div className="public__blog-entries-head">
-                <div className="public__blog-entries-head-cont">
-                    <div className="public__blog-entries-head-txt">
-                        <h1><Link className= "public__blog__links" to = "/Blog" >Blog</Link> <i className="fas fa-angle-right"></i> Ultimas Entradas</h1>
-                    </div>
-                </div>
-            </div>
+        
+
             <div className="public__blog-entries-cont">
                 {
                     fetch
@@ -54,7 +45,7 @@ export const BlogScreen = () => {
                     </div>
                 </div>
             </div>
-        </div>
+
         </>
     )
 }
