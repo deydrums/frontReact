@@ -153,7 +153,7 @@ export const NewEntryScreen = () => {
                 </div>
             </div>
 
-            <div className="blog__content">
+            <div className="blog__newEntry_content">
                 <div className="blog__text">
                     {
                         activeEntry
