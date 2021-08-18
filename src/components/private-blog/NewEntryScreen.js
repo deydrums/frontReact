@@ -42,7 +42,7 @@ export const NewEntryScreen = () => {
     //config jodit
 	const config = {
 		readonly: false, // all options from https://xdsoft.net/jodit/doc/
-        height: 470,
+        height: 370,
         allowResizeY: false,
         language: "es",
         askBeforePasteHTML: false,
@@ -90,6 +90,19 @@ export const NewEntryScreen = () => {
         return true;
     };
 
+    //uploadimg
+    const handlePictureUpload = () => {
+        document.querySelector('#fileEntrySelector').click();
+    }
+
+    const handleFileChange = (e) => {
+        const file = e.target.files;
+        console.log(file);
+        // if(file){
+        //     dispatch(startUpload(file));
+        // }
+    }
+
     return (
         <div className="principal__content scroll_options">
             <div className="blog__buttons">
@@ -97,6 +110,14 @@ export const NewEntryScreen = () => {
                 {
                     (activeEntry && activeEntry.user_id === uid)&&
                     <>
+                        <div className = "blog__button">
+                            <button type="Submit" className="btn btn-primary w-90" onClick={handlePictureUpload}>
+                                {
+                                    fetch?<LoadingIconScreen/>:<span>Imagen</span>
+                                }
+                            </button>
+                        </div>
+
                         <div className = "blog__button">
                             <button type="Submit" className="btn btn-primary w-90" onClick={handleSubmit}>
                                 {
@@ -185,6 +206,14 @@ export const NewEntryScreen = () => {
                         className="editor"
                         />                        
                 </form>
+                <input
+                    type="file"
+                    style = {{display:'none'}}
+                    onChange={handleFileChange}
+                    id = "fileEntrySelector"
+                    name = "file"
+                    max-size="10000"
+                />
             </div>
         </div>
     )
