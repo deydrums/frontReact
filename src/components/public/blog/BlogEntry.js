@@ -13,10 +13,17 @@ moment.updateLocale('es', {
     weekdaysMin: 'Do_Lu_Ma_Mi_Ju_Vi_Sa'.split('_')
 })
 
+const baseUrl = process.env.REACT_APP_API_URL;
 
 
 export const BlogEntry = (entry) => {
 
+    let url;
+    if(entry.image) {
+        url = `url(${baseUrl}/entry/get-image/${entry.image.replace('.','/')})`
+    }else{
+        url = `url(${images(`./code.png`).default})`
+    }
     const date = moment(entry.created_at);
 
     return (
@@ -26,8 +33,7 @@ export const BlogEntry = (entry) => {
             data-aos="zoom-in-right"
             style = {{
                 backgroundSize: 'cover',
-                backgroundImage: `url(${images(`./code.png`).default})`
-                //backgroundColor: 'rgba(102, 250, 193, 0.699)'
+                backgroundImage: url
             }}
         >
             <div className="public__blog-entrie-content" >
