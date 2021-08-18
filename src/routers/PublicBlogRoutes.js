@@ -12,6 +12,14 @@ export const PublicBlogRoutes = ({location}) => {
         <>  
             <HeaderBlog/>
             <div className="public__blog-entries">
+                <div className="public__blog-nav">
+                    <div className="public__blog-nav-btn">
+                        <i className="fas fa-chevron-circle-down pointer"></i>
+                    </div>
+                    <div className="public__blog-nav-links">
+
+                    </div>
+                </div>
                 <div className="public__blog-entries-head">
                     <div className="public__blog-entries-head-cont">
                         <div className="public__blog-entries-head-txt">

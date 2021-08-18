@@ -96,6 +96,31 @@
     }
 }
 
+.public__blog-nav{
+    background-color: transparentize($color: $primary, $amount: 0.9);
+    width: 100%;
+    height: 100%;
+    .public__blog-nav-btn{
+        width: 100%;
+        height:40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        color:$dark-grey;
+        transition: all 0.3s;
+        &:hover {
+            color:$primary;
+        }
+    }
+    .public__blog-nav-links{
+        width: 100%;
+        height: 100px;
+        background-color:red;
+    }
+
+}
+
 @media screen and (max-width:800px){
 
     .public__blog-entries-cont{
