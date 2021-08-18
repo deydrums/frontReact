@@ -22,7 +22,7 @@ export const NewEntryScreen = () => {
 	const editor = useRef(null);
 
     //useForm customHook
-    const [values, handleInputChange, reset, setValues] = useForm({
+    const [values, handleInputChange, setValues] = useForm({
         title: '',
         content: '',
         category_id: '',
@@ -54,12 +54,9 @@ export const NewEntryScreen = () => {
         e.preventDefault()
         if (isFormValid()){
             if(activeEntry){
-                //dispatch(startUpdateEntry(activeEntry.id, values))
-                console.log(values)
+                dispatch(startUpdateEntry(activeEntry.id, values))
             }else{
-                console.log(values)
-
-               // dispatch(startCreateEntry(title,content,reset));
+                dispatch(startCreateEntry(values));
             }
         }
     }
@@ -82,7 +79,7 @@ export const NewEntryScreen = () => {
         if(title.trim().length ===0){
             dispatch(setError('El titulo es requerido'));
             return false;
-        }else if(category_id.trim().length ===0){
+        }else if(category_id.toString().trim().length ===0){
             dispatch(setError('La categoria es requerida'));
             return false;
         }else if(content.trim().length ===0){

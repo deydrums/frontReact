@@ -4,10 +4,10 @@ import { types } from "../types/types";
 import { closeModal, finishFetch, setPagination, startFetch } from "./ui";
 
 //create entry ___________________________________________________________________________
-export const startCreateEntry = (title, content, reset) => {
+export const startCreateEntry = ({title, content, category_id}) => {
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithToken('entry/create-entry',{title,content},'POST');
+        const resp = await fetchWithToken('entry/create-entry',{title,content,category_id},'POST');
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {
@@ -93,10 +93,10 @@ export const startDeleteEntry = (id) => {
 
 //create entry ___________________________________________________________________________
 export const startUpdateEntry = (id, entry) => {
-    const {title, content} = entry;
+    const {title, content, category_id} = entry;
     return async(dispatch) => {
         dispatch(startFetch());
-        const resp = await fetchWithToken(`entry/update-entry/${id}`,{title,content},'PUT');
+        const resp = await fetchWithToken(`entry/update-entry/${id}`,{title,content, category_id},'PUT');
         const body = await resp.json();
         dispatch(finishFetch());
         if(resp.ok) {
