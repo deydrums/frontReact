@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { startGetCategory, startGetEntries } from '../../../actions/blog';
 import { LoadingIconScreenPrimary } from '../../ui/LoadingIconScreen';
 import { PaginateScreen } from '../../ui/PaginateScreen';
@@ -23,9 +24,17 @@ export const BlogScreen = ({match}) => {
 
     return (
         <>
-        
+            <div className="public__blog-entries-head">
+                <div className="public__blog-entries-head-cont">
+                    <div className="public__blog-entries-head-txt">
+                        <h1><Link className= "public__blog__links" to = "/blog" >Blog</Link> <i className="fas fa-angle-right"></i> Ultimas Entradas</h1>
+                    </div>
+                </div>
+            </div>
 
             <div className="public__blog-entries-cont">
+
+
                 {
                     fetch
                     ?

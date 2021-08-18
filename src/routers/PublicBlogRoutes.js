@@ -44,14 +44,6 @@ export const PublicBlogRoutes = ({location}) => {
                         }
                     </div>
                 </div>
-                <div className="public__blog-entries-head">
-                    <div className="public__blog-entries-head-cont">
-                        <div className="public__blog-entries-head-txt">
-                            <h1><Link className= "public__blog__links" to = "/blog" >Blog</Link> <i className="fas fa-angle-right"></i> Ultimas Entradas</h1>
-                        </div>
-                    </div>
-                </div>
-
                 <Switch>
                     <Route exact path="/blog" component={BlogScreen}/>
                     <Route exact path="/blog/entrada/:id/:title?" component={BlogEntryScreen}/>
