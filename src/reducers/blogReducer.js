@@ -42,7 +42,7 @@ export const blogReducer = (state = initialState, action) => {
             return {
                 ...state,
                 entries: state.entries.map(
-                    entry => entry.id === action.payload.id 
+                    entry => entry.id === action.payload.entry.id 
                         ? action.payload.entry
                         : entry
                 )

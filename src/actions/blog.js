@@ -252,6 +252,8 @@ export const startUploadEntry = (id,file) => {
         const body = await resp.json();
         Swal.close();
         if(resp.ok) {
+            dispatch(updateEntry(body.entry.id, body.entry));
+            dispatch(setActiveEntry(body.entry));
             Swal.fire('Hecho',body.message,'success');
         }else{
             if(body.errors.file){
@@ -280,10 +282,9 @@ export const deleteEntry = (id) => ({
     payload: id
 });
 
-export const updateEntry = (id, entry) => ({
+export const updateEntry = (id,entry) => ({
     type: types.blogUpdateEntry,
     payload: {
-        id, 
         entry: {
             id,
             ...entry
