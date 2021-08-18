@@ -19,7 +19,7 @@ export const EntryScreen = (entry) => {
     const dispatch = useDispatch();
     const {uid} = useSelector(state => state.auth)
 
-    const {title,user,created_at} = entry;
+    const {title,user,created_at, category} = entry;
     const date = moment(created_at);
 
     useEffect(() => {
@@ -41,7 +41,7 @@ export const EntryScreen = (entry) => {
             <div className="blog__content__entry-data">
                 <div className="blog__content__entry-data-txt">
                     {(title.length < 50)?<h2>{title}</h2>:<h2>{title.substring(0,50)}...</h2>}
-                    <h3>{user.name}</h3>
+                    <h3>{category.name} | {user.name} </h3>
                 </div>
             </div>
             <div className="blog__content__date">
