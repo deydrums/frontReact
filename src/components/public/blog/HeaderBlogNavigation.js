@@ -23,7 +23,7 @@ export const HeaderBlogNavigation = ({id, category_id, name, title}) => {
                             title&&
                             <>
                                 <i className="fas fa-angle-right m-1"></i> 
-                                <Link className= "public__blog__links" to = {`/blog/${category_id}/${name}`} >{title}</Link> 
+                                <Link className= "public__blog__links" to = {`/blog/${category_id}/${name}/${id}/${title}`} >{title}</Link> 
                             </>
                         }
 

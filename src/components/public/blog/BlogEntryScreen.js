@@ -4,7 +4,6 @@ import { startGetEntry } from '../../../actions/blog';
 import ReactHtmlParser from 'react-html-parser';
 import { LoadingIconScreenPrimary } from '../../ui/LoadingIconScreen';
 import { images } from '../../../helpers/getImages';
-import { Link } from 'react-router-dom';
 import { HeaderBlogNavigation } from './HeaderBlogNavigation';
 
 export const BlogEntryScreen = ({match}) => {

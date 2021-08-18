@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, NavLink, Redirect, Route, Switch } from 'react-router-dom'
+import { NavLink, Redirect, Route, Switch } from 'react-router-dom'
 import { startGetCategories } from '../actions/blog'
 import { BlogEntryScreen } from '../components/public/blog/BlogEntryScreen'
 import { BlogScreen } from '../components/public/blog/BlogScreen'
 import { HeaderBlog } from '../components/public/blog/HeaderBlog'
 
 
-export const PublicBlogRoutes = ({location}) => {
+export const PublicBlogRoutes = () => {
 
     const dispatch = useDispatch();
     const {categories} = useSelector(state => state.blog)
@@ -46,8 +46,8 @@ export const PublicBlogRoutes = ({location}) => {
                 </div>
                 <Switch>
                     <Route exact path="/blog" component={BlogScreen}/>
-                    <Route exact path="/blog/entrada/:id/:title?/:category_id?/:name?" component={BlogEntryScreen}/>
-                    <Route exact path="/blog/:category_id/:name?" component={BlogScreen}/>
+                    <Route exact path="/blog/:category_id/:name" component={BlogScreen}/>
+                    <Route exact path="/blog/:category_id/:name/:id/:title" component={BlogEntryScreen}/>
                     <Redirect to="/blog"/>
                 </Switch>
             </div>
