@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, Redirect, Route, Switch } from 'react-router-dom'
+import { startGetCategories } from '../actions/blog'
 import { BlogEntryScreen } from '../components/public/blog/BlogEntryScreen'
 import { BlogScreen } from '../components/public/blog/BlogScreen'
 import { HeaderBlog } from '../components/public/blog/HeaderBlog'
 
 
 export const PublicBlogRoutes = ({location}) => {
+
+    const dispatch = useDispatch();
+    const {categories} = useSelector(state => state.blog)
+
+    useEffect(() => {
+        dispatch(startGetCategories());
+    }, [dispatch])
 
     const onClickButtonMore = () => {
         const enlacesHeader = document.querySelector('.public__blog-nav-links');
@@ -21,21 +30,18 @@ export const PublicBlogRoutes = ({location}) => {
                         <i className="fas fa-chevron-circle-down pointer" onClick={onClickButtonMore}></i>
                     </div>
                     <div className="public__blog-nav-links">
-                    <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-                        <NavLink className= "public__blog-nav-links-link" to = "/blog" >Blog</NavLink>
-
+                        {
+                            categories.map(category => (
+                                <NavLink 
+                                    className= "public__blog-nav-links-link"
+                                    activeClassName="public__blog-nav-links-link-selected"
+                                    key={category.id}
+                                    to = {`/blog/${category.id}/${category.name}`}
+                                >
+                                    {category.name}
+                                </NavLink>
+                            ))
+                        }
                     </div>
                 </div>
                 <div className="public__blog-entries-head">
@@ -49,6 +55,7 @@ export const PublicBlogRoutes = ({location}) => {
                 <Switch>
                     <Route exact path="/blog" component={BlogScreen}/>
                     <Route exact path="/blog/entrada/:id/:title?" component={BlogEntryScreen}/>
+                    <Route exact path="/blog/:category_id/:name?" component={BlogScreen}/>
                     <Redirect to="/blog"/>
                 </Switch>
             </div>

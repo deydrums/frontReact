@@ -123,7 +123,7 @@
         align-items: center;
         position: fixed;
         .public__blog-nav-links-link{
-            color: $white;
+            color: darken($color: $white, $amount: 10);
             text-decoration: none;
             margin-top: 5px;
             margin-bottom: 5px;
@@ -135,6 +135,9 @@
 
 }
 
+.public__blog-nav-links-link-selected{
+    text-decoration-line: underline !important;
+}
 .show_blog-nav-links{
     background-color: darken($color: $primary, $amount: 50) !important;
     transform: scale(1) !important;
