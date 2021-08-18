@@ -1,12 +1,26 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
-import { startUpdateCategory } from '../../actions/blog';
+import { startDeleteCategory, startUpdateCategory } from '../../actions/blog';
 
 export const CategoryScreen = (category) => {
     const dispatch = useDispatch();
 
-    const handleCategoryClick = () => {
+    const handleDeleteCategoryClick = () => {
+        Swal.fire({
+            title: '¿Quieres eliminar esta categoría?',
+            text: "Se eliminarán las entradas relacionadas a esta categoría",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Eliminar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              dispatch(startDeleteCategory(category.id));
+            }
+          })
+    }
+
+    const handleUpdateCategoryClick = () => {
         Swal.fire({
             title: "Editar categoria",
             text: "Nombre de la categoria:",
@@ -30,7 +44,7 @@ export const CategoryScreen = (category) => {
 
 
     return (
-        <div className="blog__content__entry pointer animate__animated animate__zoomIn" onClick={handleCategoryClick}> 
+        <div className="blog__content__entry animate__animated animate__zoomIn"> 
             <div className="blog__content__color">
                  <i className="fas fa-neuter"/>
             </div>
@@ -40,7 +54,8 @@ export const CategoryScreen = (category) => {
                 </div>
             </div>
             <div className="blog__content__date">
-
+                <div className="blog__content_catop pointer" onClick={handleUpdateCategoryClick} ><i className="fas fa-edit"></i></div>
+                <div className="blog__content_catop pointer" onClick={handleDeleteCategoryClick} ><i className="fas fa-trash-alt"></i></div>
             </div>
         </div>
     )

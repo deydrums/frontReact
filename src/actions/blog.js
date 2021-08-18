@@ -171,7 +171,26 @@ export const updateCategory = (category) => ({
 });
 
 
-
+//delete category ___________________________________________________________________________
+export const startDeleteCategory = (id) => {
+    return async(dispatch) => {
+        Swal.fire({ 
+            title: 'Eliminando...',
+            text: 'Espere mientras se elimina la entrada,',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+        const resp = await fetchWithToken(`category/delete/${id}`,'','DELETE');
+        const body = await resp.json();
+        if(resp.ok) {
+            Swal.fire('Hecho',body.message,'success');
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+};
 
 export const setActiveEntry = (entry) => ({
     type: types.blogSetActiveEntry,
