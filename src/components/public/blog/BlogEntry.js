@@ -41,6 +41,7 @@ export const BlogEntry = (entry) => {
                             <h1>{entry.title.substring(0,60)}...</h1>
                         
                         }
+                    <p><i className="fas fa-sitemap m-2"/>{entry.category.name} </p>
                     <p><strong>{entry.user.name}</strong> | {date.format('LL')} </p>
                 </div>
             </div>
