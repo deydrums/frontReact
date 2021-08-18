@@ -26,7 +26,7 @@ export const NewEntryScreen = () => {
 	const editor = useRef(null);
 
     //useForm customHook
-    const [values, handleInputChange, setValues] = useForm({
+    const [values, handleInputChange, reset, setValues] = useForm({
         title: '',
         content: '',
         category_id: '',
