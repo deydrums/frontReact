@@ -5,6 +5,7 @@ import { startGetCategory, startGetEntries } from '../../../actions/blog';
 import { LoadingIconScreenPrimary } from '../../ui/LoadingIconScreen';
 import { PaginateScreen } from '../../ui/PaginateScreen';
 import { BlogEntry } from './BlogEntry';
+import { HeaderBlogNavigation } from './HeaderBlogNavigation';
 
 export const BlogScreen = ({match}) => {
 
@@ -24,22 +25,7 @@ export const BlogScreen = ({match}) => {
 
     return (
         <>
-            <div className="public__blog-entries-head">
-                <div className="public__blog-entries-head-cont">
-                    <div className="public__blog-entries-head-txt">
-                        <h1>
-                            <Link className= "public__blog__links" to = "/blog" >Blog</Link> 
-                            <i className="fas fa-angle-right m-1"></i> 
-                            {
-                                name
-                                ?
-                                    <Link className= "public__blog__links" to = {`/blog/${category_id}/${name}`} >{name}</Link> 
-                                :
-                                    <>Ultimas entradas</>}
-                        </h1>
-                    </div>
-                </div>
-            </div>
+            <HeaderBlogNavigation  name = {name} category_id = {category_id}/>
 
             <div className="public__blog-entries-cont">
 
