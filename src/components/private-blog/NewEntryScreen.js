@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeModal, removeError, setError } from '../../actions/ui';
 import { startCreateEntry, startDeleteEntry, startUpdateEntry, startUploadEntry, unsetActiveEntry } from '../../actions/blog';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
-import { images } from '../../helpers/getImages';
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
@@ -58,7 +57,7 @@ export const NewEntryScreen = () => {
         e.preventDefault()
         if (isFormValid()){
             if(activeEntry){
-                dispatch(startUpdateEntry(activeEntry.id, values))
+                dispatch(startUpdateEntry(activeEntry.id, values));
             }else{
                 dispatch(startCreateEntry(values));
             }
@@ -70,6 +69,7 @@ export const NewEntryScreen = () => {
     const handleCloseModal = () =>{
         dispatch(closeModal());
         dispatch(unsetActiveEntry());
+        reset();
     }
 
     //Delete Entre
