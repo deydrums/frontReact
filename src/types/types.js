@@ -33,6 +33,7 @@ export const types = {
     blogUpdateEntry: '[blog] Update Entry',
     blogLoadingCategories: '[blog] Loading Categories',
     blogUpdateCategory: '[blog] Update Category',
+    blogDeleteCategory: '[blog] Delete Category',
 
     blogSetActivePublicEntry: '[blog] Set active public entry',
     blogUnsetActivePublicEntry: '[blog] Unset active public entry',

@@ -64,6 +64,12 @@ export const blogReducer = (state = initialState, action) => {
                 )
             }
 
+        case types.blogDeleteCategory:
+            return {
+                ...state,
+                categories: state.categories.filter(category=>category.id !== action.payload)
+            }
+
         case types.blogSetActivePublicEntry:
             return {
                 ...state,

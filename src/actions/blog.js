@@ -134,10 +134,16 @@ const setCategories = (categories) => ({
 //create category ___________________________________________________________________________
 export const startCreateCategory = (name) => {
     return async(dispatch) => {
-        dispatch(startFetch());
+        Swal.fire({ 
+            title: 'Guardando...',
+            text: 'Espere mientras se crea la categoria,',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
         const resp = await fetchWithToken('category/create-category',{name},'POST');
         const body = await resp.json();
-        dispatch(finishFetch());
         if(resp.ok) {
             Swal.fire('Hecho',body.message,'success');
             dispatch(startGetCategories());
@@ -150,10 +156,16 @@ export const startCreateCategory = (name) => {
 //update category ___________________________________________________________________________
 export const startUpdateCategory = (id,name) => {
     return async(dispatch) => {
-        dispatch(startFetch());
+        Swal.fire({ 
+            title: 'Guardando...',
+            text: 'Espere mientras se actualiza la categoria,',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
         const resp = await fetchWithToken(`category/update-category/${id}`,{name},'PUT');
         const body = await resp.json();
-        dispatch(finishFetch());
         if(resp.ok) {
             dispatch(updateCategory(body.category));
             Swal.fire('Hecho',body.message,'success');
@@ -186,11 +198,19 @@ export const startDeleteCategory = (id) => {
         const body = await resp.json();
         if(resp.ok) {
             Swal.fire('Hecho',body.message,'success');
+            dispatch(deleteCategory(id));
         }else{
             Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
         }
     }
 };
+
+const deleteCategory = (id) => ({
+    type: types.blogDeleteCategory,
+    payload: id
+});
+
+
 
 export const setActiveEntry = (entry) => ({
     type: types.blogSetActiveEntry,
