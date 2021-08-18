@@ -21,7 +21,7 @@ export const BlogEntry = (entry) => {
 
     return (
         <Link 
-            to = {`/blog/entrada/${entry.id}/${entry.title}`}
+            to = {`/blog/entrada/${entry.id}/${entry.title}/${entry.category.id}/${entry.category.name}`}
             className="public__blog-entrie-cont pointer" 
             data-aos="zoom-in-right"
             style = {{

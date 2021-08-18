@@ -46,7 +46,7 @@ export const PublicBlogRoutes = ({location}) => {
                 </div>
                 <Switch>
                     <Route exact path="/blog" component={BlogScreen}/>
-                    <Route exact path="/blog/entrada/:id/:title?" component={BlogEntryScreen}/>
+                    <Route exact path="/blog/entrada/:id/:title?/:category_id?/:name?" component={BlogEntryScreen}/>
                     <Route exact path="/blog/:category_id/:name?" component={BlogScreen}/>
                     <Redirect to="/blog"/>
                 </Switch>

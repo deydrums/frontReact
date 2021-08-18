@@ -8,7 +8,7 @@ import { BlogEntry } from './BlogEntry';
 
 export const BlogScreen = ({match}) => {
 
-    const {category_id} = match.params;
+    const {category_id, name} = match.params;
     const {entries} = useSelector(state => state.blog);
     const {fetch} = useSelector(state => state.ui);
 
@@ -27,7 +27,16 @@ export const BlogScreen = ({match}) => {
             <div className="public__blog-entries-head">
                 <div className="public__blog-entries-head-cont">
                     <div className="public__blog-entries-head-txt">
-                        <h1><Link className= "public__blog__links" to = "/blog" >Blog</Link> <i className="fas fa-angle-right"></i> Ultimas Entradas</h1>
+                        <h1>
+                            <Link className= "public__blog__links" to = "/blog" >Blog</Link> 
+                            <i className="fas fa-angle-right m-1"></i> 
+                            {
+                                name
+                                ?
+                                    <Link className= "public__blog__links" to = {`/blog/${category_id}/${name}`} >{name}</Link> 
+                                :
+                                    <>Ultimas entradas</>}
+                        </h1>
                     </div>
                 </div>
             </div>
