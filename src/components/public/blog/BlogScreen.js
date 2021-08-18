@@ -1,19 +1,25 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startGetEntries } from '../../../actions/blog';
+import { startGetCategory, startGetEntries } from '../../../actions/blog';
 import { LoadingIconScreenPrimary } from '../../ui/LoadingIconScreen';
 import { PaginateScreen } from '../../ui/PaginateScreen';
 import { BlogEntry } from './BlogEntry';
 
-export const BlogScreen = () => {
+export const BlogScreen = ({match}) => {
+
+    const {category_id} = match.params;
     const {entries} = useSelector(state => state.blog);
     const {fetch} = useSelector(state => state.ui);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(startGetEntries());
-    },[dispatch]);
+        if(category_id){
+            dispatch(startGetCategory(category_id));
+        }else{
+            dispatch(startGetEntries());
+        }
+    },[dispatch,category_id]);
 
     return (
         <>
