@@ -11,9 +11,8 @@ export const NewEntryScreen = () => {
     //redux
     const dispatch = useDispatch();
     const {msgError, fetch} = useSelector(state => state.ui);
-    const {activeEntry} = useSelector(state => state.blog);
+    const {activeEntry, categories} = useSelector(state => state.blog);
     const {uid} = useSelector(state => state.auth);
-
     //useEffect hook
     useEffect(() => {
         dispatch(removeError());
@@ -25,10 +24,11 @@ export const NewEntryScreen = () => {
     //useForm customHook
     const [values, handleInputChange, reset, setValues] = useForm({
         title: '',
-        content: ''
+        content: '',
+        category_id: '',
     });
 	
-    const{ title, content} = values;
+    const{ title, content, category_id} = values;
 
 
     //Cargar valores
@@ -54,9 +54,12 @@ export const NewEntryScreen = () => {
         e.preventDefault()
         if (isFormValid()){
             if(activeEntry){
-                dispatch(startUpdateEntry(activeEntry.id, values))
+                //dispatch(startUpdateEntry(activeEntry.id, values))
+                console.log(values)
             }else{
-                dispatch(startCreateEntry(title,content,reset));
+                console.log(values)
+
+               // dispatch(startCreateEntry(title,content,reset));
             }
         }
     }
@@ -78,6 +81,9 @@ export const NewEntryScreen = () => {
     const isFormValid = () =>{
         if(title.trim().length ===0){
             dispatch(setError('El titulo es requerido'));
+            return false;
+        }else if(category_id.trim().length ===0){
+            dispatch(setError('La categoria es requerida'));
             return false;
         }else if(content.trim().length ===0){
             dispatch(setError('El contenido es requerido'));
@@ -153,6 +159,25 @@ export const NewEntryScreen = () => {
                         value={title}
                         onChange = {handleInputChange}
                     />
+                    <select 
+                        onChange={handleInputChange} 
+                        value ={category_id} 
+                        name="category_id" 
+                        className="auth__input"
+                    >
+                        <option value="" defaultValue disabled hidden>Selecciona una categoría</option>
+                        {
+                            categories.map(category => (
+                                <option 
+                                    key={category.id} 
+                                    value={category.id}
+                                >
+                                    {category.name}
+                                </option>
+                            ))
+                        }
+
+                    </select>
                     <JoditEditor
                         ref={editor}
                         value={content}
