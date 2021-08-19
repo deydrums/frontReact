@@ -6,6 +6,9 @@ import { LoadingIconScreenPrimary } from '../../ui/LoadingIconScreen';
 import { images } from '../../../helpers/getImages';
 import { HeaderBlogNavigation } from './HeaderBlogNavigation';
 
+const baseUrl = process.env.REACT_APP_API_URL;
+
+
 export const BlogEntryScreen = ({match}) => {
 
     const {publicActiveEntry} = useSelector(state => state.blog);
@@ -26,35 +29,47 @@ export const BlogEntryScreen = ({match}) => {
             <div className="public__entry-blog-container">
                 <div className="public__entry-blog-content">
 
-                    <div className="public__entry-blog-head">
-                        <div className="public__entry-blog-cont-desc">
-                            <div className="public__entry-blog-head-cont-date">
-                                <div className="public__entry-blog-head-cont-date-ci">
-                                    <div className="public__entry-blog-head-cont-date-month">
-                                        JUL
+                    {
+                        publicActiveEntry &&
+
+                        <div className="public__entry-blog-head animate__animated animate__fadeIn">
+                            <div className="public__entry-blog-cont-desc">
+                                <div className="public__entry-blog-head-cont-date">
+                                    <div className="public__entry-blog-head-cont-date-ci">
+                                        <div className="public__entry-blog-head-cont-date-month">
+                                            JUL
+                                        </div>
+                                        <div className="public__entry-blog-head-cont-date-day">
+                                            31
+                                        </div>
+                                        <div className="public__entry-blog-head-cont-date-year">
+                                            2021
+                                        </div>
                                     </div>
-                                    <div className="public__entry-blog-head-cont-date-day">
-                                        31
-                                    </div>
-                                    <div className="public__entry-blog-head-cont-date-year">
-                                        2021
+                                </div>
+                                <div className="public__entry-blog-head-cont-info">
+                                    <div className="public__entry-blog-head-cont-info-title">
+                                        {publicActiveEntry.title}
+                                        <br/>
+                                        <div className="public__entry-blog-head-cont-info-title-details">
+                                            <i className="fas fa-user m-1"/>{publicActiveEntry.user.name} | <i className="fas fa-sitemap m-1"/>{publicActiveEntry.category.name}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="public__entry-blog-head-cont-info">
-                                <div className="public__entry-blog-head-cont-info-title">
-                                    Titulo de la entrada Titulo de la entradaTitulo de
-                                    <br/>
-                                    <div className="public__entry-blog-head-cont-info-title-details">
-                                        <i className="fas fa-user m-1"/>Usuario | <i className="fas fa-sitemap m-1"/>Categoria
-                                    </div>
-                                </div>
+                            <div className="public__entry-blog-cont-image">
+                                {
+                                    publicActiveEntry.image
+                                    ?
+                                    <img src={`${baseUrl}/entry/get-image/${publicActiveEntry.image.replace('.','/')}`}alt=""/>
+                                    :
+                                    <img src={images(`./code.png`).default} alt=""/>
+                                }
                             </div>
                         </div>
-                        <div className="public__entry-blog-cont-image">
-                            <img src={images(`./code.png`).default} alt=""/>
-                        </div>
-                    </div>
+                    }
+
+
                 {
                     fetch
                     ?
@@ -65,7 +80,9 @@ export const BlogEntryScreen = ({match}) => {
                     (
                         publicActiveEntry 
                         ? 
-                            ReactHtmlParser(publicActiveEntry.content)
+                        <div className="animate__animated animate__fadeIn">
+                            {ReactHtmlParser(publicActiveEntry.content)}
+                        </div>
                         :
                         <div className="public__blog-entries-load">
                             <img src={images(`./404.svg`).default} alt=""/>

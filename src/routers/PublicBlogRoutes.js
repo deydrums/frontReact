@@ -21,6 +21,11 @@ export const PublicBlogRoutes = () => {
         enlacesHeader.classList.toggle("show_blog-nav-links");
     }
 
+    const handleCloseClick = () => {
+        const enlacesHeader = document.querySelector('.public__blog-nav-links');
+        enlacesHeader.classList.remove("show_blog-nav-links");
+    }
+
     return (
         <>  
             <HeaderBlog/>
@@ -37,6 +42,7 @@ export const PublicBlogRoutes = () => {
                                     activeClassName="public__blog-nav-links-link-selected"
                                     key={category.id}
                                     to = {`/blog/${category.id}/${category.name}`}
+                                    onClick={handleCloseClick}
                                 >
                                     {category.name}
                                 </NavLink>
