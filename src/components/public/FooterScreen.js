@@ -1,7 +1,7 @@
 import React from 'react';
 import { images } from '../../helpers/getImages';
 
-export const Footer = () => {
+export const FooterScreen = () => {
     return (
         <footer className="principal__footer">
             <div className="principal__footer__section"><img src={images(`./dg-logo.svg`).default} alt=""/></div>

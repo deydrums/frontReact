@@ -1,7 +1,7 @@
 import React from 'react';
 import { images } from '../../helpers/getImages';
 
-export const Header = () => {
+export const HeaderScreen = () => {
     return (
         <header>
             <div className="public__container">

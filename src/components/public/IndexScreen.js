@@ -1,13 +1,13 @@
 import React from 'react';
-import { Header } from './Header';
-import { AboutUs } from './AboutUs';
+import { AboutUsScreen } from './AboutUsScreen';
+import { HeaderScreen } from './HeaderScreen';
 
 export const IndexScreen = () => {
 
     return (
         <>
-            <Header/>
-            <AboutUs/>
+            <HeaderScreen/>
+            <AboutUsScreen/>
         </>
         
     )
