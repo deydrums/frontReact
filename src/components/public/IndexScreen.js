@@ -1,5 +1,6 @@
 import React from 'react';
 import { AboutUsScreen } from './AboutUsScreen';
+import { ContactScreen } from './ContactScreen';
 import { HeaderScreen } from './HeaderScreen';
 
 export const IndexScreen = () => {
@@ -8,6 +9,7 @@ export const IndexScreen = () => {
         <>
             <HeaderScreen/>
             <AboutUsScreen/>
+            <ContactScreen/>
         </>
         
     )

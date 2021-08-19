@@ -1,0 +1,62 @@
+.public__contact{
+    background-color: lighten($color: $primary, $amount: 0);
+    width: 100%;
+}
+
+.public__contact-cont{
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    justify-content:space-around;
+}
+
+.color-white{
+    color: $white;
+    font-weight: 500;
+}
+
+.public__contact-content{
+    width: 60%;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    transition: 0.9s all;
+    border: 1px solid $white;
+    padding: 45px 30px 60px 30px;
+}
+
+.public__contact-input{
+    color: $dark-grey;
+    border: 0px;
+    border-bottom: 1px solid $light-grey;
+    font-size: 16px;
+    margin-bottom:10px;
+    height: 30px;
+    width: 100%;
+    transition: border-bottom .3s ease;
+    border-radius: 3px;
+
+    &:focus{
+        border-bottom: 10px solid $white;
+        outline:none;
+    }
+}
+
+.public__contact-textarea{
+    transition: all 0.5s;
+    height: 100px;
+    resize: none;
+    &:focus{
+        height: 300px
+    }
+}
+
+.public__contact-btn{
+    background-color:darken($color: $primary, $amount: 20);
+    color: $white;
+    font-size: 17px;
+    font-weight: bold;
+
+    &:hover{
+        background-color:darken($color: $primary, $amount: 10);
+    }
+}
