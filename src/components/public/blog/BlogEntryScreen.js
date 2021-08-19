@@ -25,6 +25,32 @@ export const BlogEntryScreen = ({match}) => {
         <HeaderBlogNavigation id = {id} name = {name} title = {title} category_id = {category_id}/>
             <div className="public__entry-blog-container">
                 <div className="public__entry-blog-content">
+
+                    <div className="public__entry-blog-head">
+                        <div className="public__entry-blog-cont-desc">
+                            <div className="public__entry-blog-head-cont-date">
+                                <div className="public__entry-blog-head-cont-date-ci">
+                                    <div className="public__entry-blog-head-cont-date-month">
+                                        JUL
+                                    </div>
+                                    <div className="public__entry-blog-head-cont-date-day">
+                                        31
+                                    </div>
+                                    <div className="public__entry-blog-head-cont-date-year">
+                                        2021
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="public__entry-blog-head-cont-info">
+                                <div className="public__entry-blog-head-cont-info-title">
+                                    Titulo de la entrada Titulo de la entradaTitulo de
+                                </div>
+                            </div>
+                        </div>
+                        <div className="public__entry-blog-cont-image">
+                            <img src={images(`./code.png`).default} alt=""/>
+                        </div>
+                    </div>
                 {
                     fetch
                     ?
