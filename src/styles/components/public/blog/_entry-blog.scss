@@ -69,13 +69,20 @@
             display:flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             .public__entry-blog-head-cont-info-title{
-                width: 90%;
+                width: 95%;
                 height: 100%;
-                display: flex;
-                align-items: center;
                 font-size:30px;
                 font-weight: 500;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .public__entry-blog-head-cont-info-title-details{
+                    font-size:  20px;
+                    color: $dark-grey;
+                    font-style: oblique;
+                }
             }
         }
     }
@@ -86,6 +93,7 @@
         overflow: hidden;
         img{
             width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     }
@@ -95,6 +103,36 @@
 .public__blog-entries-load{
     >img{
         width: 40%;
+    }
+}
+
+@media screen and (max-width:800px){
+    .public__entry-blog-head{
+        height: 450px;
+        .public__entry-blog-cont-desc{
+            .public__entry-blog-head-cont-date{
+                width: 10%;
+                .public__entry-blog-head-cont-date-ci{
+                    width: 100%;
+                    height: 75%;
+                    .public__entry-blog-head-cont-date-month{
+                        height: 25%;
+                    }
+                    .public__entry-blog-head-cont-date-year{
+                        height: 25%;
+                    }
+                }
+            }
+            .public__entry-blog-head-cont-info{
+                .public__entry-blog-head-cont-info-title{
+                    font-size:25px;
+                    font-weight: 500;
+                    .public__entry-blog-head-cont-info-title-details{
+                        font-size:  17px;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -108,4 +146,50 @@
         }
     }
 
+
+    .public__entry-blog-head{
+        height: 400px;
+        .public__entry-blog-cont-desc{
+            height: 35%;
+            .public__entry-blog-head-cont-date{
+                width: 15%;
+                .public__entry-blog-head-cont-date-ci{
+                    width: 100%;
+                    height: 50%;
+                    .public__entry-blog-head-cont-date-month{
+                        height: 30%;
+                        font-size: 12px;
+                    }
+                    .public__entry-blog-head-cont-date-day{
+                        height: 50%;
+                        font-size: 25px;    
+                    }
+                    .public__entry-blog-head-cont-date-year{
+                        width: 100%;
+                        height: 20%;
+                        font-size: 12px;
+                    }
+                }
+            }
+            .public__entry-blog-head-cont-info{
+                .public__entry-blog-head-cont-info-title{
+                    font-size:20px;
+                    .public__entry-blog-head-cont-info-title-details{
+                        font-size:  15px;
+                    }
+                }
+            }
+        }
+        .public__entry-blog-cont-image{
+            width: 100%;
+            height: 65%;
+            border-radius:10px;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
 }

@@ -44,6 +44,10 @@ export const BlogEntryScreen = ({match}) => {
                             <div className="public__entry-blog-head-cont-info">
                                 <div className="public__entry-blog-head-cont-info-title">
                                     Titulo de la entrada Titulo de la entradaTitulo de
+                                    <br/>
+                                    <div className="public__entry-blog-head-cont-info-title-details">
+                                        <i className="fas fa-user m-1"/>Usuario | <i className="fas fa-sitemap m-1"/>Categoria
+                                    </div>
                                 </div>
                             </div>
                         </div>
