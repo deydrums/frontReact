@@ -10,7 +10,7 @@
 .public__blog-entries-head{
     background-color: transparentize($color: $primary, $amount: 0.9);
     width: 100%;
-    height: 200px;
+    height: 100px;
     display: flex;
     justify-content: center;
     .public__blog-entries-head-cont{
@@ -26,7 +26,7 @@
             display: flex;
             align-items: center;
             h1{
-                font-size: 30px;
+                font-size: 23px;
                 font-weight: 100;
             }
         }
@@ -178,7 +178,7 @@
             width: 90%;
             .public__blog-entries-head-txt{
                 h1{
-                    font-size: 25px;
+                    font-size: 18px;
                 }
             }
         }
