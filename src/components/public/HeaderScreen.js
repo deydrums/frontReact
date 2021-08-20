@@ -10,8 +10,8 @@ export const HeaderScreen = () => {
                         <p>Hola, soy</p>
                         <h1>David García</h1>
                         <h2>Estudiante de Ingenieria Electrónica<br/>& desarrollador web</h2>
-                        <a href="#about" className="btn link-item">Sobre mí</a>
-                        <a href="#portafolio" className="btn link-item">Portafolio</a>
+                        <a href="#about" className="btn-public m-2">Sobre mí</a>
+                        <a href="#portafolio" className="btn-public m-2">Portafolio</a>
                     </div>
                     <div className="public__header-img animate__animated animate__fadeIn">
                         <div className="img-box">

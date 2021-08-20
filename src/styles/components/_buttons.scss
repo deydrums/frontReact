@@ -83,6 +83,39 @@
     float:right;
 }
 
+
+.btn-public {
+    line-height: 1.5;
+    background-color:transparentize($color: $primary, $amount: 0.5);
+    padding: 10px 28px;
+    display: inline-block;
+    border-radius: 30px;
+    color: $white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    font-weight: 900;
+    &:hover{
+        color: lighten($color: $primary, $amount: 30);
+    }
+  }
+  .btn-public:before {
+    content:"";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 100%;
+    background: transparentize($color: $white, $amount: 0.9);
+    transition: width 0.5s ease;
+  }
+  .btn-public:hover:before {
+  width: 100%;
+  }
+  
+
 @media only screen and (max-width: 600px) {
 
 

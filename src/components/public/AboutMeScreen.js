@@ -45,13 +45,13 @@ export const AboutMeScreen = () => {
                     <div className="public__about-text">
                         <p> &nbsp;&nbsp;&nbsp;&nbsp; Mario David García Chinchilla, o simplemente David;
                             me considero una persona trabajadora y muy positiva con una gran
-                            actitud para aprender cosas nuevas, tengo 24 años y resido en la 
+                            actitud para aprender, tengo 25 años y resido en la 
                             ciudad de Guatemala.
                             <br/><br/>
                             &nbsp;&nbsp;&nbsp;&nbsp;Me apasiona el desarrollo WEB, he trabajado con 
                             lenguaje PHP (Nativo y Frameworks como Laravel y Symfony), JavaScript 
-                            (Nativo y Frameworks como Angular), Python, entre otros; Bases de datos
-                            relacionales (MySQL, MariaDB).
+                            (Angular, React JS), Python, entre otros; Bases de datos
+                            relacionales (MySQL, MariaDB) y no relacionales (MongoDB).
                             <br/><br/>
                             &nbsp;&nbsp;&nbsp;&nbsp; Poseo cierre de pensum de la carrera de 
                             Ingeniería Electrónica, donde adquirí conocimientos en el área de 
@@ -109,42 +109,56 @@ export const AboutMeScreen = () => {
 
                     <div className="tab-content" id="curses">
                         <div className="timeline">
+
                             <div className="timeline-item">
-                                <span className="date">2021</span>
+                                <span className="date">Ago - 2021</span>
+                                <h4>React: De cero a experto ( Hooks y MERN ) - <span>Udemy</span></h4>
+                                    <p>
+                                    Desarrollo en lenguaje JavaScript utilizando la libreria React JS, 100% en Hooks y functional components.
+                                    </p>    
+                                <a href="https://www.udemy.com/certificate/UC-75ca20b1-c3d9-485f-93c2-f9541704a34a/" target="_blank" rel="noreferrer" className= "btn-public mt-2">Ver Credencial</a>
+                            </div>
+
+                            <div className="timeline-item">
+                                <span className="date">Jun - 2021</span>
                                 <h4>Master en JavaScript, jQuery, Angular, NodeJS - <span>Udemy</span></h4>
                                     <p>
                                     Desarrollo en lenguaje JavaScript desde cero, partiendo de las bases de la programación, hasta 
                                     la utilización de frameworks.
                                     </p>    
-                                <a href="https://www.udemy.com/certificate/UC-a48a8562-5bab-4bf0-bd82-b0f52040b226/" target="_blank" rel="noreferrer" className="btn">Ver Credencial</a>
+                                <a href="https://www.udemy.com/certificate/UC-a48a8562-5bab-4bf0-bd82-b0f52040b226/" target="_blank" rel="noreferrer" className="btn-public mt-2">Ver Credencial</a>
                             </div>
+
                             <div className="timeline-item">
-                                <span className="date">2021</span>
-                                <h4>Master en PHP, SQL, POO, MVC, Laravel, Symfony - <span>Udemy</span></h4>
-                                <p>
-                                    Desarrollo en lenguaje PHP desde cero, partiendo de las bases de la programación, hasta 
-                                    la utilización de frameworks empleando POO, y MVC.
-                                </p>
-                                <a href="https://www.udemy.com/certificate/UC-e80059cc-1857-4d6a-9d9b-e50773c940d1" target="_blank" rel="noreferrer" className="btn">Ver Credencial</a>
-                            </div>
-                            <div className="timeline-item">
-                                <span className="date">2021</span>
+                                <span className="date">Jun - 2021</span>
                                 <h4>Introduction to Cybersecurity - <span>Cisco</span></h4>
                                 <p>
                                     Descubra el mundo de la ciberseguridad y su impacto, a medida que descubre las amenazas, 
                                     ataques y vulnerabilidades más comunes.
                                 </p>
-                                <a href="https://www.credly.com/badges/562657fe-240e-46a1-a924-7e37f359c073?source=linked_in_profile" target="_blank" rel="noreferrer" className="btn">Ver Credencial</a>
+                                <a href="https://www.credly.com/badges/562657fe-240e-46a1-a924-7e37f359c073?source=linked_in_profile" target="_blank" rel="noreferrer" className="btn-public mt-2">Ver Credencial</a>
                             </div>
+
                             <div className="timeline-item">
-                                <span className="date">2021</span>
+                                <span className="date">Jun - 2021</span>
                                 <h4> Master en webs Full Stack - <span>Udemy</span></h4>
                                 <p>
                                     Desarrollo en lenguaje PHP desde cero, partiendo de las bases de la programación, hasta 
                                     la utilización de frameworks empleando POO, y MVC.
                                 </p>
-                                <a href="https://www.udemy.com/certificate/UC-f8b2a5a3-bc45-459b-bef1-47dbc5e0cdd3/" target="_blank" rel="noreferrer" className="btn">Ver Credencial</a>
+                                <a href="https://www.udemy.com/certificate/UC-f8b2a5a3-bc45-459b-bef1-47dbc5e0cdd3/" target="_blank" rel="noreferrer" className="btn-public mt-2">Ver Credencial</a>
                             </div>
+
+                            <div className="timeline-item">
+                                <span className="date">May - 2021</span>
+                                <h4>Master en PHP, SQL, POO, MVC, Laravel, Symfony - <span>Udemy</span></h4>
+                                <p>
+                                    Desarrollo en lenguaje PHP desde cero, partiendo de las bases de la programación, hasta 
+                                    la utilización de frameworks empleando POO, y MVC.
+                                </p>
+                                <a href="https://www.udemy.com/certificate/UC-e80059cc-1857-4d6a-9d9b-e50773c940d1" target="_blank" rel="noreferrer" className="btn-public mt-2">Ver Credencial</a>
+                            </div>
+
                         </div>
                     </div>
                     {/* <!--Curses End--> */}
