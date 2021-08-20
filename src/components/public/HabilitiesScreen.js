@@ -11,7 +11,7 @@ export const HabilitiesScreen = () => {
                             <i className="fas fa-paint-brush"></i>
                         </div>
                         <h3>Diseño web</h3>
-                        <h3><i className="fab fa-css3-alt"/> <i className="fab fa-html5"/></h3>
+                        <h3><i className="fab fa-css3-alt" style={{color: "#B9A014"}}/> <i className="fab fa-html5" style={{color: "#BE4A14"}}/></h3>
                         <p>Diseño de sitios web partiendo de su estructura con el lenguaje de etiquetas HTML5,
                             hasta su maquetacion empleando CSS3.
                         </p>
@@ -21,7 +21,7 @@ export const HabilitiesScreen = () => {
                             <i className="fab fa-php"></i>
                         </div>
                         <h3>PHP</h3>
-                        <h3><i className="fab fa-laravel"/> <i className="fab fa-symfony"/></h3>
+                        <h3><i className="fab fa-laravel" style={{color: "#BE4A14"}}/> <i className="fab fa-symfony" style={{color: "#696969"}}/></h3>
                         <p> Desarrollo de sitios web con PHP nativo empleando MVC y frameworks como Symfony y Laravel.
                         </p>
                     </div>
@@ -30,7 +30,7 @@ export const HabilitiesScreen = () => {
                             <i className="fab fa-js-square"></i>
                         </div>
                         <h3>JavaScript</h3>
-                        <h3><i className="fab fa-react"/> <i className="fab fa-angular"/> <i className="fab fa-node-js"/></h3>
+                        <h3><i className="fab fa-react" style={{color: "#046F81"}}/> <i className="fab fa-angular" style={{color: "#BA2713"}}/> <i className="fab fa-node-js " style={{color: "#0E8313"}}/></h3>
                         <p> Desarrollo de sitios web empleando JavaScript nativo, angular y ReactJS para el frontend y el
                             entorno nodeJS junto a Express en el backend. 
                         </p>
