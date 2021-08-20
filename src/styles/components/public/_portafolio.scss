@@ -1,0 +1,57 @@
+/* -------------------------
+Portafolio section
+----------------------------*/
+.public__portafolio{
+    background-color: $white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.public__portafolio-container{
+    width: 90%;
+}
+
+.public__portafolio-title{
+    background-color:$white;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2{
+        font-family: 'poppins';
+        font-weight: 900;
+        font-size: 40px;
+        color: darken($color: $primary, $amount: 30);
+    }
+}
+
+.public__portafolio-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.public__portafolio-project{
+    width: 30%;
+    margin: 0 15px 30px;
+    h3{
+        font-size: 20px;
+        text-transform: capitalize;
+        margin: 20px 0;
+        font-family: 'poppins';
+        font-weight: 600;
+    }
+}
+
+.public__portafolio-img{
+    padding: 5px;
+    background-color: $dark-grey;
+    border: 1px solid $dark-grey;
+    border-radius: 10px;
+}
+
+.public__portafolio-img img{
+    width:100%;
+    border-radius: 10px;
+}
