@@ -2,9 +2,9 @@ import React from 'react'
 
 export const HabilitiesScreen = () => {
     return (
-        <section className="public__about-us">
+        <section className="public__habilities">
             <div className="public__container public__container__p-60">
-                <h2 className="public__title">Habilidades</h2>
+                <h2 className="public__title" style={{color: "white"}}>Habilidades</h2>
                 <div className="public__articles">
                     <div className="public__article" data-aos="zoom-in-right">
                         <div className="public__icon">
@@ -49,7 +49,7 @@ export const HabilitiesScreen = () => {
                             <i className="fas fa-project-diagram"></i>
                         </div>
                         <h3>Networking</h3>
-                        <p>Configuraciones en equipos Cisco y Mikrotik como DHCP, enrutamient estatico y dinamico (OSPF,
+                        <p>Configuraciones en equipos Cisco y Mikrotik como DHCP, enrutamiento estatico y dinamico (OSPF,
                             EIGRP, RIPv2), Vlans, NAT, etc.
                         </p>
                     </div>

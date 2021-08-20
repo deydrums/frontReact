@@ -1,6 +1,6 @@
 
-.public__about-us{
-    background-color: $light-grey;
+.public__habilities{
+    background-color: darken($color: $primary, $amount: 45);
     width: 100%;
 }
 
@@ -14,7 +14,7 @@
 
 .public__article{
     width: 25%;
-    background-color: #fff;
+    background-color: transparentize($color: $primary, $amount: 0.9);
     margin-bottom: 30px;
     border-radius: 10px;
     padding: 45px 30px 60px 30px;
@@ -23,11 +23,11 @@
     .public__icon{
         width:70px;
         height:70px;  
-        background-color: $primary;
+        background-color: $white;
         border-radius: 50%;
-        color: #fff;
+        color: $primary;
         font-size: 30px;
-        box-shadow: 0 8px 32px transparentize($color: $primary, $amount: .46);
+        box-shadow: 0 8px 20px transparentize($color: $primary, $amount: .46);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -35,19 +35,19 @@
     
     
     h3{
-        color: #1d273b;
+        color: #ffffff;
         font-weight: 300;
         font-size: 24px;
         margin-top:30px;
     }
     p{
         font-weight: 100;
-        color: #5d6678;
+        color: #bebebe;
         margin-top: 15px;
         padding-bottom:20px;
     }
     a{
-        color: #5d6678;
+        color: #818181;
         text-decoration:none;
         font-weight: 400;
         &:hover{
