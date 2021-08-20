@@ -18,7 +18,7 @@ export const HabilitiesScreen = () => {
                     </div>
                     <div className="public__article" data-aos="zoom-in-right">
                         <div className="public__icon">
-                            <i className="fab fa-html5"></i>
+                            <i className="fab fa-php"></i>
                         </div>
                         <h3>PHP</h3>
                         <h3><i className="fab fa-laravel"/> <i className="fab fa-symfony"/></h3>
