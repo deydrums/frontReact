@@ -20,8 +20,20 @@
     margin-bottom: 30px;
     border-radius: 10px;
     transition: 0.9s all;
-    border: 1px solid $white;
-    padding: 45px 30px 60px 30px;
+    background-color: lighten($color: $primary, $amount: 5);
+    padding: 25px 30px 60px 30px;
+}
+
+.public__contact-title{
+    text-align: center;
+    font-family: 'open sans';
+    font-size: 35px;
+    font-weight: 300;
+}
+
+.public__contact-err{
+    height:30px;
+    margin-bottom: 10px;
 }
 
 .public__contact-input{
@@ -43,11 +55,9 @@
 
 .public__contact-textarea{
     transition: all 0.5s;
-    height: 100px;
-    resize: none;
-    &:focus{
-        height: 300px
-    }
+    min-height: 100px !important;
+    resize:none;
+    overflow: hidden;
 }
 
 .public__contact-btn{
@@ -58,5 +68,19 @@
 
     &:hover{
         background-color:darken($color: $primary, $amount: 10);
+    }
+}
+
+@media screen and (max-width:800px){
+
+    .public__contact-content{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:600px){
+
+    .public__contact-content{
+        width: 100%;
     }
 }

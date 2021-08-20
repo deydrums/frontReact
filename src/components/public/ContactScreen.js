@@ -18,9 +18,9 @@ export const ContactScreen = () => {
     }, [dispatch])
 
     const [formvalues, handleInputChange, reset] = useForm({
-        name: 'Juan',
-        email: 'juan@juan.com',
-        message: 'Mensaje'
+        name: '',
+        email: '',
+        message: ''
     });
 
     const {name, email, message} = formvalues;
@@ -48,56 +48,73 @@ export const ContactScreen = () => {
         return true;
     };
 
+    const handleRemoveError = () => {
+        dispatch(removeError());
+    }
+
+
+    const adjustHeight = (e) => {
+        e.target.style.height = 'inherit';
+        e.target.style.height = `${e.target.scrollHeight}px`; 
+    }
+
     return (
         <section className="public__contact">
             <div className="public__container">
-                <h2 className="public__title color-white">Contacto</h2>
                 <div className="public__contact-cont">
-                    <div className="public__contact-content">
-                    <form onSubmit={handleSubmit}>
-                    {
-                        msgError&&<div className="auth__alert-error">{msgError}</div>
-                    }
-                        <input
-                            type="text"
-                            placeholder="Nombre..."
-                            name = "name"
-                            className="public__contact-input"
-                            autoComplete="off"
-                            onChange={handleInputChange}
-                            value={name}
-                        />
+                    <div className="public__contact-content" data-aos="zoom-in">
+                        <h2 className="public__contact-title color-white">Contáctame</h2>
 
-                        <input
-                            type="email"
-                            placeholder="Email..."
-                            name = "email"
-                            className="public__contact-input"
-                            autoComplete="off"
-                            onChange={handleInputChange}
-                            value={email}
-                        />
+                        <div className="public__contact-err">
+                        {
+                            msgError&&<div className="auth__alert-error">{msgError}</div>
+                        }
+                        </div>
+                        <form onSubmit={handleSubmit}>
 
-                        <textarea
-                            placeholder="Mensaje..."
-                            name = "message"
-                            className="public__contact-input public__contact-textarea"
-                            onChange={handleInputChange}
-                            value={message}
-                        >
+                            <input
+                                type="text"
+                                placeholder="Nombre..."
+                                name = "name"
+                                className="public__contact-input"
+                                autoComplete="off"
+                                onChange={handleInputChange}
+                                value={name}
+                                onClick={handleRemoveError}
+                            />
 
-                        </textarea>
+                            <input
+                                type="email"
+                                placeholder="Email..."
+                                name = "email"
+                                className="public__contact-input"
+                                autoComplete="off"
+                                onChange={handleInputChange}
+                                value={email}
+                                onClick={handleRemoveError}
+                            />
 
-                        <button
-                            type="submit"
-                            className = "btn btn-block public__contact-btn"
-                            disabled={fetch}
-                        >
-                            {
-                                fetch?<LoadingIconScreen/>:<span>Enviar</span>
-                            }
-                        </button>
-                    </form>
+                            <textarea
+                                placeholder="Mensaje..."
+                                name = "message"
+                                className="public__contact-input public__contact-textarea"
+                                onChange={handleInputChange}
+                                value={message}
+                                onClick={handleRemoveError}
+                                onKeyDown={adjustHeight}
+                            />
+
+
+                            <button
+                                type="submit"
+                                className = "btn btn-block public__contact-btn"
+                                disabled={fetch}
+                            >
+                                {
+                                    fetch?<LoadingIconScreen/>:<span>Enviar</span>
+                                }
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
