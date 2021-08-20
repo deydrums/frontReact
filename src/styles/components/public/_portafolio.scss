@@ -27,13 +27,13 @@ Portafolio section
 }
 
 .public__portafolio-content{
-    display: flex;
-    flex-direction: row;
+    display:flex;
     flex-wrap: wrap;
+    justify-content:space-around
 }
 
 .public__portafolio-project{
-    width: 30%;
+    width: 29%;
     margin: 0 15px 30px;
     h3{
         font-size: 20px;
@@ -41,12 +41,13 @@ Portafolio section
         margin: 20px 0;
         font-family: 'poppins';
         font-weight: 600;
+        color: darken($color: $dark-grey, $amount: 10);
     }
 }
 
 .public__portafolio-img{
     padding: 5px;
-    background-color: $dark-grey;
+    background-color: darken($color: $dark-grey, $amount: 10);
     border: 1px solid $dark-grey;
     border-radius: 10px;
 }
@@ -54,4 +55,17 @@ Portafolio section
 .public__portafolio-img img{
     width:100%;
     border-radius: 10px;
+}
+
+@media screen and (max-width:1000px){
+    .public__portafolio-project{
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width:600px){
+    .public__portafolio-project{
+        width: 90%;
+    }
 }

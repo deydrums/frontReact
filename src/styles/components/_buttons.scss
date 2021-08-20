@@ -83,6 +83,13 @@
     float:right;
 }
 
+.btn-public-dark{
+    background-color:darken($color: $light-grey, $amount: 60) !important;
+}
+
+.btn-public-dark:before {
+    background: transparentize($color: $white, $amount: 0.9) !important;
+  }
 
 .btn-public {
     line-height: 1.5;
