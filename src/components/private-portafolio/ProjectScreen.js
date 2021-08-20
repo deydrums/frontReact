@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ProjectScreen = () => {
+export const ProjectScreen = (project) => {
     return (
         <div className="portafolio__content-project animate__animated animate__zoomIn"> 
             <div className="portafolio__content__color">
@@ -8,7 +8,7 @@ export const ProjectScreen = () => {
             </div>
             <div className="portafolio__content-project-data">
                 <div className="portafolio__content-project-data-txt">
-                    Nombre
+                    {project.name}
                 </div>
             </div>
             <div className="portafolio__content-date">

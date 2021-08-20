@@ -8,13 +8,13 @@ import { ProjectScreen } from './ProjectScreen'
 export const PortafolioScreen = () => {
 
     const dispatch = useDispatch();
-    const {projects} = useSelector(state => state.portafolio)
+    const {projects} = useSelector(state => state.portafolio);
+    const {fetch} = useSelector(state => state.ui);
 
     useEffect(() => {
         dispatch(startGetProjects());
     }, [dispatch])
 
-    console.log(projects)
     return (
         <div className="principal__content">
             <div className="portafolio__content ">
@@ -27,11 +27,21 @@ export const PortafolioScreen = () => {
                     </div>
                     <div className="portafolio__projects scroll_options ">
                         <div className="portafolio__projects-center">
-    
-                            {/* <div className="mt-3">
+                        {
+                            fetch
+                            ?
+                            <div className="mt-3">
                                 <LoadingIconScreen/>
-                            </div> */}
-                        <ProjectScreen/>
+                            </div>
+                            :
+                                projects.map(project => (
+                                    <ProjectScreen 
+                                        key={project.id}
+                                        {...project}
+                                    />
+                                ))
+
+                        }
 
                         </div>
                     </div>
