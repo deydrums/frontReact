@@ -1,0 +1,124 @@
+.portafolio__content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portafolio__container-entries{
+    width: 90%;
+    height: 90%;
+    background-color:lighten($color: $dark-grey, $amount: 20);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+
+    .portafolio__options-entries{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        background-color:lighten($color: $dark-grey, $amount: 15);
+        h5{
+            width: 65%;
+            margin-left: 50px;
+        }
+    
+        button{
+            width: 30%;
+        }
+    }
+
+}
+
+
+.portafolio__projects{
+    width: 100%;
+    height: 100%;
+
+}
+
+.blog__content_categories{
+    width: 100%;
+    height: 90%;
+}
+
+.portafolio__projects-center{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+.portafolio__content-project{
+    width: 60%;
+    height: 65px !important;
+    background-color:lighten($color: $dark-grey, $amount: 30);
+    margin-top: 10px;
+    border-radius:10px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    
+    .portafolio__content__color{
+        width: 5%;
+        height: 100%;
+        overflow: hidden;
+        background-color:lighten($color: $dark-grey, $amount: 15);
+        color: lighten($color: $primary, $amount: 40);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .portafolio__content-project-data{
+        width: 80%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        .portafolio__content-project-data-txt{
+            width: 95%;
+            height: 100%;
+            display: flex;
+            align-items:flex-start;
+            justify-content: center;
+            flex-direction: column;
+            h3,h2{
+                color: white;
+                font-weight: 200;
+                font-size:14px;
+            }
+            h2{
+                font-size:16px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .portafolio__content-date{
+        width: 15%;
+        height: 100%;
+        overflow: hidden;
+        background-color:lighten($color: $dark-grey, $amount: 15);
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        flex-direction: column;
+        h3,h2{
+            color: white;
+            font-weight: 200;
+            font-size:12px;
+        }
+        h2{
+            font-size:15px;
+            font-weight: bold;
+        }
+    }
+
+}
