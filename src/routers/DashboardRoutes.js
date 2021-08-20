@@ -5,6 +5,7 @@ import { ConfirmEmailScreen } from '../components/principal/ConfirmEmailScreen'
 import { IndexScreen } from '../components/principal/IndexScreen'
 import { Sidebar } from '../components/principal/Sidebar'
 import { UserSettingsScreen } from '../components/principal/UserSettingsScreen'
+import { PortafolioScreen } from '../components/private-portafolio/PortafolioScreen'
 import { UsersListScreen } from '../components/users/UsersListScreen'
 import { PrivateBlogRoutes } from './PrivateBlogRoutes'
 
@@ -35,6 +36,7 @@ export const DashboardRoutes = () => {
                                 <Route exact path="/config/inicio" component={IndexScreen}/>
                                 <Route exact path="/config/user/settings" component={UserSettingsScreen}/>
                                 <Route exact path="/config/users" component={UsersListScreen}/>
+                                <Route exact path="/config/portafolio" component={PortafolioScreen}/>
                                 <Route path="/config/blog" component={PrivateBlogRoutes}/>
                                 <Redirect to="/config/inicio"/>
                             </Switch>

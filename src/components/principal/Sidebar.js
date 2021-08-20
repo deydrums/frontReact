@@ -84,6 +84,17 @@ export const Sidebar = () => {
                         Blog 
                     </div>
                 </NavLink>
+
+
+                <NavLink to = "/config/portafolio" className="principal_option pointer link-options mb-2" activeClassName = "principal_opcion--active" >
+                    <div className="principal_option_icon">
+                        <i className="fas fa-file-contract"></i>
+                    </div>
+                    <div className="principal_option_text">
+                        Portafolio 
+                    </div>
+                </NavLink>
+
             </div>
 
 
