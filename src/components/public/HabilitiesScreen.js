@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const AboutUsScreen = () => {
+export const HabilitiesScreen = () => {
     return (
         <section className="public__about-us">
             <div className="public__container public__container__p-60">
