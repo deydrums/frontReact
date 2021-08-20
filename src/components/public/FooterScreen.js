@@ -1,7 +1,7 @@
 import React from 'react';
 import { images } from '../../helpers/getImages';
-
 export const FooterScreen = () => {
+    
     return (
         <footer className="principal__footer">
             <div className="principal__footer__section"><img src={images(`./dg-logo.svg`).default} alt=""/></div>
@@ -20,21 +20,46 @@ export const FooterScreen = () => {
             <div className="principal__footer__section">
                 <h4>Redes sociales</h4>
                 <div className="principal__social-media">
-                    <div className="social-media-icon">
+                    <a 
+                        className="social-media-icon"
+                        href = "https://www.facebook.com/deydrums/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="fab fa-facebook-f"></i>
-                    </div>
-                    <div className="social-media-icon">
+                    </a>
+                    <a 
+                        className="social-media-icon"
+                        href = "https://www.instagram.com/dey_drums"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="fab fa-instagram"></i>
-                    </div>
-                    <div className="social-media-icon">
+                    </a>
+                    <a 
+                        className="social-media-icon"
+                        href = "https://twitter.com/dey_drums"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="fab fa-twitter"></i>
-                    </div>
-                    <div className="social-media-icon">
+                    </a>
+                    <a 
+                        className="social-media-icon"
+                        href = "https://www.linkedin.com/in/davgar100/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="fab fa-linkedin-in"></i>
-                    </div>
-                    <div className="social-media-icon">
+                    </a>
+                    <a 
+                        className="social-media-icon"
+                        href = "https://www.youtube.com/channel/UCGtKLMoZsUQeMqAOqlSzang"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <i className="fab fa-youtube"></i>
-                    </div>
+                    </a>
                 </div>
             </div>
         </footer>
