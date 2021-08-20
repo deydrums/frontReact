@@ -2,6 +2,18 @@ import React from 'react'
 import { images } from '../../helpers/getImages';
 
 export const AboutMeScreen = () => {
+
+    
+
+    const handleTabsClick = (e) => {
+        const tabsContainer = document.querySelector(".public__about-tabs")
+        if(e.target.classList.contains("tab-item") && !e.target.classList.contains("active")){
+            tabsContainer.querySelector(".active").classList.remove("active");
+            e.target.classList.add("active");
+        }
+
+    }
+
     return (
         <div className="public__about">
             <div className="public__about-container">
@@ -28,6 +40,11 @@ export const AboutMeScreen = () => {
                             telecomunicaciones, electrónica y networking, (Trabajando con equipos
                             Cisco y Mikrotik).
                         </p>
+                        <div className="public__about-tabs" onClick={handleTabsClick}>
+                            <button type="button" className="tab-item active" data-target="#education">educación</button>
+                            <button type="button" className="tab-item" data-target="#experience">experiencia</button>
+                            <button type="button" className="tab-item" data-target="#curses">cursos</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,12 +52,6 @@ export const AboutMeScreen = () => {
                 
 
 /* 
-
-                    <div class="about-tabs">
-                        <button type="button" class="tab-item active" data-target="#education">educación</button>
-                        <button type="button" class="tab-item" data-target="#experience">experiencia</button>
-                        <button type="button" class="tab-item" data-target="#curses">cursos</button>
-                    </div>
 
                     <div class="tab-content active" id = "education">
                         <div class="timeline">
