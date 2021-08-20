@@ -13,56 +13,50 @@ header{
 
 .public__contenido-header {
     width:100%;
-    height:600px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
-.public__contenido-header > img{
-    width:550px;
-    animation: ease-in animat 1s;
+.public__header-text,
+.public__header-img{
+    width:50%;
+    color: $white;
 }
 
-
-
-.public__textos-header{
-    margin: 0 0 0 30px;
-    h1{
-        font-size: 50px;
-        color:$white;
-        font-weight: 300;
-    }
-
+.public__header-text{
     p{
-        font-weight: 100;
-        margin-top: 15px;
-        color: darken($color: $white, $amount: 20);
+        font-size:18px;
     }
 
-    a{
-        margin: 28px 0 0 0;
-        width: 130px;
-        display:inline-block;
-        text-decoration: none;
-        background-color: $primary;
-        text-align: center;
-        color: $white;
-        padding: 12px 0;
-        font-weight: 400;
-        text-transform: uppercase;
-        font-size: 14px;
-        border-radius:5px;
-        box-shadow: 0 8px 32px transparentize($color: $primary, $amount: 0.45);
-        transition: all 0.5s;
-        &:hover{
-            color: $primary;
-            background-color: $white;
-        }
+    h1{
+        font-size:50px;
+        text-transform: capitalize;
     }
-    
+
+    h2{
+        font-size:20px;
+        text-transform: capitalize;
+        font-weight: 300;
+        margin: 0 0 30px;
+    }
 }
+
+
+.public__header-img .img-box{
+    max-width: 360px;
+    background-color: transparentize($color: $dark-grey, $amount: 0.7);
+    border-radius:50%;
+    border: 8px solid lighten($color: $primary, $amount: 20);
+    margin: auto;
+}
+
+.public__header-img .img-box img{
+    width:100%;
+    border-radius: 50%;
+}
+
+
 
 
 @keyframes animat{
@@ -78,18 +72,22 @@ header{
 @media screen and (max-width:800px){
 
     .public__contenido-header{
-        flex-direction: column;
-        justify-content:space-evenly;
+        flex-direction: column-reverse;
         height:720px;
+        justify-content: center;
+        align-items: center;
     }
-    .public__contenido-header>img{
-        width:400px;
+    
+    .public__header-text,
+    .public__header-img{
+        width: 100%;
+        padding: 15px;
+        text-align: center;
     }
-    .public__textos-header{
-        margin:0;
+    .public__header-img .img-box{
+        max-width: 250px;
     }
-
-
+    
 }
 
 @media screen and (max-width:600px){
@@ -99,8 +97,8 @@ header{
         height: 650px;
     }
 
-    .public__contenido-header>img{
-        width:300px;
+    .public__header-img .img-box{
+        max-width: 200px;
     }
 
 }
