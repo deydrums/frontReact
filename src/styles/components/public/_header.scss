@@ -13,6 +13,7 @@ header{
 
 .public__contenido-header {
     width:100%;
+    margin-top: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -72,6 +73,7 @@ header{
 @media screen and (max-width:800px){
 
     .public__contenido-header{
+        margin-top: 0px;
         flex-direction: column-reverse;
         height:720px;
         justify-content: center;
