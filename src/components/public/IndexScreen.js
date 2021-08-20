@@ -3,6 +3,7 @@ import { HeaderScreen } from './HeaderScreen';
 import { AboutMeScreen } from './AboutMeScreen';
 import { HabilitiesScreen } from './HabilitiesScreen';
 import { ContactScreen } from './ContactScreen';
+import { PortafolioScreen } from './PortafolioScreen';
 
 export const IndexScreen = () => {
 
@@ -11,6 +12,7 @@ export const IndexScreen = () => {
             <HeaderScreen/>
             <AboutMeScreen/>
             <HabilitiesScreen/>
+            <PortafolioScreen/>
             <ContactScreen/>
         </>
         
