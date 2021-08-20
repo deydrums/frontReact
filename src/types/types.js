@@ -37,4 +37,11 @@ export const types = {
 
     blogSetActivePublicEntry: '[blog] Set active public entry',
     blogUnsetActivePublicEntry: '[blog] Unset active public entry',
+
+    portafolioLoadingProjects: '[portafolio] Loading projects',
+    portafolioSetActiveProject: '[portafolio] Set active project',
+    portafolioUnsetActiveProject: '[portafolio] Unset active project',
+    portafolioDeleteProject: '[portafolio] Delete project',
+    portafolioUpdateProject: '[portafolio] Update project',
+
 }

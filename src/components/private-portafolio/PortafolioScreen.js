@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { startGetProjects } from '../../actions/portafolio'
 import { LoadingIconScreen } from '../ui/LoadingIconScreen'
 import { ProjectScreen } from './ProjectScreen'
 
 
 export const PortafolioScreen = () => {
+
+    const dispatch = useDispatch();
+    const {projects} = useSelector(state => state.portafolio)
+
+    useEffect(() => {
+        dispatch(startGetProjects());
+    }, [dispatch])
+
+    console.log(projects)
     return (
         <div className="principal__content">
             <div className="portafolio__content ">
