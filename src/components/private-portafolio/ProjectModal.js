@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../actions/ui';
+import { NewProjectScreen } from './NewProjectScreen';
 
 const customStyles = {
     content: {
@@ -26,7 +27,8 @@ export const ProjectModal = () => {
 
     return (
         <Modal
-        isOpen={modalOpen}
+        //isOpen={modalOpen}
+        isOpen={true}
         // onAfterOpen={afterOpenModal}
         onRequestClose={handleCloseModal}
         style={customStyles}
@@ -35,10 +37,7 @@ export const ProjectModal = () => {
         closeTimeoutMS={200}
         ariaHideApp={!process.env.NODE_ENV === 'test'}
        >
-
-           <div>
-               Modal
-           </div>
+           <NewProjectScreen/>
            {/* <NewEntryScreen closeModal = {closeModal}/> */}
        </Modal>
     )
