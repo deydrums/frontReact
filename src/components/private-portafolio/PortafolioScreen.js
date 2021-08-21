@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { startGetProjects } from '../../actions/portafolio'
+import { openModal } from '../../actions/ui'
 import { LoadingIconScreen } from '../ui/LoadingIconScreen'
+import { ProjectModal } from './ProjectModal'
 import { ProjectScreen } from './ProjectScreen'
 
 
@@ -15,13 +17,18 @@ export const PortafolioScreen = () => {
         dispatch(startGetProjects());
     }, [dispatch])
 
+    const handleNewProject = () => {
+        dispatch(openModal());
+    }
+
+
     return (
         <div className="principal__content">
             <div className="portafolio__content ">
                 <div className="portafolio__container-entries">
                     <div className="portafolio__options-entries">
                         <h5 className="principal__title_secundary"><i className="fas fa-hard-hat m-2"></i> Proyectos</h5>
-                        <button className="btn btn-primary h-100">
+                        <button className="btn btn-primary h-100" onClick={handleNewProject}>
                             <span>Nuevo</span>
                         </button>
                     </div>
@@ -47,6 +54,8 @@ export const PortafolioScreen = () => {
                     </div>
                 </div>
             </div>
+
+            <ProjectModal/>
         </div>
     )
 }
