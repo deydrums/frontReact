@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeError } from '../../actions/ui';
+import { removeError, setError } from '../../actions/ui';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
 
 
@@ -35,9 +35,46 @@ export const NewProjectScreen = () => {
     //Submit
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(values);
+        if(isFormValid()){
+            console.log(values);
+        }
     }
 
+    //form validate
+    const isFormValid = () =>{
+
+        if(name.trim().length ===0){
+            dispatch(setError('El nombre es requerido'));
+            return false;
+        }else if(desc.trim().length ===0){
+            dispatch(setError('La descripcion es requerida'));
+            return false;
+        }else if(technologies.trim().length ===0){
+            dispatch(setError('Las tecnologias son requeridas'));
+            return false;
+        }else if(responsive.trim().length ===0){
+            dispatch(setError('El campo responsive es requerido'));
+            return false;
+        }else if(role.trim().length ===0){
+            dispatch(setError('El role es requerido'));
+            return false;
+        }else if(link.trim().length ===0){
+            dispatch(setError('El link es requerido'));
+            return false;
+        }else if(date.trim().length ===0){
+            dispatch(setError('La fecha es requerida'));
+            return false;
+        }
+
+        dispatch(removeError());
+        return true;
+    };
+
+    //TextArea Ajust
+    const adjustHeight = (e) => {
+        e.target.style.height = 'inherit';
+        e.target.style.height = `${e.target.scrollHeight}px`; 
+    }
 
     return (
         <div className="portafolio__newproject-content">
@@ -63,11 +100,16 @@ export const NewProjectScreen = () => {
                 <h2>Nuevo Proyecto</h2>
             </div>
 
-            
-            <form className="portafolio__newproject-form" >
-                    {
-                        msgError&&<div className="auth__alert-error">{msgError}</div>
-                    }
+
+
+            <form className="portafolio__newproject-form mb-5" >
+
+                    <div className="portafolio__newproject-msgs">
+                        {
+                            msgError&&<div className="auth__alert-error">{msgError}</div>
+                        }
+                    </div>
+
                     <input
                         type="text"
                         placeholder="Nombre..."
@@ -81,10 +123,11 @@ export const NewProjectScreen = () => {
                     <textarea
                         placeholder="Descripcion del proyecto..."
                         name = "desc"
-                        className="auth__input"
+                        className="auth__input portafolio__newproject-textarea"
                         autoComplete="off"
                         value={desc}
                         onChange = {handleInputChange}
+                        onKeyDown={adjustHeight}
                     >
 
                     </textarea>

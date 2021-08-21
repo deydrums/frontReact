@@ -161,10 +161,21 @@
     align-items: center;
 }
 
+.portafolio__newproject-msgs{
+    width: 100%;
+    height: 40px;
+}
 .portafolio__newproject-form{
     width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.portafolio__newproject-textarea{
+    transition: all 0.5s;
+    min-height: 100px !important;
+    resize:none;
+    overflow: hidden;
 }
