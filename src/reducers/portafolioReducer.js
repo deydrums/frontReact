@@ -19,6 +19,12 @@ export const portafolioReducer = (state = initialState, action) => {
                 projects: action.payload,
             }
 
+        case types.portafolioDeleteProject:
+            return {
+                ...state,
+                projects: state.projects.filter(project=>project.id !== action.payload)
+            }
+
         default:
             return state;
     }
