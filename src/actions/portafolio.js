@@ -128,7 +128,6 @@ export const startUploadProject = (id,file) => {
         const body = await resp.json();
         Swal.close();
         if(resp.ok) {
-            console.log(body);
             dispatch(updateProject(body.project.id, body.project));
             dispatch(setActiveProject(body.project));
             Swal.fire('Hecho',body.message,'success');
