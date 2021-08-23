@@ -102,16 +102,6 @@ export const NewProjectScreen = () => {
             
             <div className="portafolio__newproject-buttons">
                 <div className="portafolio__newproject-buttons-cont">
-                    <button type="Submit" className="btn btn-primary">
-                        {
-                            fetch?<LoadingIconScreen/>:<span>Imagen</span>
-                        }
-                    </button>
-                    <button type="Submit" className="btn btn-primary" onClick={handleSubmit}>
-                        {
-                            fetch?<LoadingIconScreen/>:<span>Guardar</span>
-                        }
-                    </button>
                     <button className="btn btn-close" style={{margin: '0'}} onClick={handleCloseClick} >
                         <i className="fas fa-times"></i>
                     </button>
@@ -123,7 +113,7 @@ export const NewProjectScreen = () => {
 
 
 
-            <form className="portafolio__newproject-form mb-5" >
+            <form className="portafolio__newproject-form" >
 
                     <div className="portafolio__newproject-msgs">
                         {
@@ -205,6 +195,15 @@ export const NewProjectScreen = () => {
                     />
 
             </form>
+            <button className="btn btn-upload mb-1">
+                <i className="fas fa-cloud-upload-alt"/> Subir imagen
+            </button>
+
+            <div className="portafolio__btn_guardar pointer" onClick={handleSubmit} >
+                {
+                    fetch?<LoadingIconScreen/>:<span>Guardar</span>
+                }
+            </div>
         </div>
     )
 }
