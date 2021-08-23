@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { startGetProjects } from '../../actions/portafolio';
 import { ProjectScreen } from './ProjectScreen'
 
+
 export const PortafolioScreen = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(startGetProjects());
+    }, [dispatch])
+
+    const {projects} = useSelector(state => state.portafolio);
+
     return (
         <section className="public__portafolio" id="portafolio">
             <div className="public__portafolio-container">
@@ -11,11 +22,14 @@ export const PortafolioScreen = () => {
                 </div>
 
                 <div className="public__portafolio-content">
-                    <ProjectScreen/>
-                    <ProjectScreen/>
-                    <ProjectScreen/>
-                    <ProjectScreen/>
-                    <ProjectScreen/>
+                    {
+                        projects.map(project => (
+                            <ProjectScreen 
+                                key={project.id}
+                                {...project}
+                            />
+                        ))
+                    }
                 </div>
             </div>
         </section>
