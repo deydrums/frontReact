@@ -27,8 +27,8 @@ export const ProjectModal = () => {
 
     return (
         <Modal
-        //isOpen={modalOpen}
-        isOpen={true}
+        isOpen={modalOpen}
+        //isOpen={true}
         // onAfterOpen={afterOpenModal}
         onRequestClose={handleCloseModal}
         style={customStyles}

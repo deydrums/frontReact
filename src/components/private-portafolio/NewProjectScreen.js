@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeError, setError } from '../../actions/ui';
+import { closeModal, removeError, setError } from '../../actions/ui';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
+import { startCreateProject } from '../../actions/portafolio';
 
 
 const baseUrl = process.env.REACT_APP_API_URL;
@@ -21,13 +22,13 @@ export const NewProjectScreen = () => {
 
     //useForm customHook
     const [values, handleInputChange, reset, setValues] = useForm({
-        name:"Nuevo Proyecto",
-        desc:"Hola mundo, esta es un nuevo Proyecto",
+        name:"",
+        desc:"",
         date: "",
-        technologies: "Hola",
-        responsive: "no",
-        role : "frontend",
-        link: "facebook.com"
+        technologies: "",
+        responsive: "",
+        role : "",
+        link: ""
     });
 	
     const{ name, desc, date, technologies, responsive, role, link} = values;
@@ -36,7 +37,7 @@ export const NewProjectScreen = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(isFormValid()){
-            console.log(values);
+            dispatch(startCreateProject(values));
         }
     }
 
@@ -76,6 +77,11 @@ export const NewProjectScreen = () => {
         e.target.style.height = `${e.target.scrollHeight}px`; 
     }
 
+    //Close button
+
+    const handleCloseClick = () => {
+        dispatch(closeModal());
+    }
     return (
         <div className="portafolio__newproject-content">
             
@@ -91,7 +97,7 @@ export const NewProjectScreen = () => {
                             fetch?<LoadingIconScreen/>:<span>Guardar</span>
                         }
                     </button>
-                    <button className="btn btn-close" style={{margin: '0'}}>
+                    <button className="btn btn-close" style={{margin: '0'}} onClick={handleCloseClick} >
                         <i className="fas fa-times"></i>
                     </button>
                 </div>

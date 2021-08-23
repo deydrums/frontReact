@@ -45,3 +45,21 @@ const deleteProject = (id) => ({
     payload: id
 });
 
+
+//create project ___________________________________________________________________________
+export const startCreateProject = (project) => {
+    const{ name , desc, date, technologies, responsive, role, link } = project;
+
+    return async(dispatch) => {
+        dispatch(startFetch());
+        const resp = await fetchWithToken('portafolio/create-project',{name , desc, date, technologies, responsive, role, link},'POST');
+        const body = await resp.json();
+        dispatch(finishFetch());
+        if(resp.ok) {
+            Swal.fire('Hecho',body.message,'success');
+            dispatch(startGetProjects());
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+};
