@@ -1,13 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../actions/ui';
 import { images } from '../../helpers/getImages';
+import { PublicProjectModal } from './PublicProjectModal';
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
 
 export const ProjectScreen = (project) => {
+    const dispatch = useDispatch();
 
     const handleProjectClick = () => {
-        console.log(project)
+        dispatch(openModal());
     }
     return (
 
@@ -23,6 +27,7 @@ export const ProjectScreen = (project) => {
             </div>
             <h3 className="portafolio-item-title">{project.name}</h3>
             <button type="button" className="btn btn-public btn-public-dark" onClick = {handleProjectClick}>Ver proyecto</button>
+        <PublicProjectModal/>
         </div>
 
     )
