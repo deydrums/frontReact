@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
-import { startDeleteProject } from '../../actions/portafolio';
+import { setActiveProject, startDeleteProject } from '../../actions/portafolio';
 import { openModal } from '../../actions/ui';
 
 export const ProjectScreen = (project) => {
@@ -9,6 +9,7 @@ export const ProjectScreen = (project) => {
     const dispatch = useDispatch();
 
     const handleEditProject = () => {
+        dispatch(setActiveProject(project));
         dispatch(openModal());
     }
 

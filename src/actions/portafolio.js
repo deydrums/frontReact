@@ -29,6 +29,14 @@ const setProjects = (projects) => ({
 
 export const startDeleteProject = (id) => {
     return async(dispatch) => {
+        Swal.fire({ 
+            title: 'Borrando...',
+            text: 'Espere mientras se elimina el proyecto,',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
         const resp = await fetchWithToken(`portafolio/delete/${id}`,'','DELETE');
         const body = await resp.json();
         if(resp.ok) {
@@ -51,10 +59,16 @@ export const startCreateProject = (project) => {
     const{ name , desc, date, technologies, responsive, role, link } = project;
 
     return async(dispatch) => {
-        dispatch(startFetch());
+        Swal.fire({ 
+            title: 'Guardando...',
+            text: 'Espere mientras se guarda la el proyecto',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });        
         const resp = await fetchWithToken('portafolio/create-project',{name , desc, date, technologies, responsive, role, link},'POST');
         const body = await resp.json();
-        dispatch(finishFetch());
         if(resp.ok) {
             Swal.fire('Hecho',body.message,'success');
             dispatch(startGetProjects());
@@ -63,3 +77,47 @@ export const startCreateProject = (project) => {
         }
     }
 };
+
+//update project ___________________________________________________________________________
+export const startUpdateProject = (project, id) => {
+    const{ name , desc, date, technologies, responsive, role, link } = project;
+
+    return async(dispatch) => {
+        Swal.fire({ 
+            title: 'Guardando...',
+            text: 'Espere mientras se actualiza la categoria,',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+        const resp = await fetchWithToken(`portafolio/update-project/${id}`,{name , desc, date, technologies, responsive, role, link},'PUT');
+        const body = await resp.json();
+        if(resp.ok) {
+            dispatch(updateProject(id, project));
+            Swal.fire('Hecho',body.message,'success');
+        }else{
+            Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
+        }
+    }
+};
+
+export const updateProject = (id,project) => ({
+    type: types.portafolioUpdateProject,
+    payload: {
+        project: {
+            id,
+            ...project
+        }
+    }
+});
+
+
+export const setActiveProject = (project) => ({
+    type: types.portafolioSetActiveProject,
+    payload: project
+});
+
+export const unsetActiveProject = () => ({
+    type: types.portafolioUnsetActiveProject
+});

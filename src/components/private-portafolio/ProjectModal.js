@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
+import { unsetActiveProject } from '../../actions/portafolio';
 import { closeModal } from '../../actions/ui';
 import { NewProjectScreen } from './NewProjectScreen';
 
@@ -22,6 +23,7 @@ export const ProjectModal = () => {
     const {modalOpen} = useSelector(state => state.ui)
 
     const handleCloseModal = () =>{
+        dispatch(unsetActiveProject());
         dispatch(closeModal());
     }
 

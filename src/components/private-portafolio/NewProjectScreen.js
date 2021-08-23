@@ -3,7 +3,7 @@ import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal, removeError, setError } from '../../actions/ui';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
-import { startCreateProject } from '../../actions/portafolio';
+import { startCreateProject, startUpdateProject, unsetActiveProject } from '../../actions/portafolio';
 
 
 const baseUrl = process.env.REACT_APP_API_URL;
@@ -14,6 +14,7 @@ export const NewProjectScreen = () => {
     //redux
     const dispatch = useDispatch();
     const {msgError, fetch} = useSelector(state => state.ui);
+    const {activeProject} = useSelector(state => state.portafolio)
    
     //useEffect hook
     useEffect(() => {
@@ -33,11 +34,23 @@ export const NewProjectScreen = () => {
 	
     const{ name, desc, date, technologies, responsive, role, link} = values;
 
+    //Cargar valores
+    useEffect(() => {
+        if(activeProject) {
+            setValues(activeProject);
+        }
+    }, [activeProject,setValues]);
+
+
     //Submit
     const handleSubmit = (e) => {
         e.preventDefault();
         if(isFormValid()){
-            dispatch(startCreateProject(values));
+            if(activeProject){
+                dispatch(startUpdateProject(values, activeProject.id));
+            }else{
+                dispatch(startCreateProject(values));
+            }
         }
     }
 
@@ -81,6 +94,8 @@ export const NewProjectScreen = () => {
 
     const handleCloseClick = () => {
         dispatch(closeModal());
+        dispatch(unsetActiveProject());
+        reset();
     }
     return (
         <div className="portafolio__newproject-content">
