@@ -36,7 +36,7 @@ export const ProjectModal = () => {
         style={customStyles}
         className="modal scroll_options"
         overlayClassName="modal-fondo"
-        closeTimeoutMS={200}
+        closeTimeoutMS={10}
         ariaHideApp={!process.env.NODE_ENV === 'test'}
        >
            <NewProjectScreen/>

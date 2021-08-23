@@ -3,7 +3,7 @@ import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal, removeError, setError } from '../../actions/ui';
 import { LoadingIconScreen } from '../ui/LoadingIconScreen';
-import { startCreateProject, startUpdateProject, unsetActiveProject } from '../../actions/portafolio';
+import { startCreateProject, startUpdateProject, startUploadProject, unsetActiveProject } from '../../actions/portafolio';
 
 
 const baseUrl = process.env.REACT_APP_API_URL;
@@ -97,6 +97,21 @@ export const NewProjectScreen = () => {
         dispatch(unsetActiveProject());
         reset();
     }
+
+
+    //uploadimg
+    const handlePictureUpload = () => {
+        document.querySelector('#fileProjectSelector').click();
+    }
+
+    const handleFileChange = (e) => {
+        const file = e.target.files;
+        if(file){
+            dispatch(startUploadProject(activeProject.id,file));
+        }
+    }
+
+
     return (
         <div className="portafolio__newproject-content">
             
@@ -108,7 +123,14 @@ export const NewProjectScreen = () => {
                 </div>
             </div>
             <div className="portafolio__newproject-text">
-                <h2>Nuevo Proyecto</h2>
+                {
+                    activeProject
+                    ?
+                    <h2>Editar Proyecto</h2>
+                    :
+                    <h2>Nuevo Proyecto</h2>
+                }
+                
             </div>
 
 
@@ -195,15 +217,51 @@ export const NewProjectScreen = () => {
                     />
 
             </form>
-            <button className="btn btn-upload mb-1">
-                <i className="fas fa-cloud-upload-alt"/> Subir imagen
-            </button>
+                {
+                    activeProject
+                    &&
+                    <>
+                    <button className="btn btn-upload mb-1" onClick = {handlePictureUpload}>
+                        <i className="fas fa-cloud-upload-alt"/> Subir imagen
+                    </button>
+
+                    {
+                        activeProject.image&&
+                        <>
+                            <div className="blog__text">
+                                <h3 className="principal__title"><i className="fas fa-image m-2"></i> Imagen</h3>
+                            </div>
+
+                            <div 
+                                className="blog__image"
+                            >
+                                <img src={`${baseUrl}/portafolio/get-image/${activeProject.image.replace('.','/')}`} alt="user"></img>
+                            </div>
+                        </>
+
+                    }
+
+                    </>
+                }
+
+
 
             <div className="portafolio__btn_guardar pointer" onClick={handleSubmit} >
                 {
                     fetch?<LoadingIconScreen/>:<span>Guardar</span>
                 }
             </div>
+
+
+            <input
+                    type="file"
+                    style = {{display:'none'}}
+                    onChange={handleFileChange}
+                    id = "fileProjectSelector"
+                    name = "file"
+                    max-size="10000"
+            />
+
         </div>
     )
 }
