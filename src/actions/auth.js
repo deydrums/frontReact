@@ -53,7 +53,7 @@ export const startRegister = (name, email, password, password_confirmation) => {
                 role: body.role
             }));
         }else{
-            if(body.errors.email){
+            if(body.errors){
                 Swal.fire('Error',body.errors.email[0],'error');
             }else{
                 Swal.fire('Error',body.message?body.message:'Ha ocurrido un error','error');
