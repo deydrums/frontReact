@@ -46,6 +46,7 @@ Portafolio section
 }
 
 .public__portafolio-img{
+    height: 180px;
     padding: 5px;
     background-color: darken($color: $dark-grey, $amount: 10);
     border: 1px solid $dark-grey;
@@ -54,6 +55,7 @@ Portafolio section
 
 .public__portafolio-img img{
     width:100%;
+    height: 100%;
     border-radius: 10px;
 }
 
@@ -74,18 +76,18 @@ Portafolio details
 .public_portafolio-item{
     width:100%;
     height:100%;
-    background-color: transparentize($color: $primary, $amount: 0.9);
+    background-color: transparentize($color: $primary, $amount: 0.8);
     color:white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 50px;
     overflow: hidden;
 }
 
 .public_portafolio-item-img{
-    width:50%;
+    width:40%;
     border-radius:20px;
     overflow: hidden;
     img{
@@ -131,11 +133,20 @@ Portafolio details
     .public__portafolio-project{
         width: 40%;
     }
+
+    .public__portafolio-img{
+        height: 150px;
+    }
+
 }
 
 
 @media screen and (max-width:600px){
     .public__portafolio-project{
         width: 90%;
+    }
+
+    .public__portafolio-img{
+        height: 200px;
     }
 }

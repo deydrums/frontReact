@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { setActiveProject } from '../../actions/portafolio';
 import { openModal } from '../../actions/ui';
 import { images } from '../../helpers/getImages';
 import { PublicProjectModal } from './PublicProjectModal';
@@ -11,6 +12,7 @@ export const ProjectScreen = (project) => {
     const dispatch = useDispatch();
 
     const handleProjectClick = () => {
+        dispatch(setActiveProject(project));
         dispatch(openModal());
     }
     return (

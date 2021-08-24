@@ -36,7 +36,7 @@ export const PublicProjectModal = () => {
         style={customStyles}
         className="modal_public "
         overlayClassName="modal-fondo"
-        closeTimeoutMS={10}
+        closeTimeoutMS={300}
         ariaHideApp={!process.env.NODE_ENV === 'test'}
        >
            <ProjectDetailScreen/>
