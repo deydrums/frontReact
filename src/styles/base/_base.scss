@@ -1,6 +1,25 @@
 *{
     font-family: 'open sans', Arial, sans-serif;
     margin: 0px;
+
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        background-color: #ccc;
+    }
+ 
+    &::-webkit-scrollbar:vertical {
+        width: 8px;
+    }
+ 
+    &::-webkit-scrollbar:horizontal {
+        height: 10px;
+    }
+ 
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary;
+        border-radius: 20px;
+    }
+    
 }
 
 html,body {
