@@ -130,6 +130,13 @@ Portafolio details
 }
 
 @media screen and (max-width:1000px){
+
+    .public_portafolio-item-img{
+        margin-top: 10px;
+        width:55%;
+    }
+
+
     .public__portafolio-project{
         width: 40%;
     }
@@ -147,6 +154,6 @@ Portafolio details
     }
 
     .public__portafolio-img{
-        height: 200px;
+        height: 180px;
     }
 }

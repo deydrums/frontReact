@@ -39,6 +39,7 @@ export const PublicProjectModal = () => {
         closeTimeoutMS={300}
         ariaHideApp={!process.env.NODE_ENV === 'test'}
        >
+           <div className="modal-btn-close pointer" onClick={handleCloseModal}><i class="fas fa-times"/></div>
            <ProjectDetailScreen/>
        </Modal>
     )
