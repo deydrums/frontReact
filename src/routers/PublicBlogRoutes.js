@@ -31,8 +31,8 @@ export const PublicBlogRoutes = () => {
             <HeaderBlog/>
             <div className="public__blog-entries">
                 <div className="public__blog-nav">
-                    <div className="public__blog-nav-btn">
-                        <i className="fas fa-chevron-circle-down pointer" onClick={onClickButtonMore}></i>
+                    <div className="public__blog-nav-btn pointer" onClick={onClickButtonMore}>
+                        <i className="fas fa-chevron-circle-down"></i>
                     </div>
                     <div className="public__blog-nav-links">
                         {

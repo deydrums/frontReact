@@ -107,10 +107,12 @@
         justify-content: center;
         align-items: center;
         font-size: 25px;
-        color:$dark-grey;
+        color:$light-grey;
         transition: all 0.3s;
+        background-color:darken($color: $dark-grey, $amount: 0);
         &:hover {
-            color:$primary;
+            color:$white;
+            background-color:darken($color: $dark-grey, $amount: 1);
         }
     }
     .public__blog-nav-links{

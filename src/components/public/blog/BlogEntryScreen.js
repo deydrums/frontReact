@@ -5,11 +5,14 @@ import ReactHtmlParser from 'react-html-parser';
 import { LoadingIconScreenPrimary } from '../../ui/LoadingIconScreen';
 import { images } from '../../../helpers/getImages';
 import { HeaderBlogNavigation } from './HeaderBlogNavigation';
+import moment from 'moment';
+
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
 
 export const BlogEntryScreen = ({match}) => {
+    
 
     const {publicActiveEntry} = useSelector(state => state.blog);
     const {fetch} = useSelector(state => state.ui);
@@ -22,6 +25,7 @@ export const BlogEntryScreen = ({match}) => {
         dispatch(startGetEntry(id));
         window.scrollTo({ top: 220, behavior: 'smooth' });
     },[dispatch, id])
+
 
     return (
         <>
@@ -37,13 +41,13 @@ export const BlogEntryScreen = ({match}) => {
                                 <div className="public__entry-blog-head-cont-date">
                                     <div className="public__entry-blog-head-cont-date-ci">
                                         <div className="public__entry-blog-head-cont-date-month">
-                                            JUL
+                                            {moment(publicActiveEntry.created_at).format('MMMM')}
                                         </div>
                                         <div className="public__entry-blog-head-cont-date-day">
-                                            31
+                                            {moment(publicActiveEntry.created_at).format('d')}
                                         </div>
                                         <div className="public__entry-blog-head-cont-date-year">
-                                            2021
+                                            {moment(publicActiveEntry.created_at).format('yyyy')}
                                         </div>
                                     </div>
                                 </div>
