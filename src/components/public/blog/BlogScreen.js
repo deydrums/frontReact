@@ -19,6 +19,7 @@ export const BlogScreen = ({match, location}) => {
         if(category_id){
             dispatch(startGetCategory(category_id));
         }else{
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             dispatch(startGetEntries());
         }
     },[dispatch,category_id]);
@@ -48,7 +49,7 @@ export const BlogScreen = ({match, location}) => {
                                         />
                                     ))
                                 :
-                                    <div><h1 style = {{ color: 'black', marginTop: '10px', fontWeight: '300', fontSize: '30px'}}>No hay entradas</h1></div>
+                                    <div className="animate__animated animate__bounceIn"><h1 style = {{ color: 'black', marginTop: '10px', fontWeight: '300', fontSize: '30px'}}>No hay entradas</h1></div>
                             )
 
                 }

@@ -106,6 +106,10 @@
     }
 }
 
+.animate__animated.animate__bounceIn{
+    --animate-duration: 5s;
+}
+
 @media screen and (max-width:800px){
     .public__entry-blog-head{
         height: 450px;
