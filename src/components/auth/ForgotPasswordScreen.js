@@ -21,7 +21,7 @@ export const ForgotPasswordScreen = () => {
     
         //useform hook
         const [formValues, handleInputChange] = useForm({
-            email: 'dagarcia100@gmail.com'
+            email: ''
         });
     
         const {email} = formValues;

@@ -24,8 +24,8 @@ export const ResetPasswordScreen = ({...rest}) => {
 
         //useform hook
         const [formValues, handleInputChange] = useForm({
-            password: '12345678',
-            password_confirmation: '12345678'
+            password: '',
+            password_confirmation: ''
         });
     
         const {password, password_confirmation} = formValues;
@@ -84,7 +84,7 @@ export const ResetPasswordScreen = ({...rest}) => {
                 <input
                     type="password"
                     placeholder="Confirmar contraseña..."
-                    name = "password_confirm"
+                    name = "password_confirmation"
                     className="auth__input"
                     onChange={handleInputChange}
                     value={password_confirmation}
@@ -94,6 +94,7 @@ export const ResetPasswordScreen = ({...rest}) => {
                 <button
                     type="submit"
                     className = "btn btn-primary btn-block mb-3"
+                    disabled={fetch}
                 >
                     {
                         fetch?<LoadingIconScreen/>:<span>Actualizar contraseña</span>

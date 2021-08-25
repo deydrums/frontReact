@@ -21,7 +21,7 @@ export const ConfirmEmailScreen = () => {
                 <br/>
                 O bien
                 <br/>
-                <button className="btn btn-primary btn-block mt-2" onClick={handleClick}>
+                <button className="btn btn-primary btn-block mt-2" onClick={handleClick} disabled={fetch}>
                     {
                         fetch?<LoadingIconScreen/>:<span>Solicitar un nuevo correo</span>
                     }

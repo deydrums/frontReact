@@ -114,7 +114,7 @@ export const NewEntryScreen = () => {
                     (activeEntry && activeEntry.user_id === uid)&&
                     <>
                         <div className = "blog__button">
-                            <button type="Submit" className="btn btn-primary w-90" onClick={handlePictureUpload}>
+                            <button type="Submit" className="btn btn-primary w-90" onClick={handlePictureUpload} disabled={fetch}>
                                 {
                                     fetch?<LoadingIconScreen/>:<span>Imagen</span>
                                 }
@@ -122,7 +122,7 @@ export const NewEntryScreen = () => {
                         </div>
 
                         <div className = "blog__button">
-                            <button type="Submit" className="btn btn-primary w-90" onClick={handleSubmit}>
+                            <button type="Submit" className="btn btn-primary w-90" onClick={handleSubmit} disabled={fetch}>
                                 {
                                     fetch?<LoadingIconScreen/>:<span>Guardar</span>
                                 }
@@ -130,7 +130,7 @@ export const NewEntryScreen = () => {
                         </div>
 
                         <div className = "blog__button ">
-                            <button className="btn btn-danger w-90" onClick={handleDeleteEntry}>
+                            <button className="btn btn-danger w-90" onClick={handleDeleteEntry} disabled={fetch}>
                                 {
                                     fetch?<LoadingIconScreen/>:<span>Borrar</span>
                                 }
@@ -141,7 +141,7 @@ export const NewEntryScreen = () => {
                 {
                     (!activeEntry)&&
                         <div className = "blog__button">
-                            <button type="Submit" className="btn btn-primary w-90" onClick={handleSubmit}>
+                            <button type="Submit" className="btn btn-primary w-90" onClick={handleSubmit} disabled={fetch}>
                                 {
                                     fetch?<LoadingIconScreen/>:<span>Guardar</span>
                                 }
@@ -150,7 +150,7 @@ export const NewEntryScreen = () => {
                 }
 
                 <div className = "blog__button">
-                    <button className="btn btn-close" onClick={handleCloseModal}>
+                    <button className="btn btn-close" onClick={handleCloseModal} disabled={fetch}>
                         <i className="fas fa-times"></i>
                     </button>
                 </div>
