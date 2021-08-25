@@ -1,21 +1,8 @@
 import React from 'react'
 import { images } from '../../helpers/getImages';
+import { HashLink } from 'react-router-hash-link';
 
-export const AboutMeScreen = () => {
-
-    
-    // const tabsContainer =document.querySelector(".about-tabs"),
-    // aboutSection = document.querySelector(".about-section");
-
-    // tabsContainer.addEventListener("click",(e)=>{
-    //     if(e.target.classList.contains("tab-item") && !e.target.classList.contains("active")){
-    //         tabsContainer.querySelector(".active").classList.remove("active");
-    //         e.target.classList.add("active");
-    //         const target = e.target.getAttribute("data-target");
-    //         aboutSection.querySelector(".tab-content.active").classList.remove("active");
-    //         aboutSection.querySelector(target).classList.add("active");
-    //     }
-    // });
+export const AboutMeScreen = ({pathname}) => {
 
     const handleTabsClick = (e) => {
         const tabsContainer = document.querySelector(".public__about-tabs")
@@ -163,8 +150,15 @@ export const AboutMeScreen = () => {
                     </div>
                     {/* <!--Curses End--> */}
 
+                    <a href={images(`./cv.pdf`).default} target="_blank" rel="noreferrer" className="btn-public m-2">Descargar CV</a>
+
+                    <HashLink replace={"/" === pathname} to = "/#contacto"  className="btn-public m-2">
+                        Contáctame
+                    </HashLink>
 
                     </div>
+
+                    
                 </div>
             </div>
         </div>

@@ -5,12 +5,13 @@ import { HabilitiesScreen } from './HabilitiesScreen';
 import { ContactScreen } from './ContactScreen';
 import { PortafolioScreen } from './PortafolioScreen';
 
-export const IndexScreen = () => {
+export const IndexScreen = ({location}) => {
 
+    const {pathname} = location;
     return (
         <>
-            <HeaderScreen/>
-            <AboutMeScreen/>
+            <HeaderScreen pathname={pathname}/>
+            <AboutMeScreen pathname={pathname}/>
             <HabilitiesScreen/>
             <PortafolioScreen/>
             <ContactScreen/>

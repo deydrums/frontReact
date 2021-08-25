@@ -1,7 +1,8 @@
 import React from 'react';
 import { images } from '../../helpers/getImages';
+import { HashLink } from 'react-router-hash-link';
 
-export const HeaderScreen = () => {
+export const HeaderScreen = ({pathname}) => {
     return (
         <header id = 'inicio'>
             <div className="public__container">
@@ -10,8 +11,8 @@ export const HeaderScreen = () => {
                         <p>Hola, soy</p>
                         <h1>David García</h1>
                         <h2>Estudiante de Ingenieria Electrónica<br/>& desarrollador web</h2>
-                        <a href="#about" className="btn-public m-2">Sobre mí</a>
-                        <a href="#portafolio" className="btn-public m-2">Portafolio</a>
+                        <HashLink replace={"/" === pathname} to = "/#sobre-mi" className="btn-public m-2">Sobre mí</HashLink>
+                        <HashLink replace={"/" === pathname} to = "/#portafolio" className="btn-public m-2">Portafolio</HashLink>
                     </div>
                     <div className="public__header-img animate__animated animate__fadeIn">
                         <div className="img-box">
