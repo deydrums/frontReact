@@ -5,11 +5,12 @@ import { IndexScreen } from '../components/public/IndexScreen';
 import { NavBar } from '../components/public/NavBar';
 import { PublicBlogRoutes } from './PublicBlogRoutes';
 
-export const PublicRoutes = () => {
+export const PublicRoutes = ({location}) => {
 
+    const {pathname} = location;
     return (
         <>
-                <NavBar/>
+                <NavBar pathname={pathname}/>
                     <div className="public__principal__content">
                         <Switch>
                             <Route exact path="/" component={IndexScreen}/>

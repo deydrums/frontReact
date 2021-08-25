@@ -2,8 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { images } from '../../helpers/getImages';
 
-export const NavBar = () => {
-
+export const NavBar = ({pathname}) => {
 
     const scrollNavBar = () => {
 
@@ -53,22 +52,22 @@ export const NavBar = () => {
                         <img src={images(`./dg-logo.svg`).default} alt=""/>
                     </div>
                     <div className="public__links">
-                        <NavLink to = "/"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        <NavLink replace={"/" === pathname} to = "/"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Inicio 
                         </NavLink>
-                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        <NavLink replace={"/" === pathname} to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Sobre Mí 
                         </NavLink>
-                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        <NavLink replace={"/" === pathname} to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Portafolio
                         </NavLink>
-                        <NavLink to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        <NavLink replace={"/" === pathname} to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Contacto
                         </NavLink>
-                        <NavLink to = "/blog"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        <NavLink  replace={"/blog" === pathname} to = "/blog"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Blog 
                         </NavLink>
-                        <NavLink to = "/auth"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        <NavLink replace={"/auth" === pathname} to = "/auth"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Entrar 
                         </NavLink>
                     </div>
