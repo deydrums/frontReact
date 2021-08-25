@@ -39,7 +39,7 @@ export const AboutMeScreen = () => {
                     <h2>Sobre Mí</h2>
                 </div>
                 <div className="public__about-content">
-                    <div className="public__about-image">
+                    <div className="public__about-image animate__animated animate__fadeIn">
                         <img src={images(`./about-img.png`).default} alt="about img"/>
                     </div>
                     <div className="public__about-text">
