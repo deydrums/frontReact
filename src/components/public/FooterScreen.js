@@ -1,15 +1,22 @@
 import React from 'react';
 import { images } from '../../helpers/getImages';
-export const FooterScreen = () => {
-    
+import { HashLink } from 'react-router-hash-link';
+
+export const FooterScreen = ({pathname}) => {
     return (
         <footer className="principal__footer">
             <div className="principal__footer__section"><img src={images(`./dg-logo.svg`).default} alt=""/></div>
             <div className="principal__footer__section">
                 <h4>deydrums.com</h4>
-                <a href="https://www.google.com">Sobre Mí</a>
-                <a href="https://www.google.co">Portafolio</a>
-                <a href="https://www.google.co">Blog</a>
+                <HashLink replace={"/" === pathname} to = "/#sobre-mi"  className="navbar__links">
+                    Sobre Mí 
+                </HashLink>
+                <HashLink replace={"/" === pathname} to = "/#portafolio"  className="navbar__links">
+                    Portafolio
+                </HashLink>
+                <HashLink replace={"/" === pathname} to = "/#habilidades"  className="navbar__links">
+                    Habilidades
+                </HashLink>
             </div>
             <div className="principal__footer__section">
                 <h4>Contacto</h4>

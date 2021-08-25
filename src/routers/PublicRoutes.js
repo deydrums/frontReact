@@ -18,7 +18,7 @@ export const PublicRoutes = ({location}) => {
                             <Redirect to="/"/>
                         </Switch>
                     </div>
-                <FooterScreen/>
+                <FooterScreen pathname = {pathname}/>
 
         </>
     )
