@@ -6,16 +6,15 @@ export const FooterScreen = () => {
         <footer className="principal__footer">
             <div className="principal__footer__section"><img src={images(`./dg-logo.svg`).default} alt=""/></div>
             <div className="principal__footer__section">
-                <h4>Servicios</h4>
-                <a href="https://www.google.com">Services 1</a>
-                <a href="https://www.google.co">Services 2</a>
-                <a href="https://www.google.co">Services 3</a>
+                <h4>deydrums.com</h4>
+                <a href="https://www.google.com">Sobre Mí</a>
+                <a href="https://www.google.co">Portafolio</a>
+                <a href="https://www.google.co">Blog</a>
             </div>
             <div className="principal__footer__section">
-                <h4>Acerca de</h4>
-                <a href="https://www.google.co">About 1</a>
-                <a href="https://www.google.co">About 2</a>
-                <a href="https://www.google.co">About 3</a>
+                <h4>Contacto</h4>
+                <a href="https://api.whatsapp.com/send?phone=50235125986">WhatsApp</a>
+                <a href="mailto: dagarcia100@gmail.com">Email</a>
             </div>
             <div className="principal__footer__section">
                 <h4>Redes sociales</h4>
