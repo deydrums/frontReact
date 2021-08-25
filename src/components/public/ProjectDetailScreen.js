@@ -11,7 +11,7 @@ export const ProjectDetailScreen = () => {
         <>
         {
             activeProject&&
-                <div className="public_portafolio-item scroll_options">
+                <div className="public_portafolio-item ">
                         {activeProject.image &&
                         <div className="public_portafolio-item-img">
                              <img src={`${baseUrl}/portafolio/get-image/${activeProject.image.replace('.','/')}`} alt="project"></img>

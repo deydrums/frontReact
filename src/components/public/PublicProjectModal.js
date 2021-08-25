@@ -34,7 +34,7 @@ export const PublicProjectModal = () => {
         // onAfterOpen={afterOpenModal}
         onRequestClose={handleCloseModal}
         style={customStyles}
-        className="modal_public "
+        className="modal_public scroll-options"
         overlayClassName="modal-fondo"
         closeTimeoutMS={300}
         ariaHideApp={!process.env.NODE_ENV === 'test'}
