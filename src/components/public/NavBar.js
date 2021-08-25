@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { images } from '../../helpers/getImages';
+import { HashLink } from 'react-router-hash-link';
 
 export const NavBar = ({pathname}) => {
 
@@ -52,24 +53,21 @@ export const NavBar = ({pathname}) => {
                         <img src={images(`./dg-logo.svg`).default} alt=""/>
                     </NavLink>
                     <div className="public__links">
-                        <NavLink replace={"/" === pathname} to = "/"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        <HashLink replace={"/" === pathname} to = "/#inicio"  className="navbar__links" onClick={handleLinkClick}>
                                 Inicio 
-                        </NavLink>
-                        <NavLink replace={"/" === pathname} to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        </HashLink>
+                        <HashLink replace={"/" === pathname} to = "/#sobre-mi"  className="navbar__links" onClick={handleLinkClick}>
                                 Sobre Mí 
-                        </NavLink>
-                        <NavLink replace={"/" === pathname} to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        </HashLink>
+                        <HashLink replace={"/" === pathname} to = "/#portafolio"  className="navbar__links" onClick={handleLinkClick}>
                                 Portafolio
-                        </NavLink>
-                        <NavLink replace={"/" === pathname} to = "/"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
-                                Contacto
-                        </NavLink>
-                        <NavLink  replace={"/blog" === pathname} to = "/blog"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
+                        </HashLink>
+                        <NavLink  replace={"/blog" === pathname} to = "/blog"  className="navbar__links" onClick={handleLinkClick}>
                                 Blog 
                         </NavLink>
-                        <NavLink replace={"/auth" === pathname} to = "/auth"  className="navbar__links" activeClassName = "public__links-active" onClick={handleLinkClick}>
-                                Entrar 
-                        </NavLink>
+                        <HashLink replace={"/" === pathname} to = "/#contacto"  className="navbar__links" onClick={handleLinkClick}>
+                                Contacto
+                        </HashLink>
                     </div>
                     <div className="hamburguer navbar__links" onClick ={onClickButton}>
                         <i className="fas fa-bars"></i>
