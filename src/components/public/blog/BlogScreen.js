@@ -38,12 +38,18 @@ export const BlogScreen = ({match}) => {
                         
 
                     :
-                        entries.map(entry => (
-                            <BlogEntry 
-                                key={entry.id}
-                                {...entry}
-                            />
-                        ))
+                    	    (entries.length !== 0
+                                ?
+                                    entries.map(entry => (
+                                        <BlogEntry 
+                                            key={entry.id}
+                                            {...entry}
+                                        />
+                                    ))
+                                :
+                                    <div><h1 style = {{ color: 'black', marginTop: '10px', fontWeight: '300', fontSize: '30px'}}>No hay entradas</h1></div>
+                            )
+
                 }
             </div>
 
