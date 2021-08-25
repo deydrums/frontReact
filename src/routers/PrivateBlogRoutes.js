@@ -20,8 +20,8 @@ export const PrivateBlogRoutes = ({location}) => {
         <div className="principal__content scroll_options">
             <div className="blog__content ">
                 <div className="blog__text">
-                    <NavLink style={fetch ? {pointerEvents: "none"} : null} replace={"/config/blog/entries" === location.pathname} to = {"/config/blog/entries"} className="btn btn-primary">Entradas</NavLink>
-                    <NavLink style={fetch ? {pointerEvents: "none"} : null} replace={"/config/blog/categories" === location.pathname} to = {"/config/blog/categories"} className="btn btn-primary">Categorias</NavLink>
+                    <NavLink style={fetch ? {pointerEvents: "none"} : null} replace={"/config/blog/entries" === location.pathname} to = {"/config/blog/entries"} className="btn btn-primary w-100" activeClassName = "btn-primary-selected">Entradas</NavLink>
+                    <NavLink style={fetch ? {pointerEvents: "none"} : null} replace={"/config/blog/categories" === location.pathname} to = {"/config/blog/categories"} className="btn btn-primary w-100" activeClassName = "btn-primary-selected">Categorias</NavLink>
                 </div>
                     <Switch>
                         <Route exact path="/config/blog/entries" component={BlogEntriesScreen}/>

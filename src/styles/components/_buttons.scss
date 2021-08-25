@@ -5,7 +5,7 @@
     cursor:pointer;
     font-size:15px;
     padding: 10px 10px 10px 10px;
-
+    text-decoration: none;
     transition: all 0.3s ease;
     &:focus{
         outline: none;
@@ -44,12 +44,17 @@
 .btn-primary{
     background-color: $primary;
     border-radius: 2px;
+    text-align: center;
     &:disabled{
         background-color: lighten($color: $primary, $amount: 15)
     }
     &:hover{
         background-color: darken($color: $primary, $amount: 15);
     }
+}
+
+.btn-primary-selected{
+    background-color: darken($color: $primary, $amount: 15);
 }
 
 .btn-block{
