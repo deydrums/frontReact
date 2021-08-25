@@ -48,9 +48,9 @@ export const NavBar = ({pathname}) => {
         <div className="public__navbar">
             <nav id="public_nav">
             <section className="public__container public__nav">
-                    <div className="public__nav__logo">
+                    <NavLink className="public__nav__logo" replace={"/" === pathname} to = "/">
                         <img src={images(`./dg-logo.svg`).default} alt=""/>
-                    </div>
+                    </NavLink>
                     <div className="public__links">
                         <NavLink replace={"/" === pathname} to = "/"  className="navbar__links"  activeClassName = "public__links-active" onClick={handleLinkClick}>
                                 Inicio 

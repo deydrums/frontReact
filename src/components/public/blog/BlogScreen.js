@@ -6,8 +6,9 @@ import { PaginateScreen } from '../../ui/PaginateScreen';
 import { BlogEntry } from './BlogEntry';
 import { HeaderBlogNavigation } from './HeaderBlogNavigation';
 
-export const BlogScreen = ({match}) => {
+export const BlogScreen = ({match, location}) => {
 
+    const {pathname} = location;
     const {category_id, name} = match.params;
     const {entries} = useSelector(state => state.blog);
     const {fetch} = useSelector(state => state.ui);
@@ -24,7 +25,7 @@ export const BlogScreen = ({match}) => {
 
     return (
         <>
-            <HeaderBlogNavigation  name = {name} category_id = {category_id}/>
+            <HeaderBlogNavigation  name = {name} category_id = {category_id} pathname={pathname}/>
 
             <div className="public__blog-entries-cont">
 

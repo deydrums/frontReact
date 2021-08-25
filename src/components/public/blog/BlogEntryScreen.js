@@ -11,8 +11,8 @@ import moment from 'moment';
 const baseUrl = process.env.REACT_APP_API_URL;
 
 
-export const BlogEntryScreen = ({match}) => {
-    
+export const BlogEntryScreen = ({match, location}) => {
+    const {pathname} = location;
 
     const {publicActiveEntry} = useSelector(state => state.blog);
     const {fetch} = useSelector(state => state.ui);
@@ -29,7 +29,7 @@ export const BlogEntryScreen = ({match}) => {
 
     return (
         <>
-        <HeaderBlogNavigation id = {id} name = {name} title = {title} category_id = {category_id}/>
+        <HeaderBlogNavigation id = {id} name = {name} title = {title} category_id = {category_id} pathname={pathname}/>
             <div className="public__entry-blog-container">
                 <div className="public__entry-blog-content">
 

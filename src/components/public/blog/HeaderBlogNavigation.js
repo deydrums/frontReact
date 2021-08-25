@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export const HeaderBlogNavigation = ({id, category_id, name, title}) => {
+export const HeaderBlogNavigation = ({id, category_id, name, title, pathname}) => {
 
     return (
 
@@ -9,12 +9,24 @@ export const HeaderBlogNavigation = ({id, category_id, name, title}) => {
             <div className="public__blog-entries-head-cont">
                 <div className="public__blog-entries-head-txt">
                     <h1>
-                        <Link className= "public__blog__links" to = "/blog" >Blog</Link> 
+                        <Link 
+                            className= "public__blog__links" 
+                            to = "/blog" 
+                            replace ={"/blog" === pathname}
+                        >
+                            Blog
+                        </Link> 
                         <i className="fas fa-angle-right m-1"></i> 
                         {
                             name
                             ?
-                                <Link className= "public__blog__links" to = {`/blog/${category_id}/${name}`} >{name}</Link> 
+                                <Link 
+                                    className= "public__blog__links" 
+                                    to = {`/blog/${category_id}/${name}`}
+                                    replace ={`/blog/${category_id}/${name}` === pathname}
+                                >
+                                    {name}
+                                </Link> 
                             :
                                 <>Ultimas entradas</>
                         }
@@ -23,7 +35,13 @@ export const HeaderBlogNavigation = ({id, category_id, name, title}) => {
                             title&&
                             <>
                                 <i className="fas fa-angle-right m-1"></i> 
-                                <Link className= "public__blog__links" to = {`/blog/${category_id}/${name}/${id}/${title}`} >{title}</Link> 
+                                <Link 
+                                    className= "public__blog__links" 
+                                    to = {`/blog/${category_id}/${name}/${id}/${title}`} 
+                                    replace ={`/blog/${category_id}/${name}/${id}/${title}` === pathname}
+                                >
+                                    {title}
+                                </Link> 
                             </>
                         }
 

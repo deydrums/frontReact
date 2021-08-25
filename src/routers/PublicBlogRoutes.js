@@ -7,7 +7,8 @@ import { BlogScreen } from '../components/public/blog/BlogScreen'
 import { HeaderBlog } from '../components/public/blog/HeaderBlog'
 
 
-export const PublicBlogRoutes = () => {
+export const PublicBlogRoutes = ({location}) => {
+    const {pathname} = location;
 
     const dispatch = useDispatch();
     const {categories} = useSelector(state => state.blog)
@@ -41,6 +42,7 @@ export const PublicBlogRoutes = () => {
                                     className= "public__blog-nav-links-link"
                                     activeClassName="public__blog-nav-links-link-selected"
                                     key={category.id}
+                                    replace={`/blog/${category.id}/${category.name}` === pathname}
                                     to = {`/blog/${category.id}/${category.name}`}
                                     onClick={handleCloseClick}
                                 >
