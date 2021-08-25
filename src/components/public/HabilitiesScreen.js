@@ -2,7 +2,7 @@ import React from 'react'
 
 export const HabilitiesScreen = () => {
     return (
-        <section className="public__habilities">
+        <section className="public__habilities" id = 'habilidades'>
             <div className="public__container public__container__p-60">
                 <h2 className="public__title" style={{color: "white"}}>Habilidades</h2>
                 <div className="public__articles">

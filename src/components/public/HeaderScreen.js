@@ -3,7 +3,7 @@ import { images } from '../../helpers/getImages';
 
 export const HeaderScreen = () => {
     return (
-        <header>
+        <header id = 'inicio'>
             <div className="public__container">
                 <section className="public__contenido-header">
                     <div className="public__header-text">

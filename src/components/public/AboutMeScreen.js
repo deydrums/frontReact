@@ -33,7 +33,7 @@ export const AboutMeScreen = () => {
     }
 
     return (
-        <div className="public__about">
+        <div className="public__about" id = 'sobre-mi'>
             <div className="public__about-container">
                 <div className="public__about-title">
                     <h2>Sobre Mí</h2>

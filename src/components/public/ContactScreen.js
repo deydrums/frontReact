@@ -59,7 +59,7 @@ export const ContactScreen = () => {
     }
 
     return (
-        <section className="public__contact">
+        <section className="public__contact" id = 'contacto'>
             <div className="public__container">
                 <div className="public__contact-cont">
                     <div className="public__contact-content" data-aos="zoom-in">
