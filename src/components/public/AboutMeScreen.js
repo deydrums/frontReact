@@ -27,7 +27,7 @@ export const AboutMeScreen = ({pathname}) => {
                 </div>
                 <div className="public__about-content">
                     <div className="public__about-image animate__animated animate__fadeIn">
-                        <img src={images(`./about-img.png`).default} alt="about img"/>
+                        <img src={images(`./about-img.webp`).default} alt="about img"/>
                     </div>
                     <div className="public__about-text">
                         <p> &nbsp;&nbsp;&nbsp;&nbsp; Mario David García Chinchilla, o simplemente David;

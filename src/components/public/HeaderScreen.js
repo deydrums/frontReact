@@ -16,7 +16,7 @@ export const HeaderScreen = ({pathname}) => {
                     </div>
                     <div className="public__header-img animate__animated animate__fadeIn">
                         <div className="img-box">
-                            <img src={images(`./profile-img.png`).default} alt="profile-img"/>
+                            <img src={images(`./profile-img.webp`).default} alt="profile-img"/>
                         </div>
                     </div>
                 </section>
