@@ -88,7 +88,7 @@ export const BlogEntryScreen = ({match, location}) => {
                             {ReactHtmlParser(publicActiveEntry.content)}
                         </div>
                         :
-                        <div className="public__blog-entries-load">
+                        <div className="public__blog-entries-load animate__animated animate__bounceIn">
                             <img src={images(`./404.svg`).default} alt=""/>
                         </div>
                     )
