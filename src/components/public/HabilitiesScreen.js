@@ -58,7 +58,7 @@ export const HabilitiesScreen = () => {
                             <i className="fas fa-database"></i>
                         </div>
                         <h3>Bases de datos</h3>
-                        <p>Gestion de base de datos relacionales (MariaDB y MySQL) comandos por consola
+                        <p>Gestion de base de datos relacionales (ORACLE, MariaDB, MySQL) comandos por consola
                              (Select, Where, OrderBy, Joins, etc), y no realacionales como MongoDB</p>
                     </div>
 

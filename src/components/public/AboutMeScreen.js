@@ -80,7 +80,7 @@ export const AboutMeScreen = ({pathname}) => {
                         <div className="tab-content" id="experience">
                             <div className="timeline">
                                 <div className="timeline-item">
-                                    <span className="date">2021</span>
+                                    <span className="date">Ene 2021 - Abr 2021</span>
                                     <h4>Operador NOC - <span>Infinitum S.A.</span></h4>
                                     <p>Como practica final supervisada de la universidad, estuve apoyando
                                         en la empresa Infinitum S.A. como operador del centro de redes,
@@ -89,6 +89,18 @@ export const AboutMeScreen = ({pathname}) => {
                                     </p>
                                 </div>
                             </div>
+
+                            <div className="timeline">
+                                <div className="timeline-item">
+                                    <span className="date">Ene 2022 - Actualidad</span>
+                                    <h4>Desarrollador Web Jr - <span>Pentcloud.com</span></h4>
+                                    <p>Desarrollo y mantenimiento de aplicaciones empleando buenas prácticas 
+                                        de programación y tecnologías como HTML, JavaScript, PHP, Angular JS; 
+                                        Realización de consultas SQL necesarias para los desarrollos.
+                                    </p>
+                                </div>
+                            </div>
+
                         </div>
 
                         {/* <!--Experience End--> */}
